@@ -1,7 +1,7 @@
-﻿using chatBotDemo.Models;
+﻿using AssistPurchase.Models;
 using System.Collections.Generic;
 
-namespace chatBotDemo.Utility
+namespace AssistPurchase.Utility
 {
     public interface IFileHandler
     {

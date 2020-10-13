@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 
-namespace chatBotDemo.Models
+namespace AssistPurchase.Models
 {
     public class ProductSizeDataModel
     {
@@ -15,9 +12,9 @@ namespace chatBotDemo.Models
 
         public ProductSizeDataModel(double length,double width,double height)
         {
-            this.ProductLength = length;
-            this.ProductWidth = width;
-            this.ProductHeight = height;
+            ProductLength = length;
+           ProductWidth = width;
+            ProductHeight = height;
         }
 
         public ProductSizeDataModel()

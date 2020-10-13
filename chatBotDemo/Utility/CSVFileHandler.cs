@@ -1,30 +1,48 @@
-﻿using chatBotDemo.Models;
+﻿using AssistPurchase.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace chatBotDemo.Utility
+namespace AssistPurchase.Utility
 {
-    public class CSVFileHandler : IFileHandler
+    public class CsvFileHandler : IFileHandler
     {
         public bool DeleteFromFile(string id,string filepath)
         {
-            bool isDeleted = default(bool);
+            bool isDeleted = false;
+            string line;
+            int lineCounter= 0;
+            List<string> patientMonitorData = new List<string>();
             try
             {
-                if(File.Exists(filepath))
+                
+                using(var reader = new StreamReader(filepath))
                 {
-                    var writer = new StreamWriter(filepath);
-                    var patientMonitors = ReadFile(filepath);
-                    foreach(var monitor in patientMonitors)
+                    while ((line = reader.ReadLine() )!= null)
                     {
-                        if(monitor.MonitorID!=id)
+                        lineCounter++;
+                        var values = line.Split(',');
+                        if(string.Compare(id,values[0])!=0)
                         {
-                            writer.WriteLine(monitor);
+                            patientMonitorData.Add(line);
+                           
                         }
-                        
                     }
+                    if(lineCounter==patientMonitorData.Count())
+                    {
+                        isDeleted = false;
+                    }
+                    else
+                    {
+                        isDeleted = true;
+                    }
+                    
+                }
+                using var writer = new StreamWriter(filepath);
+                foreach (var writeline in patientMonitorData)
+                {
+                    writer.WriteLine(writeline);
 
                 }
             }
@@ -38,28 +56,19 @@ namespace chatBotDemo.Utility
 
         public IEnumerable<PatientMonitor> ReadFile(string filepath)
         {
-            List<PatientMonitor> patientMonitors = new List<PatientMonitor>();
+           List<PatientMonitor> patientMonitors = new List<PatientMonitor>();
            try
             {
                 if(File.Exists(filepath))
                 {
-                    using(var reader = new StreamReader(filepath))
+                    using var reader = new StreamReader(filepath);
+                    reader.ReadLine();
+                    while (!reader.EndOfStream)
                     {
-                        var header = reader.ReadLine();
-                        while(!reader.EndOfStream)
-                        {
-                            var line = reader.ReadLine();
-                            var values = line.Split(',');
-                            PatientMonitor patientMonitor = new PatientMonitor();
-                            patientMonitor.MonitorID = values[0];
-                            patientMonitor.MonitorName = values[1];
-                            patientMonitor.MonitorDescription = values[2];
-                            patientMonitor.MonitorPhysicalSpecification = new PhysicalSpecificationDataModel(double.Parse(values[3]), new ProductSizeDataModel(double.Parse(values[4]), double.Parse(values[5]), double.Parse(values[6])));
-                            patientMonitor.MonitorMeasurementsSpecification = new MeasurementSpecificationDataModel(values[9].Split(null).ToList());
-                            patientMonitor.MonitorDisplaySpecification = new DisplaySpecificationDataModel(double.Parse(values[7]), values[8]);
-                            patientMonitor.MonitorBatterySpecification = new BatterySpecificationDataModel(double.Parse(values[10]));
-                           patientMonitors.Add(patientMonitor);
-                        }
+                        var line = reader.ReadLine();
+                        var values = line.Split(',');
+                        PatientMonitor patientMonitor = FormatStringToObject(values);
+                        patientMonitors.Add(patientMonitor);
                     }
                 }
             }
@@ -73,22 +82,10 @@ namespace chatBotDemo.Utility
 
         public bool WriteToFile(PatientMonitor data,string filepath)
         {
-            bool isWritten = default(bool);
+            bool isWritten = false;
             try
             {
-                string csvData = string.Join(',', new object[]{
-                data.MonitorID,
-                data.MonitorName,
-                data.MonitorDescription,
-                data.MonitorPhysicalSpecification.ProductWeight.ToString(),
-                data.MonitorPhysicalSpecification.ProductSize.ProductLength.ToString(),
-                data.MonitorPhysicalSpecification.ProductSize.ProductWidth.ToString(),
-                data.MonitorPhysicalSpecification.ProductSize.ProductHeight,
-                data.MonitorDisplaySpecification.DisplaySize,
-                data.MonitorDisplaySpecification.DisplayResolution,
-                string.Join(' ',data.MonitorMeasurementsSpecification.BasicVitalsMeasured),
-                data.MonitorBatterySpecification.BatteryCapacity
-            });
+                string csvData = FormatObjectDataToString(data);
                 if (File.Exists(filepath))
                 {
                     File.AppendAllText(filepath, csvData+'\n');
@@ -101,6 +98,37 @@ namespace chatBotDemo.Utility
                 Console.WriteLine(e.Message);
             }
             return isWritten;
+        }
+
+        private string FormatObjectDataToString(PatientMonitor data)
+        {
+            string csvFormatData = string.Join(',', new object[]{
+                data.MonitorId,
+                data.MonitorName,
+                data.MonitorDescription,
+                data.MonitorPhysicalSpecification.ProductWeight.ToString(),
+                data.MonitorPhysicalSpecification.ProductSize.ProductLength.ToString(),
+                data.MonitorPhysicalSpecification.ProductSize.ProductWidth.ToString(),
+                data.MonitorPhysicalSpecification.ProductSize.ProductHeight,
+                data.MonitorDisplaySpecification.DisplaySize,
+                data.MonitorDisplaySpecification.DisplayResolution,
+                string.Join(' ',data.MonitorMeasurementsSpecification.BasicVitalsMeasured),
+                data.MonitorBatterySpecification.BatteryCapacity
+            });
+            return csvFormatData;
+        }
+
+        private PatientMonitor FormatStringToObject(string[] values)
+        {
+            PatientMonitor patientMonitor = new PatientMonitor();
+            patientMonitor.MonitorId = values[0];
+            patientMonitor.MonitorName = values[1];
+            patientMonitor.MonitorDescription = values[2];
+            patientMonitor.MonitorPhysicalSpecification = new PhysicalSpecificationDataModel(double.Parse(values[3]), new ProductSizeDataModel(double.Parse(values[4]), double.Parse(values[5]), double.Parse(values[6])));
+            patientMonitor.MonitorMeasurementsSpecification = new MeasurementSpecificationDataModel(values[9].Split(null).ToList());
+            patientMonitor.MonitorDisplaySpecification = new DisplaySpecificationDataModel(double.Parse(values[7]), values[8]);
+            patientMonitor.MonitorBatterySpecification = new BatterySpecificationDataModel(double.Parse(values[10]));
+            return patientMonitor;
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿
-namespace chatBotDemo.Models
+namespace AssistPurchase.Models
 {
     public class BatterySpecificationDataModel
     {
@@ -7,7 +7,7 @@ namespace chatBotDemo.Models
 
         public BatterySpecificationDataModel(double batteryCapacity)
         {
-            this.BatteryCapacity = batteryCapacity;
+            BatteryCapacity = batteryCapacity;
         }
 
         public BatterySpecificationDataModel()

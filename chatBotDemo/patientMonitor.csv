@@ -1,0 +1,6 @@
+ProductID, ProductName,ProductDescription,ProductWeight,Length,width,Height,DisplaySize,DisplayResolution,VitalsMeasurement,BatteryCapacity
+P1,IntelliVue,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10
+P2,IntelliMax,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10
+P3,IntelliVue100,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10
+P7,IntelliPhilips,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10
+P9,,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10

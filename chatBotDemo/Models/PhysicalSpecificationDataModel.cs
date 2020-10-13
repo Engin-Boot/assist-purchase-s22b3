@@ -1,5 +1,5 @@
 ﻿
-namespace chatBotDemo.Models
+namespace AssistPurchase.Models
 {
     public class PhysicalSpecificationDataModel
     {
@@ -9,8 +9,8 @@ namespace chatBotDemo.Models
 
         public PhysicalSpecificationDataModel(double weight,ProductSizeDataModel size)
         {
-            this.ProductWeight = weight;
-            this.ProductSize = size;
+            ProductWeight = weight;
+            ProductSize = size;
 
         }
         public PhysicalSpecificationDataModel()

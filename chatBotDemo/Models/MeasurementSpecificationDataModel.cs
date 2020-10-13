@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace chatBotDemo.Models
+namespace AssistPurchase.Models
 {
     public class MeasurementSpecificationDataModel
     {
@@ -10,7 +10,7 @@ namespace chatBotDemo.Models
         public  IEnumerable<string> BasicVitalsMeasured { get; set; }
         public MeasurementSpecificationDataModel(IEnumerable<string> vitals)
         {
-            this.BasicVitalsMeasured = vitals;
+            BasicVitalsMeasured = vitals;
         }
 
         public MeasurementSpecificationDataModel()

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 
-namespace chatBotDemo.Models
+namespace AssistPurchase.Models
 {
     public class DisplaySpecificationDataModel
     {
@@ -15,8 +12,8 @@ namespace chatBotDemo.Models
         public DisplaySpecificationDataModel(double size,string resolution)
         {
          
-            this.DisplaySize = size;
-            this.DisplayResolution = resolution;
+            DisplaySize = size;
+            DisplayResolution = resolution;
         }
 
         public DisplaySpecificationDataModel()

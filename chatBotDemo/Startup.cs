@@ -1,5 +1,5 @@
-using chatBotDemo.DataRepository;
-using chatBotDemo.Models;
+using AssistPurchase.DataRepository;
+using AssistPurchase.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 
-namespace chatBotDemo
+namespace AssistPurchase
 {
     public class Startup
     {

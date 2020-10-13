@@ -1,33 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using chatBotDemo.Models;
+using AssistPurchase.Interfaces;
+using AssistPurchase.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace chatBotDemo.Controllers
+namespace AssistPurchase.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class PatientMonitorManagementController : ControllerBase
     {
-        IPatientMonitorDataRepository _patientStore;
+       readonly IPatientMonitorDataRepository _patientStore;
         public PatientMonitorManagementController(IPatientMonitorDataRepository patientStore)
         {
-            this._patientStore = patientStore;
+            _patientStore = patientStore;
         }
         
         [HttpGet("allPatientMonitors")]
         public IEnumerable<PatientMonitor> Get()
         {
-            return this._patientStore.GetAllPatientMonitors();
+            return _patientStore.GetAllPatientMonitors();
         }
 
         
         [HttpPost("newPatientMonitor")]
         public string Post([FromBody] PatientMonitor patientMonitor)
         {
-            string message = default(string);
             bool isAdded = _patientStore.AddPatientMonitor(patientMonitor);
-            if(isAdded)
+            string message;
+            if (isAdded)
             {
                 message = "Patient monitor added successfully";
             }
@@ -35,17 +36,17 @@ namespace chatBotDemo.Controllers
             {
                 message = "Patient monitor addition failed";
             }
-            
+
             Console.WriteLine(message);
            return message;
         }
 
         
-        [HttpGet("deletePatientMonitor/{id}")]
+        [HttpDelete("deletePatientMonitor/{id}")]
         public string Delete(string id)
         {
-            string message = default(string);
-            bool isDeleted = this._patientStore.RemovePatientMonitor(id);
+            string message;
+            bool isDeleted = _patientStore.RemovePatientMonitor(id);
             if(isDeleted)
             {
                 message = "Patient monitor deleted successfully";

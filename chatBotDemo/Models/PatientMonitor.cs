@@ -1,9 +1,9 @@
 ﻿
-namespace chatBotDemo.Models
+namespace AssistPurchase.Models
 {
     public class PatientMonitor
     {
-        public string MonitorID { get; set; }
+        public string MonitorId { get; set; }
         public string MonitorName { get; set; }
         public string MonitorDescription { get; set; }
         public PhysicalSpecificationDataModel MonitorPhysicalSpecification { get; set; }

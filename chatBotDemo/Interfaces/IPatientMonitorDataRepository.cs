@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using AssistPurchase.Models;
+using System.Collections.Generic;
 
 
-namespace chatBotDemo.Models
+namespace AssistPurchase.Interfaces
 {
    public interface IPatientMonitorDataRepository
     {

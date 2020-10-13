@@ -9,11 +9,14 @@ C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\bin\Debug\netcoreapp3.1\AssistP
 C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\bin\Debug\netcoreapp3.1\AssistPurchase.pdb
 C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\obj\Debug\netcoreapp3.1\AssistPurchase.AssemblyInfoInputs.cache
 C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\obj\Debug\netcoreapp3.1\AssistPurchase.AssemblyInfo.cs
-C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\obj\Debug\netcoreapp3.1\AssistPurchase.csproj.CoreCompileInputs.cache
-C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\obj\Debug\netcoreapp3.1\AssistPurchase.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\obj\Debug\netcoreapp3.1\AssistPurchase.RazorTargetAssemblyInfo.cache
 C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\obj\Debug\netcoreapp3.1\staticwebassets\AssistPurchase.StaticWebAssets.Manifest.cache
 C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\obj\Debug\netcoreapp3.1\staticwebassets\AssistPurchase.StaticWebAssets.xml
 C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\obj\Debug\netcoreapp3.1\AssistPurchase.dll
 C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\obj\Debug\netcoreapp3.1\AssistPurchase.pdb
 C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\obj\Debug\netcoreapp3.1\AssistPurchase.genruntimeconfig.cache
+C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\obj\Debug\netcoreapp3.1\AssistPurchase.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\bin\Debug\netcoreapp3.1\RestSharp.dll
+C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\obj\Debug\netcoreapp3.1\AssistPurchase.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\obj\Debug\netcoreapp3.1\AssistPurchase.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\obj\Debug\netcoreapp3.1\AssistPurchase.csproj.CopyComplete
