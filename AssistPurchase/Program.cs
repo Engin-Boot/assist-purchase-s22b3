@@ -16,6 +16,5 @@ namespace AssistPurchase
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-        
     }
 }
