@@ -55,7 +55,7 @@ namespace AssistPurchaseXUnitTest
         }
 
         [Fact]
-        public void WhenNullDataIsWrittenInFileThenRetuensFalseValue()
+        public void WhenNullDataIsWrittenInFileThenReturnsFalseValue()
         {
             PatientMonitor patientMonitor = new PatientMonitor();
          

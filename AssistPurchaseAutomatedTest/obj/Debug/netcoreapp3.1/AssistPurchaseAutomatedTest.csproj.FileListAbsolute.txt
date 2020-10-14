@@ -101,13 +101,13 @@ C:\Users\HP\source\repos\chatBotDemo\AssistPurchaseAutomatedTest\bin\Debug\netco
 C:\Users\HP\source\repos\chatBotDemo\AssistPurchaseAutomatedTest\bin\Debug\netcoreapp3.1\AssistPurchase.exe
 C:\Users\HP\source\repos\chatBotDemo\AssistPurchaseAutomatedTest\bin\Debug\netcoreapp3.1\AssistPurchase.dll
 C:\Users\HP\source\repos\chatBotDemo\AssistPurchaseAutomatedTest\bin\Debug\netcoreapp3.1\AssistPurchase.pdb
-D:\Training\assist-purchase-s22b3\AssistPurchaseAutomatedTest\bin\Debug\netcoreapp3.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
-D:\Training\assist-purchase-s22b3\AssistPurchaseAutomatedTest\bin\Debug\netcoreapp3.1\xunit.runner.reporters.netcoreapp10.dll
-D:\Training\assist-purchase-s22b3\AssistPurchaseAutomatedTest\bin\Debug\netcoreapp3.1\xunit.runner.utility.netcoreapp10.dll
 D:\Training\assist-purchase-s22b3\AssistPurchaseAutomatedTest\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\Training\assist-purchase-s22b3\AssistPurchaseAutomatedTest\bin\Debug\netcoreapp3.1\appsettings.json
 D:\Training\assist-purchase-s22b3\AssistPurchaseAutomatedTest\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 D:\Training\assist-purchase-s22b3\AssistPurchaseAutomatedTest\bin\Debug\netcoreapp3.1\AssistPurchase.exe
+D:\Training\assist-purchase-s22b3\AssistPurchaseAutomatedTest\bin\Debug\netcoreapp3.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\Training\assist-purchase-s22b3\AssistPurchaseAutomatedTest\bin\Debug\netcoreapp3.1\xunit.runner.reporters.netcoreapp10.dll
+D:\Training\assist-purchase-s22b3\AssistPurchaseAutomatedTest\bin\Debug\netcoreapp3.1\xunit.runner.utility.netcoreapp10.dll
 D:\Training\assist-purchase-s22b3\AssistPurchaseAutomatedTest\bin\Debug\netcoreapp3.1\AssistPurchaseAutomatedTest.deps.json
 D:\Training\assist-purchase-s22b3\AssistPurchaseAutomatedTest\bin\Debug\netcoreapp3.1\AssistPurchaseAutomatedTest.runtimeconfig.json
 D:\Training\assist-purchase-s22b3\AssistPurchaseAutomatedTest\bin\Debug\netcoreapp3.1\AssistPurchaseAutomatedTest.runtimeconfig.dev.json

@@ -8,7 +8,7 @@ namespace AssistPurchase.DataRepository
 {
     public class PatientMonitorStore : IPatientMonitorDataRepository
     {
-        readonly private string _csvFilePath = Path.Combine(Directory.GetCurrentDirectory() + "\\patientMonitor.csv");
+        readonly private string _csvFilePath = Path.Combine(Directory.GetCurrentDirectory() + @"\patientMonitor.csv");
         readonly IFileHandler _csvHandler = new CsvFileHandler();
 
         public bool AddPatientMonitor(PatientMonitor monitor)

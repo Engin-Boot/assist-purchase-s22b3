@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\chatBotDemo\AssistPurchase.csproj" />
+    <ProjectReference Include="..\AssistPurchase\AssistPurchase.csproj" />
   </ItemGroup>
 
 </Project>

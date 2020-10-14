@@ -3537,8 +3537,8 @@
     },
     "AssistPurchase/1.0.0": {
       "type": "project",
-      "path": "../chatBotDemo/AssistPurchase.csproj",
-      "msbuildProject": "../chatBotDemo/AssistPurchase.csproj"
+      "path": "../AssistPurchase/AssistPurchase.csproj",
+      "msbuildProject": "../AssistPurchase/AssistPurchase.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3576,8 +3576,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Training\\assist-purchase-s22b3\\chatBotDemo\\AssistPurchase.csproj": {
-              "projectPath": "D:\\Training\\assist-purchase-s22b3\\chatBotDemo\\AssistPurchase.csproj"
+            "D:\\Training\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj": {
+              "projectPath": "D:\\Training\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj"
             }
           }
         }
@@ -3619,9 +3619,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }

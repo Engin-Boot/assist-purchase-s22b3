@@ -15,7 +15,6 @@ namespace AssistPurchase.Models
         {
             this.ImageSource = Path.Combine(Directory.GetCurrentDirectory() + imageSource);
 
-            //ImageSaveAs(imageName);
         }
 
         public bool ImageSaveAs(string imageName)
@@ -32,6 +31,7 @@ namespace AssistPurchase.Models
             }
             catch (Exception e)
             {
+                Console.WriteLine(e);
                 return false;
             }
 

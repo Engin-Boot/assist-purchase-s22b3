@@ -42,11 +42,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Training\\assist-purchase-s22b3\\chatBotDemo\\AssistPurchase.csproj",
+      "projectUniqueName": "D:\\Training\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
       "projectName": "AssistPurchase",
-      "projectPath": "D:\\Training\\assist-purchase-s22b3\\chatBotDemo\\AssistPurchase.csproj",
+      "projectPath": "D:\\Training\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
       "packagesPath": "C:\\Users\\Nayana Mangalpalli\\.nuget\\packages\\",
-      "outputPath": "D:\\Training\\assist-purchase-s22b3\\chatBotDemo\\obj\\",
+      "outputPath": "D:\\Training\\assist-purchase-s22b3\\AssistPurchase\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Nayana Mangalpalli\\AppData\\Roaming\\NuGet\\NuGet.Config",

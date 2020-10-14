@@ -43,7 +43,7 @@ namespace AssistPurchaseAutomatedTest
             var deserializer = new JsonDeserializer();
             var data = deserializer.Deserialize<List<PatientMonitor>>(response);
             //Assert.True(data.Count == 4);
-            Assert.True(data[0].MonitorName == "IntelliVue");
+            Assert.True(data[0].MonitorName == "IntelliVue Mx100");
         }
 
         [Fact]

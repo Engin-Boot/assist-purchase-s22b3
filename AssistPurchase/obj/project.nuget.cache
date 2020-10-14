@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "PwRRtVl5ADlg9dFEghwUVoYHR6BqKH6M7M77h2bwuc1hVdQSl3keJcaKxceZysuLE8FNSMu+RnqxJBUOmaiyGg==",
+  "success": true,
+  "projectFilePath": "D:\\Training\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nayana Mangalpalli\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512"
+  ],
+  "logs": []
+}
