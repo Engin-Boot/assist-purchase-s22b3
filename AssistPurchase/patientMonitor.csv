@@ -1,4 +1,4 @@
 ProductID, ProductName,ProductDescription,ProductWeight,Length,width,Height,DisplaySize,DisplayResolution,VitalsMeasurement,BatteryCapacity,ProductImage
-P1,IntelliVue Mx100,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10,\ProductImages\InteliVue Mx100.jpeg
+P1,IntelliVue,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10,\ProductImages\InteliVue Mx100.jpeg
 P2,IntelliVue Mx750,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10,\ProductImages\InteliVue Mx750.jpeg
 P3,IntelliVue X3,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10,\ProductImages\IntelliVue X3.jpeg

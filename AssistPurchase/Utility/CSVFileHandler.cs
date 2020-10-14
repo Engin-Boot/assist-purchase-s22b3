@@ -29,14 +29,7 @@ namespace AssistPurchase.Utility
                            
                         }
                     }
-                    if(lineCounter==patientMonitorData.Count())
-                    {
-                        isDeleted = false;
-                    }
-                    else
-                    {
-                        isDeleted = true;
-                    }
+                    isDeleted = CompareDataListsAfterDelete(lineCounter, patientMonitorData);
                     
                 }
                 using var writer = new StreamWriter(filepath);
@@ -86,7 +79,7 @@ namespace AssistPurchase.Utility
             try
             {
                 string csvData = FormatObjectDataToString(data);
-                if (File.Exists(filepath))
+                if (File.Exists(filepath) && csvData!=null)
                 {
                     File.AppendAllText(filepath, csvData+'\n');
                     isWritten = true;
@@ -102,23 +95,36 @@ namespace AssistPurchase.Utility
 
         private string FormatObjectDataToString(PatientMonitor data)
         {
-            data.ProductImage.ImageSaveAs(data.MonitorName);
-            string csvFormatData = string.Join(',', new object[]{
-                data.MonitorId,
-                data.MonitorName,
-                data.MonitorDescription,
-                data.MonitorPhysicalSpecification.ProductWeight.ToString(),
-                data.MonitorPhysicalSpecification.ProductSize.ProductLength.ToString(),
-                data.MonitorPhysicalSpecification.ProductSize.ProductWidth.ToString(),
-                data.MonitorPhysicalSpecification.ProductSize.ProductHeight,
-                data.MonitorDisplaySpecification.DisplaySize,
-                data.MonitorDisplaySpecification.DisplayResolution,
-                string.Join(' ',data.MonitorMeasurementsSpecification.BasicVitalsMeasured),
-                data.MonitorBatterySpecification.BatteryCapacity,
-                data.ProductImage.ImageSource
+            string csvFormatData = null;
+            try
+            {
+                if (data.MonitorId != null)
+                {
+                    data.ProductImage.ImageSaveAs(data.MonitorName);
+                    csvFormatData = string.Join(',', new object[]{
+                    data.MonitorId,
+                    data.MonitorName,
+                    data.MonitorDescription,
+                    data.MonitorPhysicalSpecification.ProductWeight.ToString(),
+                    data.MonitorPhysicalSpecification.ProductSize.ProductLength.ToString(),
+                    data.MonitorPhysicalSpecification.ProductSize.ProductWidth.ToString(),
+                    data.MonitorPhysicalSpecification.ProductSize.ProductHeight,
+                    data.MonitorDisplaySpecification.DisplaySize,
+                    data.MonitorDisplaySpecification.DisplayResolution,
+                    string.Join(' ',data.MonitorMeasurementsSpecification.BasicVitalsMeasured),
+                    data.MonitorBatterySpecification.BatteryCapacity,
+                     data.ProductImage.ImageSource
+                    });      
+                }
+               
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);     
+            }
 
-            });
             return csvFormatData;
+            
         }
 
         private PatientMonitor FormatStringToObject(string[] values)
@@ -132,8 +138,21 @@ namespace AssistPurchase.Utility
             patientMonitor.MonitorDisplaySpecification = new DisplaySpecificationDataModel(double.Parse(values[7]), values[8]);
             patientMonitor.MonitorBatterySpecification = new BatterySpecificationDataModel(double.Parse(values[10]));
             patientMonitor.ProductImage = new ProductImageDataModel(values[11]);
-
             return patientMonitor;
+        }
+
+        private bool CompareDataListsAfterDelete(int lineCounter, List<string> data)
+        {
+            bool check;
+            if (lineCounter==data.Count)
+            {
+                check = false;
+            }
+            else
+            {
+                check = true;
+            }
+            return check;
         }
     }
 }

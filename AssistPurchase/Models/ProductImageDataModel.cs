@@ -5,8 +5,8 @@ namespace AssistPurchase.Models
 {
     public class ProductImageDataModel
     {
-        public string LocalImageSource;
-        string ImageDirectory = "ProductImages";
+        private readonly string LocalImageSource;
+       readonly string ImageDirectory = "ProductImages";
 
         public string ImageSource { get; set; }
 
@@ -36,11 +36,6 @@ namespace AssistPurchase.Models
             }
 
         }
-
-    }
-
-    public class ImageProcessing
-    {
 
     }
 }

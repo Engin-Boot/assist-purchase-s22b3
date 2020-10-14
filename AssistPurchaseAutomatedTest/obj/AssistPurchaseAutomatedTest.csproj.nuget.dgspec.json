@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Training\\assist-purchase-s22b3\\AssistPurchaseAutomatedTest\\AssistPurchaseAutomatedTest.csproj": {}
+    "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchaseAutomatedTest\\AssistPurchaseAutomatedTest.csproj": {}
   },
   "projects": {
-    "D:\\Training\\assist-purchase-s22b3\\AssistPurchaseAutomatedTest\\AssistPurchaseAutomatedTest.csproj": {
+    "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchaseAutomatedTest\\AssistPurchaseAutomatedTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Training\\assist-purchase-s22b3\\AssistPurchaseAutomatedTest\\AssistPurchaseAutomatedTest.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchaseAutomatedTest\\AssistPurchaseAutomatedTest.csproj",
         "projectName": "AssistPurchaseAutomatedTest",
-        "projectPath": "D:\\Training\\assist-purchase-s22b3\\AssistPurchaseAutomatedTest\\AssistPurchaseAutomatedTest.csproj",
-        "packagesPath": "C:\\Users\\Nayana Mangalpalli\\.nuget\\packages\\",
-        "outputPath": "D:\\Training\\assist-purchase-s22b3\\AssistPurchaseAutomatedTest\\obj\\",
+        "projectPath": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchaseAutomatedTest\\AssistPurchaseAutomatedTest.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchaseAutomatedTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Nayana Mangalpalli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Training\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj": {
-                "projectPath": "D:\\Training\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj"
+              "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchase\\AssistPurchase.csproj": {
+                "projectPath": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchase\\AssistPurchase.csproj"
               }
             }
           }
@@ -82,17 +82,17 @@
         }
       }
     },
-    "D:\\Training\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj": {
+    "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchase\\AssistPurchase.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Training\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchase\\AssistPurchase.csproj",
         "projectName": "AssistPurchase",
-        "projectPath": "D:\\Training\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
-        "packagesPath": "C:\\Users\\Nayana Mangalpalli\\.nuget\\packages\\",
-        "outputPath": "D:\\Training\\assist-purchase-s22b3\\AssistPurchase\\obj\\",
+        "projectPath": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchase\\AssistPurchase.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchase\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Nayana Mangalpalli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

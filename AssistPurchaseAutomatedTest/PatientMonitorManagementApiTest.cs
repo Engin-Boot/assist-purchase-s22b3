@@ -6,7 +6,7 @@ using Xunit;
 using System.Collections.Generic;
 using RestSharp.Serialization;
 using Newtonsoft.Json.Linq;
-using System.IO;
+
 
 namespace AssistPurchaseAutomatedTest
 {
@@ -42,20 +42,19 @@ namespace AssistPurchaseAutomatedTest
             IRestResponse response = _client.Execute(request);
             var deserializer = new JsonDeserializer();
             var data = deserializer.Deserialize<List<PatientMonitor>>(response);
-            //Assert.True(data.Count == 4);
-            Assert.True(data[0].MonitorName == "IntelliVue Mx100");
+            Assert.True(data[0].MonitorName == "IntelliVue");
         }
 
         [Fact]
         public void StatusCodeTestForNewPatientMonitorPostApi()
         {
-
             RestRequest request = new RestRequest("newPatientMonitor", Method.POST);
             string jsonData = @"{'monitorID':'P8','monitorName':'IntelliPhilips1000','monitorDescription':'Abcccc','monitorPhysicalSpecification':{'productWeight':2,'productSize':{'productLength':50,'productWidth':30,'productHeight':25}},'monitorDisplaySpecification':{'displaySize':40,'displayResolution':'1024X320'},'monitorMeasurementsSpecification':{'basicVitalsMeasured':['ECG','SPO2','Respiration']},'monitorBatterySpecification':{'batteryCapacity':10},'productImage':{'imageSource':null}}";
             request.AddParameter("application/json", JObject.Parse(jsonData), ParameterType.RequestBody);
-            IRestResponse response = _client.Execute(request);
-            
+            IRestResponse response = _client.Execute(request);  
             Assert.True(response.StatusCode == (HttpStatusCode.OK));
+            Assert.True(response.Content.Trim('"').Equals("Patient monitor added successfully"));
+
         }
 
         [Fact]
@@ -63,10 +62,20 @@ namespace AssistPurchaseAutomatedTest
         {
 
             RestRequest request = new RestRequest("newPatientMonitor", Method.POST);
-            string jsonData = @"{'monitorID':'P8','monitorName':'IntelliPhilips1000','monitorDescription':'Abcccc','monitorPhysicalSpecification':{'productWeight':2,'productSize':{'productLength':50,'productWidth':30,'productHeight':25}},'monitorDisplaySpecification':{'displaySize':40,'displayResolution':'1024X320'},'monitorMeasurementsSpecification':{'basicVitalsMeasured':['ECG','SPO2','Respiration']},'monitorBatterySpecification':{'batteryCapacity':10},,'productImage':{'imageSource':'D:\\Training\\assist - purchase - s22b3\\chatBotDemo\\ProductImages\\IntelliVue100.jpeg'}}";
+            string jsonData = @"{'monitorID':'P8','monitorName':'IntelliPhilips1000','monitorDescription':'Abcccc','monitorPhysicalSpecification':{'productWeight':2,'productSize':{'productLength':50,'productWidth':30,'productHeight':25}},'monitorDisplaySpecification':{'displaySize':40,'displayResolution':'1024X320'},'monitorMeasurementsSpecification':{'basicVitalsMeasured':['ECG','SPO2','Respiration']},'monitorBatterySpecification':{'batteryCapacity':10},'productImage':{'imageSource':null}}";
             request.AddParameter("application/json", jsonData, ParameterType.RequestBody);
             IRestResponse response = _client.Execute(request);
             Assert.True(response.StatusCode == HttpStatusCode.BadRequest);
+        }
+
+        [Fact]
+        public void TestForNewPatientMonitorPostApiWhenJsonDataisEmpty()
+        {
+            RestRequest request = new RestRequest("newPatientMonitor", Method.POST);
+            string jsonData = "{}";
+            request.AddParameter("application/json", JObject.Parse(jsonData), ParameterType.RequestBody);
+            IRestResponse response = _client.Execute(request);
+            Assert.True(response.Content.Trim('"').Equals("Patient monitor addition failed"));
         }
 
         [Fact]
@@ -74,10 +83,8 @@ namespace AssistPurchaseAutomatedTest
         {
             string id = "P8";
             RestRequest request = new RestRequest("deletePatientMonitor/"+id, Method.DELETE);
-            IRestResponse response = _client.Execute(request);
-            
+            IRestResponse response = _client.Execute(request);    
             Assert.True(response.StatusCode == HttpStatusCode.OK);
-
             Assert.True(response.Content.Trim('"').Equals("Patient monitor deleted successfully"));
         }
 
