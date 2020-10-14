@@ -1,6 +1,6 @@
-ProductID, ProductName,ProductDescription,ProductWeight,Length,width,Height,DisplaySize,DisplayResolution,VitalsMeasurement,BatteryCapacity
-P1,IntelliVue,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10
-P2,IntelliMax,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10
-P3,IntelliVue100,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10
-P7,IntelliPhilips,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10
-P9,,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10
+ProductID, ProductName,ProductDescription,ProductWeight,Length,width,Height,DisplaySize,DisplayResolution,VitalsMeasurement,BatteryCapacity,ProductImage
+P1,IntelliVue,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10,\ProductImages\InteliVue.jpeg
+P2,IntelliMax,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10,\ProductImages\InteliMax.jpeg
+P3,IntelliVue100,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10,\ProductImages\IntelliVue100.jpeg
+P101,IntelliMax100,Abcccc,2,50,30,25,40,,ECG SPO2 Respiration,10,\ProductImages\IntelliMax100.jpeg
+P101,IntelliMax100,Abcccc,2,50,30,25,40,,ECG SPO2 Respiration,10,\ProductImages\IntelliMax100.jpeg

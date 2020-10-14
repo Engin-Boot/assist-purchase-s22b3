@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "77FdAWyC54OFCaP0+HcTaFndeT5tvKlb5TAqka2iAGQKhDhgJZn7hqJj2gyr/BqN2Vqhac47SLqT3cc1cr8dyA==",
+  "dgSpecHash": "9eJ4RgIDAKw2/Zfm5aNEkyltu5NUfCghms+4w4vvz246m7XC6b038lr6YA3c9fQZIwfJCaCGwGdrd26EZeLkjQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\chatBotDemo\\AssistPurchase.csproj",
+  "projectFilePath": "D:\\Training\\assist-purchase-s22b3\\chatBotDemo\\AssistPurchase.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\HP\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512"
+    "C:\\Users\\Nayana Mangalpalli\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512"
   ],
   "logs": []
 }

@@ -37,19 +37,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HP\\.nuget\\packages\\": {}
+    "C:\\Users\\Nayana Mangalpalli\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\chatBotDemo\\AssistPurchase.csproj",
+      "projectUniqueName": "D:\\Training\\assist-purchase-s22b3\\chatBotDemo\\AssistPurchase.csproj",
       "projectName": "AssistPurchase",
-      "projectPath": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\chatBotDemo\\AssistPurchase.csproj",
-      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\chatBotDemo\\obj\\",
+      "projectPath": "D:\\Training\\assist-purchase-s22b3\\chatBotDemo\\AssistPurchase.csproj",
+      "packagesPath": "C:\\Users\\Nayana Mangalpalli\\.nuget\\packages\\",
+      "outputPath": "D:\\Training\\assist-purchase-s22b3\\chatBotDemo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nayana Mangalpalli\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

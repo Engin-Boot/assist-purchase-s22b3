@@ -13,10 +13,9 @@ namespace AssistPurchase.Models
         public MeasurementSpecificationDataModel MonitorMeasurementsSpecification { get; set; }
 
         public BatterySpecificationDataModel MonitorBatterySpecification { get; set; }
-        
-        public PatientMonitor()
-        {
 
-        }
+        public ProductImageDataModel ProductImage { get; set; }
+        public PatientMonitor(){}
+
     }
 }

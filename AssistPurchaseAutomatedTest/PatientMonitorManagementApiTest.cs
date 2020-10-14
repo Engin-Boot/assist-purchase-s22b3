@@ -6,7 +6,7 @@ using Xunit;
 using System.Collections.Generic;
 using RestSharp.Serialization;
 using Newtonsoft.Json.Linq;
-
+using System.IO;
 
 namespace AssistPurchaseAutomatedTest
 {
@@ -49,8 +49,9 @@ namespace AssistPurchaseAutomatedTest
         [Fact]
         public void StatusCodeTestForNewPatientMonitorPostApi()
         {
+
             RestRequest request = new RestRequest("newPatientMonitor", Method.POST);
-            string jsonData = @"{'monitorID':'P8','monitorName':'IntelliPhilips1000','monitorDescription':'Abcccc','monitorPhysicalSpecification':{'productWeight':2,'productSize':{'productLength':50,'productWidth':30,'productHeight':25}},'monitorDisplaySpecification':{'displaySize':40,'displayResolution':'1024X320'},'monitorMeasurementsSpecification':{'basicVitalsMeasured':['ECG','SPO2','Respiration']},'monitorBatterySpecification':{'batteryCapacity':10}}";
+            string jsonData = @"{'monitorID':'P8','monitorName':'IntelliPhilips1000','monitorDescription':'Abcccc','monitorPhysicalSpecification':{'productWeight':2,'productSize':{'productLength':50,'productWidth':30,'productHeight':25}},'monitorDisplaySpecification':{'displaySize':40,'displayResolution':'1024X320'},'monitorMeasurementsSpecification':{'basicVitalsMeasured':['ECG','SPO2','Respiration']},'monitorBatterySpecification':{'batteryCapacity':10},'productImage':{'imageSource':null}}";
             request.AddParameter("application/json", JObject.Parse(jsonData), ParameterType.RequestBody);
             IRestResponse response = _client.Execute(request);
             
@@ -62,7 +63,7 @@ namespace AssistPurchaseAutomatedTest
         {
 
             RestRequest request = new RestRequest("newPatientMonitor", Method.POST);
-            string jsonData = @"{'monitorID':'P8','monitorName':'IntelliPhilips1000','monitorDescription':'Abcccc','monitorPhysicalSpecification':{'productWeight':2,'productSize':{'productLength':50,'productWidth':30,'productHeight':25}},'monitorDisplaySpecification':{'displaySize':40,'displayResolution':'1024X320'},'monitorMeasurementsSpecification':{'basicVitalsMeasured':['ECG','SPO2','Respiration']},'monitorBatterySpecification':{'batteryCapacity':10}}";
+            string jsonData = @"{'monitorID':'P8','monitorName':'IntelliPhilips1000','monitorDescription':'Abcccc','monitorPhysicalSpecification':{'productWeight':2,'productSize':{'productLength':50,'productWidth':30,'productHeight':25}},'monitorDisplaySpecification':{'displaySize':40,'displayResolution':'1024X320'},'monitorMeasurementsSpecification':{'basicVitalsMeasured':['ECG','SPO2','Respiration']},'monitorBatterySpecification':{'batteryCapacity':10},,'productImage':{'imageSource':'D:\\Training\\assist - purchase - s22b3\\chatBotDemo\\ProductImages\\IntelliVue100.jpeg'}}";
             request.AddParameter("application/json", jsonData, ParameterType.RequestBody);
             IRestResponse response = _client.Execute(request);
             Assert.True(response.StatusCode == HttpStatusCode.BadRequest);

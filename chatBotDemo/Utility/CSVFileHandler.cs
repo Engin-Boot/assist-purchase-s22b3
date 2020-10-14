@@ -102,6 +102,7 @@ namespace AssistPurchase.Utility
 
         private string FormatObjectDataToString(PatientMonitor data)
         {
+            data.ProductImage.ImageSaveAs(data.MonitorName);
             string csvFormatData = string.Join(',', new object[]{
                 data.MonitorId,
                 data.MonitorName,
@@ -113,7 +114,9 @@ namespace AssistPurchase.Utility
                 data.MonitorDisplaySpecification.DisplaySize,
                 data.MonitorDisplaySpecification.DisplayResolution,
                 string.Join(' ',data.MonitorMeasurementsSpecification.BasicVitalsMeasured),
-                data.MonitorBatterySpecification.BatteryCapacity
+                data.MonitorBatterySpecification.BatteryCapacity,
+                data.ProductImage.ImageSource
+
             });
             return csvFormatData;
         }
@@ -128,6 +131,8 @@ namespace AssistPurchase.Utility
             patientMonitor.MonitorMeasurementsSpecification = new MeasurementSpecificationDataModel(values[9].Split(null).ToList());
             patientMonitor.MonitorDisplaySpecification = new DisplaySpecificationDataModel(double.Parse(values[7]), values[8]);
             patientMonitor.MonitorBatterySpecification = new BatterySpecificationDataModel(double.Parse(values[10]));
+            patientMonitor.ProductImage = new ProductImageDataModel(values[11]);
+
             return patientMonitor;
         }
     }

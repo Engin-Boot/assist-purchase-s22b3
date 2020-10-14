@@ -2,15 +2,14 @@
 using AssistPurchase.Models;
 using AssistPurchase.Utility;
 using System.Collections.Generic;
-
+using System.IO;
 
 namespace AssistPurchase.DataRepository
 {
     public class PatientMonitorStore : IPatientMonitorDataRepository
     {
-        
-       readonly private string _csvFilePath = @"C:\Users\HP\source\repos\chatBotDemo\chatBotDemo\patientMonitor.csv";
-       readonly IFileHandler _csvHandler = new CsvFileHandler();
+        readonly private string _csvFilePath = Path.Combine(Directory.GetCurrentDirectory() + "\\patientMonitor.csv");
+        readonly IFileHandler _csvHandler = new CsvFileHandler();
 
         public bool AddPatientMonitor(PatientMonitor monitor)
         {

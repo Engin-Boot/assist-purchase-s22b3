@@ -1,0 +1,3 @@
+ProductID, ProductName,ProductDescription,ProductWeight,Length,width,Height,DisplaySize,DisplayResolution,VitalsMeasurement,BatteryCapacity,ProductImage
+P1,IntelliVue,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10,\ProductImages\InteliVue.jpeg
+P2,IntelliMax,Abcccc,2,50,30,25,40,1024X320,ECG SPO2 Respiration,10,\ProductImages\InteliMax.jpeg
