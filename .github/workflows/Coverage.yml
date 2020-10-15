@@ -17,7 +17,7 @@ jobs:
            dotnet-version: 3.1.101
         
       - name: Generate coverage report
-        run: dotnet test  assist-purchase-s22b3\AssistPurchaseXUnitTest\AssistPurchaseXUnitTest.csproj  --collect:"XPlat Code Coverage"
+        run: dotnet test  ./AssistPurchaseXUnitTest/AssistPurchaseXUnitTest.csproj  --collect:"XPlat Code Coverage"
       
       - name: Check Coverage
         run: powershell ./coverage.ps1 -linerate 0.9 -projectName AssistPurchaseXUnitTest
