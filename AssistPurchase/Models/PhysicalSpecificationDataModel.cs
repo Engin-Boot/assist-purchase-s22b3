@@ -3,7 +3,7 @@ namespace AssistPurchase.Models
 {
     public class PhysicalSpecificationDataModel
     {
-        public double ProductWeight { get; set; }
+        public double ProductWeight { get;  set; }
 
         public ProductSizeDataModel ProductSize { get; set; }
 

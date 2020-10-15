@@ -22,6 +22,22 @@ namespace AssistPurchase.Controllers
             return _patientStore.GetAllPatientMonitors();
         }
 
+        [HttpGet("patientMonitor/{id}")]
+        public PatientMonitor Get(string id)
+        {
+
+            var patientMonitors = _patientStore.GetAllPatientMonitors();
+            foreach(var patientMonitor in patientMonitors)
+            {
+                if(patientMonitor.MonitorId==id)
+                {
+                    return patientMonitor;    
+                }
+               
+            }
+            return null;
+        }
+
         
         [HttpPost("newPatientMonitor")]
         public string Post([FromBody] PatientMonitor patientMonitor)

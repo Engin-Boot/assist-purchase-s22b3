@@ -5,9 +5,9 @@ namespace AssistPurchase.Models
     public class DisplaySpecificationDataModel
     {
         
-        public double DisplaySize { get; set; }
+        public double DisplaySize { get;  set; }
 
-        public string DisplayResolution { get; set; }
+        public string DisplayResolution { get;  set; }
 
         public DisplaySpecificationDataModel(double size,string resolution)
         {
@@ -15,7 +15,6 @@ namespace AssistPurchase.Models
             DisplaySize = size;
             DisplayResolution = resolution;
         }
-
         public DisplaySpecificationDataModel()
         {
 

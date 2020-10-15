@@ -5,8 +5,8 @@ namespace AssistPurchase.Models
 {
     public class ProductImageDataModel
     {
-        private readonly string LocalImageSource;
-       readonly string ImageDirectory = "ProductImages";
+        
+        readonly string ImageDirectory = "ProductImages";
 
         public string ImageSource { get; set; }
 
@@ -17,14 +17,13 @@ namespace AssistPurchase.Models
 
         }
 
-        public bool ImageSaveAs(string imageName)
+        public bool ImageSaveAs(string imageName,string localImageSource )
         {
             try
             {
-
                 ImageSource = Path.Combine('\\' + ImageDirectory, imageName + ".jpeg");
                 var fs = File.Create(Directory.GetCurrentDirectory() + ImageSource);
-                byte[] b = File.ReadAllBytes(LocalImageSource);
+                byte[] b = File.ReadAllBytes(localImageSource);
 
                 fs.Write(b, 0, b.Length);
                 return true;

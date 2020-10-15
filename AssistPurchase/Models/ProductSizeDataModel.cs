@@ -4,9 +4,9 @@ namespace AssistPurchase.Models
 {
     public class ProductSizeDataModel
     {
-        public double ProductLength { get; set; }
+        public double ProductLength { get;  set; }
 
-        public double ProductWidth { get; set; }
+        public double ProductWidth { get;  set; }
 
         public double ProductHeight { get; set; }
 

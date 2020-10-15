@@ -7,7 +7,7 @@ namespace AssistPurchase.Models
     public class MeasurementSpecificationDataModel
     {
        
-        public  IEnumerable<string> BasicVitalsMeasured { get; set; }
+        public  IEnumerable<string> BasicVitalsMeasured { get;  set; }
         public MeasurementSpecificationDataModel(IEnumerable<string> vitals)
         {
             BasicVitalsMeasured = vitals;

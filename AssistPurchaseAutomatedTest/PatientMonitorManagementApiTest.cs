@@ -107,5 +107,35 @@ namespace AssistPurchaseAutomatedTest
             IRestResponse response = _client.Execute(request);
             Assert.True(response.StatusCode == HttpStatusCode.NotFound);
         }
+
+        [Fact]
+        public void StatusCodeandContentCheckForPatientMonitorGetByIdApiWhenIdisPresent()
+        {
+            var id = "P1";
+            RestRequest request = new RestRequest("patientMonitor/"+id, Method.GET);
+            IRestResponse response = _client.Execute(request);
+            var deserializer = new JsonDeserializer();
+            var data = deserializer.Deserialize<PatientMonitor>(response);
+            Assert.True(response.StatusCode == (HttpStatusCode.OK));
+            Assert.True(data.MonitorName == "IntelliVue");
+        }
+
+        [Fact]
+        public void StatusCodeandContentCheckForPatientMonitorGetByIdApiWhenIdisNotPresent()
+        {
+            var id = "P123";
+            RestRequest request = new RestRequest("patientMonitor/" + id, Method.GET);
+            IRestResponse response = _client.Execute(request);
+            Assert.True(response.StatusCode == (HttpStatusCode.NoContent));
+           
+        }
+
+        [Fact]
+        public void StatusCodeCheckForPatientMonitorGetByIdApiWhenIdisNull()
+        {
+            RestRequest request = new RestRequest("patientMonitor/" , Method.GET);
+            IRestResponse response = _client.Execute(request);
+            Assert.True(response.StatusCode == HttpStatusCode.NotFound);
+        }
     }
 }

@@ -1,16 +1,14 @@
-using AssistPurchase.Models;
+﻿using AssistPurchase.Models;
 using AssistPurchase.Utility;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using Xunit;
 
 namespace AssistPurchaseXUnitTest
 {
     public class CsvFileDBUnitTests
     {
-        private string _csvFilePath =  Directory.GetCurrentDirectory()+@"\TestingSource\patientMonitorTest.csv";
+        private string _csvFilePath = Directory.GetCurrentDirectory() + @"\TestingSource\patientMonitorTest.csv";
         IFileHandler csvHandler = new CsvFileHandler();
 
         [Fact]
@@ -36,7 +34,7 @@ namespace AssistPurchaseXUnitTest
             Assert.Empty(patientMonitors);
         }
 
-        
+
 
         [Fact]
         public void WhenWriteToFileMethodIsCalledMonitorProductDataIsAppendedToFile()
@@ -49,7 +47,7 @@ namespace AssistPurchaseXUnitTest
             patientMonitor.MonitorMeasurementsSpecification = new MeasurementSpecificationDataModel(new List<string> { "ECG", " SPO2", "Respiration" });
             patientMonitor.MonitorDisplaySpecification = new DisplaySpecificationDataModel(40, "1024X348");
             patientMonitor.MonitorBatterySpecification = new BatterySpecificationDataModel(10);
-            patientMonitor.ProductImage = new ProductImageDataModel(Directory.GetCurrentDirectory()+@"\TestingSource\TestImage.jpg");
+            patientMonitor.ProductImage = new ProductImageDataModel(Directory.GetCurrentDirectory() + @"\TestingSource\TestImage.jpg");
 
 
             bool isAdded = this.csvHandler.WriteToFile(patientMonitor, _csvFilePath);
@@ -79,7 +77,7 @@ namespace AssistPurchaseXUnitTest
         public void WhenNullDataIsWrittenInFileThenReturnsFalseValue()
         {
             PatientMonitor patientMonitor = new PatientMonitor();
-         
+
             bool isAdded = this.csvHandler.WriteToFile(patientMonitor, _csvFilePath);
             Assert.False(isAdded);
         }
@@ -112,4 +110,3 @@ namespace AssistPurchaseXUnitTest
         }
     }
 }
-

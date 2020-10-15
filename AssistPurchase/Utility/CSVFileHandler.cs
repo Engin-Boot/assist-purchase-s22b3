@@ -100,7 +100,7 @@ namespace AssistPurchase.Utility
             {
                 if (data.MonitorId != null)
                 {
-                    data.ProductImage.ImageSaveAs(data.MonitorName);
+                    data.ProductImage.ImageSaveAs(data.MonitorName, data.ProductImage.ImageSource);
                     csvFormatData = string.Join(',', new object[]{
                     data.MonitorId,
                     data.MonitorName,
@@ -113,7 +113,7 @@ namespace AssistPurchase.Utility
                     data.MonitorDisplaySpecification.DisplayResolution,
                     string.Join(' ',data.MonitorMeasurementsSpecification.BasicVitalsMeasured),
                     data.MonitorBatterySpecification.BatteryCapacity,
-                     data.ProductImage.ImageSource
+                    data.ProductImage.ImageSource
                     });      
                 }
                
