@@ -1,4 +1,4 @@
-﻿using AssistPurchase.Models;
+using AssistPurchase.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,7 +11,7 @@ namespace AssistPurchase.Utility
         public bool DeleteFromFile(string id,string filepath)
         {
             bool isDeleted = false;
-            string line;
+            
             int lineCounter= 0;
             List<string> patientMonitorData = new List<string>();
             try
@@ -19,16 +19,7 @@ namespace AssistPurchase.Utility
                 
                 using(var reader = new StreamReader(filepath))
                 {
-                    while ((line = reader.ReadLine() )!= null)
-                    {
-                        lineCounter++;
-                        var values = line.Split(',');
-                        if(string.Compare(id,values[0])!=0)
-                        {
-                            patientMonitorData.Add(line);
-                           
-                        }
-                    }
+                    patientMonitorData = SearchIdFromFileandReturnTheList(reader, id,out lineCounter);
                     isDeleted = CompareDataListsAfterDelete(lineCounter, patientMonitorData);
                     
                 }
@@ -153,6 +144,25 @@ namespace AssistPurchase.Utility
                 check = true;
             }
             return check;
+        }
+
+        private List<string> SearchIdFromFileandReturnTheList(StreamReader reader,string id,out int lineCounter)
+        {
+            string line;
+            lineCounter = 0;
+            List<string> patientMonitorData = new List<string>();
+            while ((line = reader.ReadLine()) != null)
+            {
+                lineCounter++;
+                var values = line.Split(',');
+                if (string.Compare(id, values[0]) != 0)
+                {
+                    patientMonitorData.Add(line);
+
+                }
+            }
+            return patientMonitorData;
+
         }
     }
 }
