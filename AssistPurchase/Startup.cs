@@ -1,10 +1,9 @@
-using AssistPurchase.DataRepository;
-using AssistPurchase.Interfaces;
+using AssistPurchase.Repositories.Abstractions;
+using AssistPurchase.Repositories.Implementations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 
 namespace AssistPurchase
@@ -22,20 +21,15 @@ namespace AssistPurchase
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton<IPatientMonitorDataRepository, PatientMonitorStore>();
+            services.AddSingleton<IFiltersRepository, ProductFiltersRepository>();
+            services.AddSingleton<IProductRepository, ProductDbRepository>();
+            services.AddSingleton<IMonitoringRepository, CustomerMonitoringRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
             app.UseRouting();
-
-            
 
             app.UseEndpoints(endpoints =>
             {
