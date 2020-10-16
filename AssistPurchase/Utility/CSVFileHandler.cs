@@ -46,14 +46,8 @@ namespace AssistPurchase.Utility
                 if(File.Exists(filepath))
                 {
                     using var reader = new StreamReader(filepath);
-                    reader.ReadLine();
-                    while (!reader.EndOfStream)
-                    {
-                        var line = reader.ReadLine();
-                        var values = line.Split(',');
-                        PatientMonitor patientMonitor = FormatStringToObject(values);
-                        patientMonitors.Add(patientMonitor);
-                    }
+
+                    patientMonitors = ReadFromReaderandReturnTheListofPatientMonitor(reader);
                 }
             }
             catch(Exception e)
@@ -70,7 +64,8 @@ namespace AssistPurchase.Utility
             try
             {
                 string csvData = FormatObjectDataToString(data);
-                if (File.Exists(filepath) && csvData!=null)
+                bool check = CheckIfaFileExistsandCSVStringisNotNull(filepath, csvData);
+                if (check)
                 {
                     File.AppendAllText(filepath, csvData+'\n');
                     isWritten = true;
@@ -162,7 +157,26 @@ namespace AssistPurchase.Utility
                 }
             }
             return patientMonitorData;
+        }
 
+        private List<PatientMonitor> ReadFromReaderandReturnTheListofPatientMonitor(StreamReader reader)
+        {
+            List<PatientMonitor> patientMonitors = new List<PatientMonitor>();
+            reader.ReadLine();
+            while (!reader.EndOfStream)
+            {
+                var line = reader.ReadLine();
+                var values = line.Split(',');
+                PatientMonitor patientMonitor = FormatStringToObject(values);
+                patientMonitors.Add(patientMonitor);
+            }
+            return patientMonitors;
+        }
+
+        private bool CheckIfaFileExistsandCSVStringisNotNull(string filepath,string csvData)
+        {
+            bool check = File.Exists(filepath) && csvData != null;
+            return check;
         }
     }
 }
