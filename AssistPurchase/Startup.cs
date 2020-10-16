@@ -22,7 +22,7 @@ namespace AssistPurchase
         {
             services.AddControllers();
             services.AddSingleton<IFiltersRepository, ProductFiltersRepository>();
-            services.AddSingleton<IProductRepository, ProductDbRepository>();
+            services.AddSingleton<IProductRepository, ProductManagementSqlLite>();
             services.AddSingleton<IMonitoringRepository, CustomerMonitoringRepository>();
         }
 

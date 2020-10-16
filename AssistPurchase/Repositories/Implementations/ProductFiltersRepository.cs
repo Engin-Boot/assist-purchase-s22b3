@@ -7,7 +7,7 @@ namespace AssistPurchase.Repositories.Implementations
 {
     public class ProductFiltersRepository : IFiltersRepository
     {
-        private readonly ProductDbRepository _repo = new ProductDbRepository();
+        private readonly ProductManagementSqlLite _repo = new ProductManagementSqlLite();
        
         public IEnumerable<Product> GetByCompactFilter(bool filterValue)
         {
@@ -31,7 +31,7 @@ namespace AssistPurchase.Repositories.Implementations
 
         public Product GetProduct(string productId)
         {
-            return _repo.GetProductById(productId);
+            return (Product)_repo.GetProductById(productId);
         }
 
         public IEnumerable<Product> GetByProductSpecificTrainingFilter(bool filterValue)
