@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchaseAutomatedTest\\AssistPurchaseAutomatedTest.csproj": {}
+    "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchaseAutomatedTest\\AssistPurchaseAutomatedTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchaseAutomatedTest\\AssistPurchaseAutomatedTest.csproj": {
+    "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchaseAutomatedTest\\AssistPurchaseAutomatedTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchaseAutomatedTest\\AssistPurchaseAutomatedTest.csproj",
+        "projectUniqueName": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchaseAutomatedTest\\AssistPurchaseAutomatedTest.csproj",
         "projectName": "AssistPurchaseAutomatedTest",
-        "projectPath": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchaseAutomatedTest\\AssistPurchaseAutomatedTest.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchaseAutomatedTest\\obj\\",
+        "projectPath": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchaseAutomatedTest\\AssistPurchaseAutomatedTest.csproj",
+        "packagesPath": "C:\\Users\\320108789\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchaseAutomatedTest\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\320108789\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -27,8 +31,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchase\\AssistPurchase.csproj": {
-                "projectPath": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchase\\AssistPurchase.csproj"
+              "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj": {
+                "projectPath": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj"
               }
             }
           }
@@ -74,26 +78,33 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchase\\AssistPurchase.csproj": {
+    "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchase\\AssistPurchase.csproj",
+        "projectUniqueName": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
         "projectName": "AssistPurchase",
-        "projectPath": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchase\\AssistPurchase.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\source\\repos\\chatBotDemo\\AssistPurchase\\obj\\",
+        "projectPath": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
+        "packagesPath": "C:\\Users\\320108789\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\320108789\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -139,7 +150,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
