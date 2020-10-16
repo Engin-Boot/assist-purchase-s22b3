@@ -81,6 +81,23 @@ namespace AssistPurchaseXUnitTest
             bool isAdded = this.csvHandler.WriteToFile(patientMonitor, _csvFilePath);
             Assert.False(isAdded);
         }
+        
+        [Fact]
+        public void WhenKeysAreMissingInJsonObjectReturnsFalseValue()
+        {
+            PatientMonitor patientMonitor = new PatientMonitor();
+            patientMonitor.MonitorId = "P5";
+            patientMonitor.MonitorName = "XYZ";
+            patientMonitor.MonitorDescription = "bfjvbdc bnv";
+            patientMonitor.MonitorPhysicalSpecification = new PhysicalSpecificationDataModel(15.3, new ProductSizeDataModel(15, 17, 11));
+            patientMonitor.MonitorMeasurementsSpecification = new MeasurementSpecificationDataModel(new List<string> { "ECG", " SPO2", "Respiration" });
+            patientMonitor.MonitorBatterySpecification = new BatterySpecificationDataModel(10);
+            patientMonitor.ProductImage = new ProductImageDataModel(Directory.GetCurrentDirectory() + @"\TestingSource\TestImage.jpg");
+
+
+            bool isAdded = this.csvHandler.WriteToFile(patientMonitor, _csvFilePath);
+            Assert.False(isAdded);
+        }
 
         [Fact]
         public void WhenExistingProductIdIsPassedThenDeletsProductDetailsAndReturnsTrue()
