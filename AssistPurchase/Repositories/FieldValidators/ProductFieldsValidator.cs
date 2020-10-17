@@ -38,5 +38,19 @@ namespace AssistPurchase.Repositories.FieldValidators
 
             ValidateProductFields(productRecord);
         }
+
+        public void ValidateOldProductId(string productId, IEnumerable<Product> products)
+        {
+
+            foreach (var product in products)
+            {
+                if (product.ProductId == productId)
+                {
+                    return;
+                }
+            }
+
+            throw new Exception("Invalid data filed");
+        }
     }
 }

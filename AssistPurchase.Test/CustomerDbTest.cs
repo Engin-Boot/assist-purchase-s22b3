@@ -76,5 +76,24 @@ namespace AssistPurchase.Test
             var response = await setter.Client.DeleteAsync("api/alert/alerts/CID09");
             Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
         }
+
+        [Fact]
+        public async Task ReturnsBadRequestStatusCodeWhenAFieldIsNull()
+        {
+            var setter = new ClientSetUp();
+            var alert = new CustomerAlert()
+            {
+                CustomerId = "CID03",
+                CustomerName = null,
+                CustomerEmailId = "venkat123@gmail.com",
+                ProductId = "AB",
+                PhoneNumber = "7874393847"
+            };
+
+            var content = new StringContent(JsonConvert.SerializeObject(alert), Encoding.UTF8, "application/json");
+            var response = await setter.Client.PostAsync("api/alert/alerts", content);
+            Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+
+        }
     }
 }

@@ -11,7 +11,6 @@ namespace AssistPurchase.Repositories.FieldValidators
     {
         private readonly CommonFieldValidator _validator = new CommonFieldValidator();
         private readonly ProductDbRepository _repo = new ProductDbRepository();
-        private readonly CustomerMonitoringRepository _customerRepo = new CustomerMonitoringRepository();
         public void ValidateCustomerAlertFields(CustomerAlert alert)
         {
             _validator.IsWhitespaceOrEmptyOrNull(alert.ProductId);
@@ -35,9 +34,9 @@ namespace AssistPurchase.Repositories.FieldValidators
             throw new Exception("Invalid data filed");
         }
 
-        public void ValidateOldCustomerId(string customerId)
+        public void ValidateOldCustomerId(string customerId, IEnumerable<CustomerAlert> customers)
         {
-            var customers = _customerRepo.GetAllAlerts();
+            
             foreach (var customer in customers)
             {
                 if (customer.CustomerId == customerId)

@@ -4,8 +4,11 @@ using AssistPurchase.Repositories.Implementations;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Xunit;
+
 namespace AssistPurchase.Test
 {
     public class ClientSetUp
@@ -16,10 +19,10 @@ namespace AssistPurchase.Test
             this.Client = new TestClientProvider().Client;
         }
 
-        /*public async void SendInvalidPostRequest(Patient patient)
+        /*public async void SendInvalidPostRequest(Product product)
         {
-            var content = new StringContent(JsonConvert.SerializeObject(patient), Encoding.UTF8, "application/json");
-            var response = await this.Client.PostAsync("api/IcuOccupancy/Patients", content);
+            var content = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
+            var response = await this.Client.PostAsync("api/productsdatabase/products", content);
             Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
         }*/
     }
@@ -34,67 +37,139 @@ namespace AssistPurchase.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
 
-        /*[Fact]
-            public void TestValidProductDataAddition()
+        [Fact]
+        public async Task CheckStatusCodeEqualOkGetProductById()
+        {
+            ClientSetUp setter = new ClientSetUp();
+            var response = await setter.Client.GetAsync("api/productsdatabase/products/X3");
+            response.EnsureSuccessStatusCode();
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
+        [Fact]
+        public async Task ReturnsOkWhenProductIsAdded()
+        {
+            var setter = new ClientSetUp();
+            var product = new Product()
             {
-             //   Thread.Sleep(100);
+               ProductId = "AB",
+               ProductName = "Mock Product",
+               Description = "This product is being added for testing purposes",
+               Price = "100",
+               Compact = true,
+               Portability = true,
+               SafeToFlyCertification = true,
+               CyberSecurity = false,
+               MultiPatientSupport = false,
+               SoftwareUpdateSupport = true,
+               ProductSpecificTraining = true,
+               ThirdPartyDeviceSupport = false,
+               BatterySupport = true,
+               TouchScreenSupport = false
+            };
 
-                string id = "X670";
-                var testProd = Helper.GetProductDataModelObject(id, "Intellivue");
-                Assert.True(_productRepo.AddProduct(testProd) == HttpStatusCode.OK);
-                _productRepo.AddProduct(testProd);
+            var content = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
+            var response = await setter.Client.PostAsync("api/productsdatabase/products", content);
+            response.EnsureSuccessStatusCode();
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
+        [Fact]
+        public async Task ReturnsOkAfterDeletingAValidProductRecord()
+        {
+            var setter = new ClientSetUp();
+            var response = await setter.Client.DeleteAsync("api/productsdatabase/products/AB");
+            response.EnsureSuccessStatusCode();
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
 
-            }
-            [Fact]
-            public void TestInvalidProductDataAddition()
+        [Fact]
+        public async Task ReturnsBadRequestWhenDeletingInvalidProductId()
+        {
+            var setter = new ClientSetUp();
+            var response = await setter.Client.DeleteAsync("api/productsdatabase/products/ZZZ");
+            Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task ReturnsOkWhenProductIsUpdated()
+        {
+            var setter = new ClientSetUp();
+            var product = new Product()
             {
-             //   Thread.Sleep(100);
-                var testProd = new Product();
-                Assert.True(_productRepo.AddProduct(testProd) == HttpStatusCode.BadRequest);
-            }
+                ProductId = "X3",
+                ProductName = "Mock Product",
+                Description = "This product is being added for testing purposes",
+                Price = "100",
+                Compact = true,
+                Portability = false,
+                SafeToFlyCertification = true,
+                CyberSecurity = true,
+                MultiPatientSupport = false,
+                SoftwareUpdateSupport = false,
+                ProductSpecificTraining = true,
+                ThirdPartyDeviceSupport = false,
+                BatterySupport = false,
+                TouchScreenSupport = false
+            };
 
-            [Fact]
-            public void TestValidProductDataRemove()
+            var content = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
+            var response = await setter.Client.PutAsync("api/productsdatabase/products/X3", content);
+            response.EnsureSuccessStatusCode();
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task ReturnsBadRequestWhenAddingProductIdWhichIsAlreadyExisting()
+        {
+            var setter = new ClientSetUp();
+            var product = new Product()
             {
-               // Thread.Sleep(200);
-              
-            string id = "ID" ;
-            var testProd = Helper.GetProductDataModelObject(id, "Intellivue");
-            _productRepo.AddProduct(testProd);
-                Assert.True( _productRepo.DeleteProduct(testProd.ProductId) == HttpStatusCode.OK);
-            }
+                ProductId = "CM",
+                ProductName = "Mock Product 2",
+                Description = "This product is being added for testing purposes",
+                Price = "10000",
+                Compact = true,
+                Portability = true,
+                SafeToFlyCertification = true,
+                CyberSecurity = true,
+                MultiPatientSupport = true,
+                SoftwareUpdateSupport = true,
+                ProductSpecificTraining = false,
+                ThirdPartyDeviceSupport = false,
+                BatterySupport = true,
+                TouchScreenSupport = true
+            };
 
-            [Fact]
-            public void TestInvalidProductDataRemove()
+            var content = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
+            var response = await setter.Client.PostAsync("api/productsdatabase/products", content);
+            Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task ReturnsBadRequestWhenUpdatingANonExistantProductId()
+        {
+            var setter = new ClientSetUp();
+            var product = new Product()
             {
-              //  Thread.Sleep(300);
-                var testProd = Helper.GetProductDataModelObject("-999", "Test42");
-                Assert.True(_productRepo.DeleteProduct(testProd.ProductId) == HttpStatusCode.BadRequest);
-            }
+                ProductId = "ZZZ",
+                ProductName = "Mock Product 3",
+                Description = "This product is being added for testing purposes",
+                Price = "15000",
+                Compact = true,
+                Portability = false,
+                SafeToFlyCertification = false,
+                CyberSecurity = true,
+                MultiPatientSupport = true,
+                SoftwareUpdateSupport = false,
+                ProductSpecificTraining = true,
+                ThirdPartyDeviceSupport = false,
+                BatterySupport = true,
+                TouchScreenSupport = false
+            };
 
-            [Fact]
-            public void TestProductDataUpdate()
-            {
-               // Thread.Sleep(400);
-            string id = "X3";
-                var testProd = Helper.GetProductDataModelObject(id, "Intellivue");
-            _productRepo.AddProduct(testProd);
-                testProd.SafeToFlyCertification = false;
-                Assert.True(_productRepo.UpdateProduct(testProd.ProductId,testProd) == HttpStatusCode.OK);
-
-            //Clean Up
-            _productRepo.DeleteProduct(testProd.ProductId);
-            }
-
-            [Fact]
-            public void TestShowAllProducts()
-            {
-               // Thread.Sleep(500);
-                var productList = _productRepo.GetAllProducts();
-                Assert.True(productList.Any());
-            }*/
-
+            var content = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
+            var response = await setter.Client.PutAsync("api/productsdatabase/products/ZZZ", content);
+            Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
         }
     }
 
-
+}

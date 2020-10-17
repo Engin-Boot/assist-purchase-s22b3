@@ -75,7 +75,8 @@ namespace AssistPurchase.Repositories.Implementations
 
         public void DeleteAlert(string id)
         {
-            _validator.ValidateOldCustomerId(id);
+            var customers = GetAllAlerts();
+            _validator.ValidateOldCustomerId(id, customers);
             var con = GetConnection();
             try
             {
