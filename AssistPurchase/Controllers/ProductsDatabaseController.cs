@@ -40,6 +40,7 @@ namespace AssistPurchase.Controllers
         [HttpPost("products")]
         public IActionResult Post([FromBody] Product product)
         {
+            
             try
             {
                 _productRepository.AddProduct(product);
@@ -54,9 +55,10 @@ namespace AssistPurchase.Controllers
         [HttpPut("products/{productId}")]
         public IActionResult Put(string productId, [FromBody] Product product)
         {
+
             try
             {
-                _productRepository.UpdateProduct(productId, product);
+               _productRepository.UpdateProduct(productId, product);
                 return Ok();
             }
             catch
@@ -68,6 +70,7 @@ namespace AssistPurchase.Controllers
         [HttpDelete("products/{productId}")]
         public IActionResult Delete(string productId)
         {
+            
             try
             {
                 _productRepository.DeleteProduct(productId);
