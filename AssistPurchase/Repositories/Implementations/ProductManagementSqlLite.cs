@@ -3,6 +3,7 @@ using AssistPurchase.Repositories.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Globalization;
 using System.IO;
 
 using System.Net;
@@ -10,7 +11,7 @@ using System.Net;
 
 namespace AssistPurchase.Repositories.Implementations
 {
-    public class ProductManagementSqlLite:IProductRepository
+    public class ProductManagementSqlLite : IProductRepository
     {
         public HttpStatusCode AddProduct(Product product)
         {
@@ -27,7 +28,7 @@ namespace AssistPurchase.Repositories.Implementations
                 var cmd = new SQLiteCommand(con)
                 {
                     CommandText =
-                        @"INSERT INTO MonitoringProducts(ProductId, ProductName,Description, ProductSpecificTraining, Price,SoftwareUpdateSupport, Portability , Compact,BatterySupport,ThirdPartyDeviceSupport,SafeToFlyCertification,TouchScreenSupport,MultiPatientSupport,CyberSecurity) 
+                        @"INSERT INTO MonitoringProducts(ProductId,ProductName,Description,ProductSpecificTraining,Price,SoftwareUpdateSupport,Portability,Compact,BatterySupport,ThirdPartyDeviceSupport,SafeToFlyCertification,TouchScreenSupport,MultiPatientSupport,CyberSecurity) 
                                     VALUES
                                     (@productId, @productName,@description,@productSpecificTraining,@price,@softwareUpdateSupport,
                 @portability ,@compact,@batterySupport,@thirdPartyDeviceSupport,@safeToFlyCertification,@touchScreenSupport,@multiPatientSupport,@cyberSecurity)"
@@ -60,7 +61,7 @@ namespace AssistPurchase.Repositories.Implementations
             {
                 con.Close();
             }
-           
+
             return HttpStatusCode.OK;
         }
 
@@ -101,7 +102,7 @@ namespace AssistPurchase.Repositories.Implementations
             var con = GetConnection();
             con.Open();
             var list = new List<Product>();
-            var stm = @"SELECT p.ProductId, p.ProductName,p.Description, p.ProductSpecificTraining, p.Price,p.SoftwareUpdateSupport,p.Portability , p.Compact,p.BatterySupport,p.ThirdPartyDeviceSupport,p.SafeToFlyCertification,p.TouchScreenSupport,p.MultiPatientSupport,p.CyberSecurity FROM MonitoringProducts p";
+            var stm = @"SELECT p.ProductId,p.ProductName,Description,ProductSpecificTraining,Price,SoftwareUpdateSupport,Portability,Compact,BatterySupport,ThirdPartyDeviceSupport,SafeToFlyCertification,TouchScreenSupport,MultiPatientSupport,CyberSecurity FROM MonitoringProducts p";
             using var cmd1 = new SQLiteCommand(stm, con);
             using var rdr = cmd1.ExecuteReader();
 
@@ -111,18 +112,18 @@ namespace AssistPurchase.Repositories.Implementations
                 {
                     ProductId = rdr.GetString(0),
                     ProductName = rdr.GetString(1),
-                    Description=rdr.GetString(2),
-                    ProductSpecificTraining=rdr.GetBoolean(3),
-                    Price= rdr.GetString(4),
-                    SoftwareUpdateSupport= rdr.GetBoolean(5),
-                    Portability = rdr.GetBoolean(6),
-                    Compact = rdr.GetBoolean(7),
-                    BatterySupport = rdr.GetBoolean(8),
-                    ThirdPartyDeviceSupport = rdr.GetBoolean(9),
-                    SafeToFlyCertification = rdr.GetBoolean(10),
-                    TouchScreenSupport = rdr.GetBoolean(11),
-                    MultiPatientSupport = rdr.GetBoolean(12),
-                    CyberSecurity = rdr.GetBoolean(13) 
+                    Description = rdr.GetString(2),
+                    ProductSpecificTraining = Convert.ToBoolean(rdr.GetString(3)),
+                    Price = rdr.GetDouble(4).ToString(CultureInfo.CurrentCulture),
+                    SoftwareUpdateSupport = Convert.ToBoolean(rdr.GetString(5)),
+                    Portability = Convert.ToBoolean(rdr.GetString(6)),
+                    Compact = Convert.ToBoolean(rdr.GetString(7)),
+                    BatterySupport = Convert.ToBoolean(rdr.GetString(8)),
+                    ThirdPartyDeviceSupport = Convert.ToBoolean(rdr.GetString(9)),
+                    SafeToFlyCertification = Convert.ToBoolean(rdr.GetString(10)),
+                    TouchScreenSupport = Convert.ToBoolean(rdr.GetString(10)),
+                    MultiPatientSupport = Convert.ToBoolean(rdr.GetString(11)),
+                    CyberSecurity = Convert.ToBoolean(rdr.GetString(12)),
                 });
             }
             con.Close();
@@ -137,14 +138,14 @@ namespace AssistPurchase.Repositories.Implementations
             var list = new List<Product>();
 
 
-            var stm = $@"SELECT ProductName,Description, ProductSpecificTraining, Price,SoftwareUpdateSupport, Portability , Compact,BatterySupport,ThirdPartyDeviceSupport,SafeToFlyCertification,TouchScreenSupport,MultiPatientSupport,CyberSecurity FROM MonitoringProducts WHERE ProductId= '{productId}'";
+            var stm = $@"SELECT ProductName, Description, ProductSpecificTraining, Price, SoftwareUpdateSupport, Portability , Compact, BatterySupport, ThirdPartyDeviceSupport, SafeToFlyCertification, TouchScreenSupport, MultiPatientSupport, CyberSecurity FROM MonitoringProducts WHERE ProductId= '{productId}'";
             using var cmd1 = new SQLiteCommand(stm, con);
             using var rdr = cmd1.ExecuteReader();
 
             while (rdr.Read())
             {
                 var prodName = rdr.GetString(1);
-               
+
                 list.Add(new Product()
                 {
                     ProductName = rdr.GetString(0),
@@ -165,7 +166,7 @@ namespace AssistPurchase.Repositories.Implementations
             con.Close();
             return list;
         }
-        public HttpStatusCode UpdateProduct(String id,Product product)
+        public HttpStatusCode UpdateProduct(String id, Product product)
         {
 
             var removeStatusCode = DeleteProduct(id);
@@ -178,11 +179,11 @@ namespace AssistPurchase.Repositories.Implementations
 
         private static SQLiteConnection GetConnection()
         {
-            var path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            var cs = $@"URI=file:{Path.GetFullPath(Path.Combine(path!, @"..\..\..\"))}ProductInfo.db";
-            var con = new SQLiteConnection(cs);
+
+            /*var path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            var cs = $@"URI=file:{Path.GetFullPath(Path.Combine(path!, @"..\..\..\"))}ProductInfo.db";*/
+            var con = new SQLiteConnection("data source=ProductInfo.db");
             return con;
         }
     }
 }
-

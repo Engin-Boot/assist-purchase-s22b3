@@ -94,4 +94,3 @@ C:\Users\Anji\Desktop\Assist-to-Purchase\assist-purchase-s22b3\AssistPurchase\ob
 C:\Users\Anji\Desktop\Assist-to-Purchase\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.dll
 C:\Users\Anji\Desktop\Assist-to-Purchase\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.pdb
 C:\Users\Anji\Desktop\Assist-to-Purchase\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.genruntimeconfig.cache
-C:\Users\Anji\Desktop\Assist-to-Purchase\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.csprojAssemblyReference.cache
