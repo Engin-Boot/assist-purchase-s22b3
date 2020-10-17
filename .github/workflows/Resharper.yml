@@ -15,7 +15,7 @@ jobs:
         run: dotnet tool install -g JetBrains.ReSharper.GlobalTools
 
       - name: Adding Main Project Packages
-        run: dotnet add AssistPurchase/AssistPurchase.csproj package 
+        run: dotnet add AssistPurchase/AssistPurchase.csproj package System.Data.SQLite.Core --version 1.0.113.1
 
       - name: Adding Test Project Packages
         run: dotnet add AssistPurchase.Test/AssistPurchase.Test.csproj package xunit --version 2.4.0
