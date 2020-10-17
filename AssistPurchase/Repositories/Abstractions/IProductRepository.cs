@@ -1,6 +1,5 @@
 using AssistPurchase.Models;
 using System.Collections.Generic;
-using System.Net;
 
 namespace AssistPurchase.Repositories.Abstractions
 {

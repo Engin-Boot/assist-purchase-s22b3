@@ -16,7 +16,7 @@ namespace AssistPurchase.Controllers
             _filtersRepository = repo;
         }
 
-        [HttpGet("filters/all")]
+        [HttpGet("filters")]
         public IActionResult Get()
         {
             return Ok(_filtersRepository.GetAll());

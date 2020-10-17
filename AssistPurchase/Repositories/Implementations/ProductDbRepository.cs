@@ -4,9 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Globalization;
-using System.IO;
-
-using System.Net;
 using AssistPurchase.Repositories.FieldValidators;
 
 
@@ -20,46 +17,35 @@ namespace AssistPurchase.Repositories.Implementations
             var products = GetAllProducts();
             _validator.ValidateNewProductId(product.ProductId, product, products);
             var con = GetConnection();
-            try
-            {
-                con.Open();
+            con.Open();
 
-                var cmd = new SQLiteCommand(con)
-                {
-                    CommandText =
-                        @"INSERT INTO MonitoringProducts(ProductId,ProductName,Description,ProductSpecificTraining,Price,SoftwareUpdateSupport,Portability,Compact,BatterySupport,ThirdPartyDeviceSupport,SafeToFlyCertification,TouchScreenSupport,MultiPatientSupport,CyberSecurity) 
+            var cmd = new SQLiteCommand(con)
+            {
+                CommandText =
+                    @"INSERT INTO MonitoringProducts(ProductId,ProductName,Description,ProductSpecificTraining,Price,SoftwareUpdateSupport,Portability,Compact,BatterySupport,ThirdPartyDeviceSupport,SafeToFlyCertification,TouchScreenSupport,MultiPatientSupport,CyberSecurity) 
                       VALUES (@productId, @productName,@description,@productSpecificTraining,@price,@softwareUpdateSupport,
                               @portability ,@compact,@batterySupport,@thirdPartyDeviceSupport,@safeToFlyCertification,@touchScreenSupport,@multiPatientSupport,@cyberSecurity)"
-                };
+            };
 
-                cmd.Parameters.AddWithValue("@productId", product.ProductId);
-                cmd.Parameters.AddWithValue("@productName", product.ProductName);
-                cmd.Parameters.AddWithValue("@description", product.Description);
-                cmd.Parameters.AddWithValue("@productSpecificTraining", product.ProductSpecificTraining.ToString());
-                cmd.Parameters.AddWithValue("@price", Convert.ToDouble(product.Price));
-                cmd.Parameters.AddWithValue("@softwareUpdateSupport", product.SoftwareUpdateSupport.ToString());
-                cmd.Parameters.AddWithValue("@portability", product.Portability.ToString());
-                cmd.Parameters.AddWithValue("@compact", product.Compact.ToString());
-                cmd.Parameters.AddWithValue("@batterySupport", product.BatterySupport.ToString());
-                cmd.Parameters.AddWithValue("@thirdPartyDeviceSupport", product.ThirdPartyDeviceSupport.ToString());
-                cmd.Parameters.AddWithValue("@safeToFlyCertification", product.SafeToFlyCertification.ToString());
-                cmd.Parameters.AddWithValue("@touchScreenSupport", product.TouchScreenSupport.ToString());
-                cmd.Parameters.AddWithValue("@multiPatientSupport", product.MultiPatientSupport.ToString());
-                cmd.Parameters.AddWithValue("@cyberSecurity", product.CyberSecurity.ToString());
+            cmd.Parameters.AddWithValue("@productId", product.ProductId);
+            cmd.Parameters.AddWithValue("@productName", product.ProductName);
+            cmd.Parameters.AddWithValue("@description", product.Description);
+            cmd.Parameters.AddWithValue("@productSpecificTraining", product.ProductSpecificTraining.ToString());
+            cmd.Parameters.AddWithValue("@price", Convert.ToDouble(product.Price));
+            cmd.Parameters.AddWithValue("@softwareUpdateSupport", product.SoftwareUpdateSupport.ToString());
+            cmd.Parameters.AddWithValue("@portability", product.Portability.ToString());
+            cmd.Parameters.AddWithValue("@compact", product.Compact.ToString());
+            cmd.Parameters.AddWithValue("@batterySupport", product.BatterySupport.ToString());
+            cmd.Parameters.AddWithValue("@thirdPartyDeviceSupport", product.ThirdPartyDeviceSupport.ToString());
+            cmd.Parameters.AddWithValue("@safeToFlyCertification", product.SafeToFlyCertification.ToString());
+            cmd.Parameters.AddWithValue("@touchScreenSupport", product.TouchScreenSupport.ToString());
+            cmd.Parameters.AddWithValue("@multiPatientSupport", product.MultiPatientSupport.ToString());
+            cmd.Parameters.AddWithValue("@cyberSecurity", product.CyberSecurity.ToString());
 
-                cmd.Prepare();
+            cmd.Prepare();
 
-                cmd.ExecuteNonQuery();
-
-            }
-            catch (Exception)
-            {
-                throw new Exception("Invalid data field");
-            }
-            finally
-            {
-                con.Close();
-            }
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         public void DeleteProduct(string id)
@@ -68,22 +54,12 @@ namespace AssistPurchase.Repositories.Implementations
             _validator.ValidateOldProductId(id, products);
             var con = GetConnection();
             con.Open();
-            try
+            var cmd = new SQLiteCommand(con)
             {
-                var cmd = new SQLiteCommand(con)
-                {
-                    CommandText = $@"DELETE FROM MonitoringProducts WHERE ProductId='{id}'"
-                };
-                cmd.ExecuteNonQuery();
-            }
-            catch
-            {
-                throw new Exception("Invalid data field");
-            }
-            finally
-            {
-                con.Close();
-            }
+                CommandText = $@"DELETE FROM MonitoringProducts WHERE ProductId='{id}'"
+            };
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
 
@@ -124,7 +100,8 @@ namespace AssistPurchase.Repositories.Implementations
 
         public Product GetProductById(string productId)
         {
-
+            var products = GetAllProducts(); 
+            _validator.ValidateOldProductId(productId, products);
             var con = GetConnection();
             con.Open();
 

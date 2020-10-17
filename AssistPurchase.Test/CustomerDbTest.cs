@@ -1,6 +1,4 @@
-﻿using AssistPurchase.Repositories.Abstractions;
-using AssistPurchase.Repositories.Implementations;
-using System.Linq;
+﻿
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -51,7 +49,7 @@ namespace AssistPurchase.Test
         }
 
         [Fact]
-        public async Task ReturnsBadRequestStatusCodeWhenProductIdDoesNotExist()
+        public void ReturnsBadRequestStatusCodeWhenProductIdDoesNotExist()
         {
             var setter = new ClientSetUp();
             var alert = new CustomerAlert()
@@ -59,13 +57,11 @@ namespace AssistPurchase.Test
                 CustomerId = "CID03",
                 CustomerName = "Venkat",
                 CustomerEmailId = "venkat123@gmail.com",
-                ProductId = "AB",
+                ProductId = "XYZ",
                 PhoneNumber = "7874393847"
             };
 
-            var content = new StringContent(JsonConvert.SerializeObject(alert), Encoding.UTF8, "application/json");
-            var response = await setter.Client.PostAsync("api/alert/alerts", content);
-            Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+            setter.SendInvalidPostRequest(alert);
 
         }
 
@@ -78,7 +74,7 @@ namespace AssistPurchase.Test
         }
 
         [Fact]
-        public async Task ReturnsBadRequestStatusCodeWhenAFieldIsNull()
+        public void ReturnsBadRequestStatusCodeWhenAFieldIsNull()
         {
             var setter = new ClientSetUp();
             var alert = new CustomerAlert()
@@ -90,9 +86,8 @@ namespace AssistPurchase.Test
                 PhoneNumber = "7874393847"
             };
 
-            var content = new StringContent(JsonConvert.SerializeObject(alert), Encoding.UTF8, "application/json");
-            var response = await setter.Client.PostAsync("api/alert/alerts", content);
-            Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+            
+            setter.SendInvalidPostRequest(alert);
 
         }
     }

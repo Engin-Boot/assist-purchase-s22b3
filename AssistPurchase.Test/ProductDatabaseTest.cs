@@ -1,7 +1,4 @@
 ﻿using AssistPurchase.Models;
-using AssistPurchase.Repositories.Abstractions;
-using AssistPurchase.Repositories.Implementations;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -19,12 +16,12 @@ namespace AssistPurchase.Test
             this.Client = new TestClientProvider().Client;
         }
 
-        /*public async void SendInvalidPostRequest(Product product)
+        public async void SendInvalidPostRequest(CustomerAlert alert)
         {
-            var content = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
-            var response = await this.Client.PostAsync("api/productsdatabase/products", content);
+            var content = new StringContent(JsonConvert.SerializeObject(alert), Encoding.UTF8, "application/json");
+            var response = await this.Client.PostAsync("api/alert/alerts", content);
             Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
-        }*/
+        }
     }
     public class ProductDatabaseTest
     {
@@ -44,6 +41,15 @@ namespace AssistPurchase.Test
             var response = await setter.Client.GetAsync("api/productsdatabase/products/X3");
             response.EnsureSuccessStatusCode();
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task ReturnsBadRequestForGettingProductWithNonExistingId()
+        {
+            var setter = new ClientSetUp();
+            var response = await setter.Client.GetAsync("api/productsdatabase/products/XYZ");
+
+            Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
         }
         [Fact]
         public async Task ReturnsOkWhenProductIsAdded()

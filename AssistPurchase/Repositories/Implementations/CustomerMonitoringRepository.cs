@@ -3,8 +3,6 @@ using AssistPurchase.Repositories.Abstractions;
 using System.Collections.Generic;
 using AssistPurchase.Repositories.FieldValidators;
 using System.Data.SQLite;
-using System.Net;
-using System;
 
 namespace AssistPurchase.Repositories.Implementations
 {
@@ -43,34 +41,25 @@ namespace AssistPurchase.Repositories.Implementations
         {
             _validator.ValidateCustomerAlertFields(alert);
             var con = GetConnection();
-            try
+            con.Open();
+            var cmd = new SQLiteCommand(con)
             {
 
-                con.Open();
-                var cmd = new SQLiteCommand(con)
-                {
+                CommandText =
+                    @"INSERT INTO Customer(CustomerId,CustomerName,CustomerEmailId,ProductId,PhoneNumber)VALUES(@customerId,@customerName,@customerEmailId,@productId,@phoneNumber)"
+            };
 
-                    CommandText =
-                        @"INSERT INTO Customer(CustomerId,CustomerName,CustomerEmailId,ProductId,PhoneNumber)VALUES(@customerId,@customerName,@customerEmailId,@productId,@phoneNumber)"
-                };
+            cmd.Parameters.AddWithValue("@customerId", alert.CustomerId);
+            cmd.Parameters.AddWithValue("@customerName", alert.CustomerName);
+            cmd.Parameters.AddWithValue("@customerEmailId", alert.CustomerEmailId);
+            cmd.Parameters.AddWithValue("@productId", alert.ProductId);
+            cmd.Parameters.AddWithValue("@phoneNumber", alert.PhoneNumber);
 
-                cmd.Parameters.AddWithValue("@customerId", alert.CustomerId);
-                cmd.Parameters.AddWithValue("@customerName", alert.CustomerName);
-                cmd.Parameters.AddWithValue("@customerEmailId", alert.CustomerEmailId);
-                cmd.Parameters.AddWithValue("@productId", alert.ProductId);
-                cmd.Parameters.AddWithValue("@phoneNumber", alert.PhoneNumber);
- 
-                cmd.Prepare();
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-                throw new Exception("Invalid data field");
-            }
-            finally
-            {
-                con.Close();
-            }
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+        
         }
 
         public void DeleteAlert(string id)
@@ -78,25 +67,13 @@ namespace AssistPurchase.Repositories.Implementations
             var customers = GetAllAlerts();
             _validator.ValidateOldCustomerId(id, customers);
             var con = GetConnection();
-            try
+            con.Open();
+            var cmd = new SQLiteCommand(con)
             {
-
-                con.Open();
-                var cmd = new SQLiteCommand(con)
-                {
-                    CommandText = $@"DELETE FROM Customer WHERE CustomerId='{id}'"
-                };
-                var rows = cmd.ExecuteNonQuery();
-
-            }
-            catch (Exception)
-            {
-                throw new Exception("Invalid data field");
-            }
-            finally
-            {
-                con.Close();
-            }
+                CommandText = $@"DELETE FROM Customer WHERE CustomerId='{id}'"
+            };
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         private static SQLiteConnection GetConnection()
