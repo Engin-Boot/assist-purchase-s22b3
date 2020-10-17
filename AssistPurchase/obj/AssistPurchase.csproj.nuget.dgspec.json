@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj": {}
+    "C:\\Users\\Anji\\Desktop\\Varsha\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj": {}
   },
   "projects": {
-    "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj": {
+    "C:\\Users\\Anji\\Desktop\\Varsha\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
+        "projectUniqueName": "C:\\Users\\Anji\\Desktop\\Varsha\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
         "projectName": "AssistPurchase",
-        "projectPath": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
-        "packagesPath": "C:\\Users\\320108789\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\obj\\",
+        "projectPath": "C:\\Users\\Anji\\Desktop\\Varsha\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
+        "packagesPath": "C:\\Users\\Anji\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Anji\\Desktop\\Varsha\\assist-purchase-s22b3\\AssistPurchase\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\320108789\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Anji\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

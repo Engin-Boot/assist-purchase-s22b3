@@ -14,7 +14,7 @@ namespace AssistPurchase.Repositories.FieldValidators
             _validator.IsWhitespaceOrEmptyOrNull(alert.ProductId);
             _validator.IsWhitespaceOrEmptyOrNull(alert.CustomerName);
             _validator.IsWhitespaceOrEmptyOrNull(alert.PhoneNumber);
-            _validator.IsWhitespaceOrEmptyOrNull(alert.MailId);
+            _validator.IsWhitespaceOrEmptyOrNull(alert.CustomerEmailId);
             ValidateOldPatientId(alert.ProductId);
         }
 
