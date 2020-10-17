@@ -39,18 +39,14 @@ namespace AssistPurchase.Repositories.Implementations
             con.Close();
             return list;
         }
-        public HttpStatusCode Add(CustomerAlert customer)
+        public void Add(CustomerAlert alert)
         {
+            _validator.ValidateCustomerAlertFields(alert);
             var con = GetConnection();
             try
             {
 
                 con.Open();
-                if (string.IsNullOrEmpty(customer.CustomerName))
-                {
-                    return HttpStatusCode.BadRequest;
-                }
-             
                 var cmd = new SQLiteCommand(con)
                 {
 
@@ -58,29 +54,28 @@ namespace AssistPurchase.Repositories.Implementations
                         @"INSERT INTO Customer(CustomerId,CustomerName,CustomerEmailId,ProductId,PhoneNumber)VALUES(@customerId,@customerName,@customerEmailId,@productId,@phoneNumber)"
                 };
 
-                cmd.Parameters.AddWithValue("@customerId", customer.CustomerId);
-                cmd.Parameters.AddWithValue("@customerName", customer.CustomerName);
-                cmd.Parameters.AddWithValue("@customerEmailId", customer.CustomerEmailId);
-                cmd.Parameters.AddWithValue("@productId", customer.ProductId);
-                cmd.Parameters.AddWithValue("@phoneNumber", customer.PhoneNumber);
+                cmd.Parameters.AddWithValue("@customerId", alert.CustomerId);
+                cmd.Parameters.AddWithValue("@customerName", alert.CustomerName);
+                cmd.Parameters.AddWithValue("@customerEmailId", alert.CustomerEmailId);
+                cmd.Parameters.AddWithValue("@productId", alert.ProductId);
+                cmd.Parameters.AddWithValue("@phoneNumber", alert.PhoneNumber);
  
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
             }
             catch (Exception)
             {
-                return HttpStatusCode.InternalServerError;
+                throw new Exception("Invalid data field");
             }
             finally
             {
                 con.Close();
             }
-
-            return HttpStatusCode.OK;
         }
 
-        public HttpStatusCode DeleteProduct(String id)
+        public void DeleteAlert(string id)
         {
+            _validator.ValidateOldCustomerId(id);
             var con = GetConnection();
             try
             {
@@ -91,32 +86,21 @@ namespace AssistPurchase.Repositories.Implementations
                     CommandText = $@"DELETE FROM Customer WHERE CustomerId='{id}'"
                 };
                 var rows = cmd.ExecuteNonQuery();
-                if (rows == 0)
-                {
-                    return HttpStatusCode.BadRequest;
-                }
 
             }
             catch (Exception)
             {
-                return HttpStatusCode.InternalServerError;
+                throw new Exception("Invalid data field");
             }
             finally
             {
                 con.Close();
             }
-
-            return HttpStatusCode.OK;
         }
-
-
 
         private static SQLiteConnection GetConnection()
         {
-
-            //    var path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            //   var cs = $@"URI=file:{Path.GetFullPath(Path.Combine(path!, @"..\..\..\"))}ProductInfo.db";
-            var con = new SQLiteConnection("data source = ProductInfo.db");
+            var con = new SQLiteConnection(@"data source=D:\a\assist-purchase-s22b3\AssistPurchase\ProductInfo.db");
             return con;
         }
     }

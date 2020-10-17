@@ -17,7 +17,8 @@ namespace AssistPurchase.Repositories.Implementations
         private readonly ProductFieldsValidator _validator = new ProductFieldsValidator();
         public HttpStatusCode AddProduct(Product product)
         {
-            _validator.ValidateProductFields(product);
+            var products = GetAllProducts();
+            _validator.ValidateNewProductId(product.ProductId, product, products );
             var con = GetConnection();
             try
             {
@@ -167,7 +168,7 @@ namespace AssistPurchase.Repositories.Implementations
 
         private static SQLiteConnection GetConnection()
         {
-            var con = new SQLiteConnection("data source=ProductInfo.db");
+            var con = new SQLiteConnection(@"data source=D:\a\assist-purchase-s22b3\AssistPurchase\ProductInfo.db");
             return con;
         }
 

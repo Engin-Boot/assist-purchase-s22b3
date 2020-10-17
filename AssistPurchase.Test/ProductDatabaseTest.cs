@@ -1,34 +1,48 @@
 ﻿using AssistPurchase.Models;
 using AssistPurchase.Repositories.Abstractions;
 using AssistPurchase.Repositories.Implementations;
-using AssistPurchaseTest.Util;
-using Microsoft.VisualBasic;
 using System.Linq;
 using System.Net;
-using System.Security.Cryptography;
-using System.Threading;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Xunit;
-namespace AssistPurchase.Test.DatabaseTest
+namespace AssistPurchase.Test
 {
-    public class ProductDatabaseSqlLiteTest
+    public class ClientSetUp
     {
+        public HttpClient Client;
+        public ClientSetUp()
+        {
+            this.Client = new TestClientProvider().Client;
+        }
 
-        private readonly IProductRepository _productRepo;
+        /*public async void SendInvalidPostRequest(Patient patient)
+        {
+            var content = new StringContent(JsonConvert.SerializeObject(patient), Encoding.UTF8, "application/json");
+            var response = await this.Client.PostAsync("api/IcuOccupancy/Patients", content);
+            Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        }*/
+    }
+    public class ProductDatabaseTest
+    {
+        [Fact]
+        public async Task CheckStatusCodeEqualOkGetAllProducts()
+        {
+            var setter = new ClientSetUp();
+            var response = await setter.Client.GetAsync("api/productsdatabase/products");
+            response.EnsureSuccessStatusCode();
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
 
-            public ProductDatabaseSqlLiteTest()
-            {
-                _productRepo = new ProductDbRepository();
-
-            }
-            [Fact]
+        /*[Fact]
             public void TestValidProductDataAddition()
             {
              //   Thread.Sleep(100);
 
-            string id = "X670";
-              var testProd = Helper.GetProductDataModelObject(id, "Intellivue");
+                string id = "X670";
+                var testProd = Helper.GetProductDataModelObject(id, "Intellivue");
                 Assert.True(_productRepo.AddProduct(testProd) == HttpStatusCode.OK);
-            _productRepo.AddProduct(testProd);
+                _productRepo.AddProduct(testProd);
 
             }
             [Fact]
@@ -78,7 +92,7 @@ namespace AssistPurchase.Test.DatabaseTest
                // Thread.Sleep(500);
                 var productList = _productRepo.GetAllProducts();
                 Assert.True(productList.Any());
-            }
+            }*/
 
         }
     }

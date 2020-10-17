@@ -25,7 +25,7 @@ namespace AssistPurchase.Repositories.FieldValidators
             _validator.IsWhitespaceOrEmptyOrNull(product.SoftwareUpdateSupport.ToString());
         }
 
-        public void ValidateNewProductId(string productId, Product productRecord, List<Product> products)
+        public void ValidateNewProductId(string productId, Product productRecord, IEnumerable<Product> products)
         {
             
             foreach (var product in products)
