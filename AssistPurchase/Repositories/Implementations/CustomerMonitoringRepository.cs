@@ -8,7 +8,6 @@ namespace AssistPurchase.Repositories.Implementations
 {
     public class CustomerMonitoringRepository : IMonitoringRepository
     {
-        private readonly List<CustomerAlert> _alerts = new List<CustomerAlert>();
         private readonly CustomerAlertFieldValidator _validator = new CustomerAlertFieldValidator();
        
 
@@ -78,7 +77,7 @@ namespace AssistPurchase.Repositories.Implementations
 
         private static SQLiteConnection GetConnection()
         {
-            var con = new SQLiteConnection(@"data source=D:\a\assist-purchase-s22b3\assist-purchase-s22b3\AssistPurchase\ProductInfo.db");
+            var con = new SQLiteConnection(@"data source=C:\Users\320108789\Source\Repos\assist-purchase-s22b3\AssistPurchase\ProductInfo.db");
             return con;
         }
     }

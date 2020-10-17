@@ -51,16 +51,7 @@ namespace AssistPurchase.Repositories.Implementations
 
         public List<Product> GetByPriceFilter(string amount, string belowOrAbove)
         {
-            List<Product> prodList;
-            if (belowOrAbove.ToLower() == "below")
-            {
-                prodList = GetBelowRateProducts(amount);
-            }
-            else
-            {
-                prodList = GetAboveRateProducts(amount);
-            }
-
+            var prodList = belowOrAbove.ToLower() == "below" ? GetBelowRateProducts(amount) : GetAboveRateProducts(amount);
             return prodList;
         }
 
@@ -184,7 +175,7 @@ namespace AssistPurchase.Repositories.Implementations
             return prodList;
         }
 
-        public List<Product> GetBelowRateProducts(string amount)
+        private List<Product> GetBelowRateProducts(string amount)
         {
             var products = _repo.GetAllProducts();
             var prodList = new List<Product>();
@@ -199,7 +190,7 @@ namespace AssistPurchase.Repositories.Implementations
             return prodList;
         }
 
-        public List<Product> GetAboveRateProducts(string amount)
+        private List<Product> GetAboveRateProducts(string amount)
         {
             var products = _repo.GetAllProducts();
             var prodList = new List<Product>();

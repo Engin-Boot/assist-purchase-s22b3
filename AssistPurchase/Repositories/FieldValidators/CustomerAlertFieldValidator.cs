@@ -18,7 +18,7 @@ namespace AssistPurchase.Repositories.FieldValidators
             ValidateOldProductId(alert.ProductId);
         }
 
-        public void ValidateOldProductId(string productId)
+        private void ValidateOldProductId(string productId)
         {
             var products = _repo.GetAllProducts();
             foreach (var product in products)

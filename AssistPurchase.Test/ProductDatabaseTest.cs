@@ -10,7 +10,7 @@ namespace AssistPurchase.Test
 {
     public class ClientSetUp
     {
-        public HttpClient Client;
+        public readonly HttpClient Client;
         public ClientSetUp()
         {
             this.Client = new TestClientProvider().Client;

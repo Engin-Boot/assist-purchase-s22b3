@@ -38,145 +38,68 @@ namespace AssistPurchase.Controllers
         [HttpGet("filters/compact/{filterValue}")]
         public IActionResult GetByCompactFilter(bool filterValue )
         {
-            try
-            {
-                return Ok(_filtersRepository.GetByCompactFilter(filterValue));
-            }
-            catch
-            {
-                return BadRequest();
-            }
-            
+            return Ok(_filtersRepository.GetByCompactFilter(filterValue));
+
         }
 
         [HttpGet("filters/price/{amount}/{belowOrAbove}")]
         public IActionResult Get(string amount, string belowOrAbove)
         {
-            try
-            {
-                return Ok(_filtersRepository.GetByPriceFilter(amount, belowOrAbove));
-            }
-            catch
-            {
-                return BadRequest();
-            }
+            return Ok(_filtersRepository.GetByPriceFilter(amount, belowOrAbove));
         }
 
         [HttpGet("filters/ProductSpecificTraining/{filterValue}")]
         public IActionResult GetByProductTrainingFilter(bool filterValue)
         {
-            try
-            {
-                return Ok(_filtersRepository.GetByProductSpecificTrainingFilter(filterValue));
-            }
-            catch
-            {
-                return BadRequest();
-            }
+            return Ok(_filtersRepository.GetByProductSpecificTrainingFilter(filterValue));
         }
 
         [HttpGet("filters/SoftwareUpdateSupport/{filterValue}")]
         public IActionResult GetByUpdateSupportFilter(bool filterValue)
         {
-            try
-            {
-                return Ok(_filtersRepository.GetBySoftwareUpdateSupportFilter(filterValue));
-            }
-            catch
-            {
-                return BadRequest();
-            }
+            return Ok(_filtersRepository.GetBySoftwareUpdateSupportFilter(filterValue));
         }
 
         [HttpGet("filters/Portability/{filterValue}")]
         public IActionResult GetByPortabilityFilter(bool filterValue)
         {
-            try
-            {
-                return Ok(_filtersRepository.GetByPortabilityFilter(filterValue));
-            }
-            catch
-            {
-                return BadRequest();
-            }
+            return Ok(_filtersRepository.GetByPortabilityFilter(filterValue));
         }
 
         [HttpGet("filters/BatterySupport/{filterValue}")]
         public IActionResult GetByBatterySupportFilter(bool filterValue)
         {
-            try
-            {
-                return Ok(_filtersRepository.GetByBatterySupportFilter(filterValue));
-            }
-            catch
-            {
-                return BadRequest();
-            }
+            return Ok(_filtersRepository.GetByBatterySupportFilter(filterValue));
         }
 
         [HttpGet("filters/ThirdPartyDeviceSupport/{filterValue}")]
         public IActionResult GetByThirdPartyDeviceFilter(bool filterValue)
         {
-            try
-            {
-                return Ok(_filtersRepository.GetByThirdPartyDeviceSupportFilter(filterValue));
-            }
-            catch
-            {
-                return BadRequest();
-            }
+            return Ok(_filtersRepository.GetByThirdPartyDeviceSupportFilter(filterValue));
         }
 
         [HttpGet("filters/SafeToFly/{filterValue}")]
         public IActionResult GetBySafeToFlyFilter(bool filterValue)
         {
-            try
-            {
-                return Ok(_filtersRepository.GetBySafeToFlyCertificationFilter(filterValue));
-            }
-            catch
-            {
-                return BadRequest();
-            }
+            return Ok(_filtersRepository.GetBySafeToFlyCertificationFilter(filterValue));
         }
 
         [HttpGet("filters/TouchScreen/{filterValue}")]
         public IActionResult GetByTouchScreenFilter(bool filterValue)
         {
-            try
-            {
-                return Ok(_filtersRepository.GetByTouchScreenSupportFilter(filterValue));
-            }
-            catch
-            {
-                return BadRequest();
-            }
+            return Ok(_filtersRepository.GetByTouchScreenSupportFilter(filterValue));
         }
 
         [HttpGet("filters/MultiPatientSupport/{filterValue}")]
         public IActionResult GetByMultiPatientSupportFilter(bool filterValue)
         {
-            try
-            {
-                return Ok(_filtersRepository.GetByMultiPatientSupportFilter(filterValue));
-            }
-            catch
-            {
-                return BadRequest();
-            }
+            return Ok(_filtersRepository.GetByMultiPatientSupportFilter(filterValue));
         }
 
         [HttpGet("filters/CyberSecurity/{filterValue}")]
         public IActionResult GetByCyberSecurityFilter(bool filterValue)
         {
-            try
-            {
-                return Ok(_filtersRepository.GetByCyberSecurityFilter(filterValue));
-            }
-            catch
-            {
-                return BadRequest();
-            }
+            return Ok(_filtersRepository.GetByCyberSecurityFilter(filterValue));
         }
     }
 }
