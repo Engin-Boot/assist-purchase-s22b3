@@ -17,7 +17,7 @@ namespace AssistPurchase.Test.DatabaseTest
 
             public ProductDatabaseSqlLiteTest()
             {
-                _productRepo = new ProductDatabaseSqlLiteRepository();
+                _productRepo = new ProductDbRepository();
 
             }
             [Fact]

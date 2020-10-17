@@ -15,7 +15,7 @@ namespace AssistPurchase.Repositories.Implementations
     public class ProductDbRepository : IProductRepository
     {
         private readonly ProductFieldsValidator _validator = new ProductFieldsValidator();
-        public void AddProduct(Product product)
+        public HttpStatusCode AddProduct(Product product)
         {
             _validator.ValidateProductFields(product);
             var con = GetConnection();
@@ -59,9 +59,11 @@ namespace AssistPurchase.Repositories.Implementations
             {
                 con.Close();
             }
+
+            return HttpStatusCode.OK;
         }
 
-        public void DeleteProduct(string id)
+        public HttpStatusCode DeleteProduct(string id)
         {
             var con = GetConnection();
             con.Open();
@@ -81,6 +83,8 @@ namespace AssistPurchase.Repositories.Implementations
             {
                 con.Close();
             }
+
+            return HttpStatusCode.OK;
         }
 
 
@@ -152,11 +156,13 @@ namespace AssistPurchase.Repositories.Implementations
             con.Close();
             return product;
         }
-        public void UpdateProduct(string id, Product product)
+        public HttpStatusCode UpdateProduct(string id, Product product)
         {
             _validator.ValidateProductFields(product);
             DeleteProduct(id);
             AddProduct(product);
+
+            return HttpStatusCode.OK;
         }
 
         private static SQLiteConnection GetConnection()
