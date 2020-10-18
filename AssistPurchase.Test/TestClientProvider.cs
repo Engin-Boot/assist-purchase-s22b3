@@ -6,7 +6,7 @@ namespace AssistPurchase.Test
 {
     internal class TestClientProvider
     {
-        public HttpClient Client { get; set; }
+        public HttpClient Client { get; private set; }
         private TestServer _server;
 
         public TestClientProvider()
