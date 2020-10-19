@@ -16,12 +16,12 @@ namespace AssistPurchase.Test
             this.Client = new TestClientProvider().Client;
         }
 
-        public async Task SendInvalidPostRequest(CustomerAlert alert)
+      /*  public async void SendInvalidPostRequest(CustomerAlert alert)
         {
             var content = new StringContent(JsonConvert.SerializeObject(alert), Encoding.UTF8, "application/json");
             var response = await this.Client.PostAsync("api/alert/alerts", content);
             Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
-        }
+        }*/
     }
     public class ProductDatabaseTest
     {
