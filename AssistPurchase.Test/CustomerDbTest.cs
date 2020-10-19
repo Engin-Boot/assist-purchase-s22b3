@@ -1,6 +1,7 @@
 ﻿
 using System.Net;
 using System.Net.Http;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using AssistPurchase.Models;
@@ -25,10 +26,11 @@ namespace AssistPurchase.Test
         [Fact]
         public async Task ReturnsOkStatusCodeWhenAlertIsAdded()
         {
+            var num = RandomNumberGenerator.GetInt32(4,100);
             var setter = new ClientSetUp();
             var alert = new CustomerAlert()
             {
-                CustomerId = "CID03",
+                CustomerId = "CID"+num,
                 CustomerName = "Venkat",
                 CustomerEmailId = "venkat123@gmail.com",
                 ProductId = "X3",
