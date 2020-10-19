@@ -134,3 +134,4 @@ C:\Users\Anji\Desktop\Varsha\assist-purchase-s22b3\AssistPurchase\obj\Debug\netc
 C:\Users\Anji\Desktop\Varsha\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\staticwebassets\AssistPurchase.StaticWebAssets.Manifest.cache
 C:\Users\Anji\Desktop\Varsha\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\staticwebassets\AssistPurchase.StaticWebAssets.xml
 C:\Users\Anji\Desktop\Varsha\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.genruntimeconfig.cache
+C:\Users\Anji\Desktop\Assist-to-Purchase\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.csprojAssemblyReference.cache

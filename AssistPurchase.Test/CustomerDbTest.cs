@@ -9,9 +9,10 @@ using Xunit;
 
 namespace AssistPurchase.Test
 {
-    public class CustomerDbTest
-    {
 
+    public class CustomerDbTest
+
+    { 
         [Fact]
         public async Task CheckStatusCodeEqualOkGetAllProducts()
         {

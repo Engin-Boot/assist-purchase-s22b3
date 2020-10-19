@@ -8,21 +8,7 @@ using Xunit;
 
 namespace AssistPurchase.Test
 {
-    public class ClientSetUp
-    {
-        public readonly HttpClient Client;
-        public ClientSetUp()
-        {
-            this.Client = new TestClientProvider().Client;
-        }
-
-      /*  public async void SendInvalidPostRequest(CustomerAlert alert)
-        {
-            var content = new StringContent(JsonConvert.SerializeObject(alert), Encoding.UTF8, "application/json");
-            var response = await this.Client.PostAsync("api/alert/alerts", content);
-            Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
-        }*/
-    }
+    
     public class ProductDatabaseTest
     {
         [Fact]
