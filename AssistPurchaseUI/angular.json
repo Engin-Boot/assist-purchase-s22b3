@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "AssistPurchaseUI"
+    }
+  },
+  "defaultProject": "AssistPurchaseUI",
+  "cli": {
+    "analytics": false
+  }
 }
