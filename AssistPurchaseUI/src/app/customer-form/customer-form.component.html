@@ -4,13 +4,13 @@
     <h1>Contact Information</h1>
     <div class="container">
     <label><strong>Username</strong></label>
-    <input type="text" placeholder="Enter Name" required>
+    <input type="text" name="customerName" placeholder="Enter Name" [(ngModel)]="customerName"  required>
     <label><strong>E-mail</strong></label>
-    <input type="email" placeholder="Enter E-mail" required>
+    <input type="email" name="emailId" placeholder="Enter E-mail" [(ngModel)]="customerEmailId" required>
     <label><strong>Phone number</strong></label>
-    <input type="text" placeholder="Enter Phone Number" required>
-    </div><br><br>
-    <input type="submit" value="Submit" (click)="navigate()">&nbsp;&nbsp;
-    <input type="reset" value="Reset">
+    <input type="text" name="phoneNumber" placeholder="Enter Phone Number" [(ngModel)]="phoneNumber" required>
+    </div><br><br> 
+    <input type="submit" name="submit" value="Submit" (click)="navigate()">&nbsp;&nbsp;
+    <input type="reset" name="reset" value="Reset">
     </form>
     </fieldset>

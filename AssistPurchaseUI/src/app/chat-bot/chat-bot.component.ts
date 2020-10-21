@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-
+import {CustomerAlert} from '../Services/CustomerAlertService'
+import {CustomerFormComponent} from '../customer-form/customer-form.component'
 @Component({
   selector: 'chat-comp',
   templateUrl: './chat-bot.component.html',
   styleUrls: ['./chat-bot.component.css']
 })
 export class ChatBotComponent implements OnInit {
+  alert:CustomerAlert;
+  info:CustomerFormComponent;
+  constructor() {
+     this.alert = new CustomerAlert();
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
   }
@@ -15,11 +20,15 @@ export class ChatBotComponent implements OnInit {
   productId='';
   onKey(event: any) { 
     this.values = event.target.value;
-    console.log(this.values);
-}
-contact(e:string)
-{
-this.productId=e;
-console.log(e);
-}
+  }
+  setProductId(e:string)
+  {
+    this.productId=e;
+  }
+  contact(){
+    this.alert.CustomerName = this.info.getCustomerName();
+    this.alert.CustomerEmailId = this.info.getCustomerEmailId();
+    this.alert.PhoneNumber = this.info.getPhoneNumber();
+    this.alert.ProductId = this.productId;
+  }
 }
