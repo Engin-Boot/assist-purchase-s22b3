@@ -11,9 +11,7 @@ export class CustomerFormComponent implements OnInit {
 
   constructor(private router:Router) {
     let alert=new CustomerAlert();
-
-   }
-  
+  } 
 navigate()
 {
 

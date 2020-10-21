@@ -1,7 +1,6 @@
 ﻿
 using System.Net;
 using System.Net.Http;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using AssistPurchase.Models;
@@ -26,7 +25,7 @@ namespace AssistPurchase.Test
         [Fact]
         public async Task ReturnsOkStatusCodeWhenAlertIsAdded()
         {
-            var num = RandomNumberGenerator.GetInt32(4,100);
+            
             var setter = new ClientSetUp();
             var alert = new CustomerAlert()
             {
@@ -42,20 +41,12 @@ namespace AssistPurchase.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
         }
-
-        
-
-        
-
-        
-
         [Fact]
         public void ReturnsBadRequestStatusCodeWhenAFieldIsNull()
         {
             var setter = new ClientSetUp();
             var alert = new CustomerAlert()
             {
-                
                 CustomerName = null,
                 CustomerEmailId = "venkat123@gmail.com",
                 ProductId = "AB",

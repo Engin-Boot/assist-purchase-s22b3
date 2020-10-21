@@ -26,10 +26,10 @@ namespace AssistPurchase.Repositories.Implementations
                 list.Add(new CustomerAlert()
                 {
                   
-                    CustomerName = rdr.GetString(1),
-                    CustomerEmailId = rdr.GetString(2),
-                    ProductId =rdr.GetString(3),
-                    PhoneNumber = rdr.GetString(4)
+                    CustomerName = rdr.GetString(0),
+                    CustomerEmailId = rdr.GetString(1),
+                    ProductId =rdr.GetString(2),
+                    PhoneNumber = rdr.GetString(3)
                     
                 });
             }

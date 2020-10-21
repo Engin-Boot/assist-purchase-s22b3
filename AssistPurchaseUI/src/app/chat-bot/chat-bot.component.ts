@@ -11,5 +11,15 @@ export class ChatBotComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  values = '';
+  productId='';
+  onKey(event: any) { 
+    this.values = event.target.value;
+    console.log(this.values);
+}
+contact(e:string)
+{
+this.productId=e;
+console.log(e);
+}
 }
