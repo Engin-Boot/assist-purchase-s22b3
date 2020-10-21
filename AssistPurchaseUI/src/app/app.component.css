@@ -1,0 +1,25 @@
+.tab {
+    overflow: hidden;
+    border: 3px blue;
+    background-color:blue;
+  }
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: purple;
+    cursor: pointer;
+    padding: 20px 20px;
+    transition: 0.3s;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  .tab button.active {
+    background-color: #ccc;
+  }
+ 
+  
+  

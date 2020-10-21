@@ -6,18 +6,20 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { ChatBotComponent } from './chat-bot/chat-bot.component';
-
+import { ConfigurationComponent } from './configuration/configuration.component';
+import {FormsModule} from '@angular/forms'
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CustomerFormComponent,
-    ChatBotComponent
+    ChatBotComponent,
+    ConfigurationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

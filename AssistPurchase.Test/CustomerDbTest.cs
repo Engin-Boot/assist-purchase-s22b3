@@ -30,7 +30,7 @@ namespace AssistPurchase.Test
             var setter = new ClientSetUp();
             var alert = new CustomerAlert()
             {
-                CustomerId = "CID"+num,
+                
                 CustomerName = "Venkat",
                 CustomerEmailId = "venkat123@gmail.com",
                 ProductId = "X3",
@@ -43,38 +43,11 @@ namespace AssistPurchase.Test
 
         }
 
-        [Fact]
-        public async Task ReturnsOkAfterValidDeleteOperation()
-        {
-            ClientSetUp setter = new ClientSetUp();
-            var response = await setter.Client.DeleteAsync("api/alert/alerts/CID03");
-            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-        }
+        
 
-        [Fact]
-        public void ReturnsBadRequestStatusCodeWhenProductIdDoesNotExist()
-        {
-            var setter = new ClientSetUp();
-            var alert = new CustomerAlert()
-            {
-                CustomerId = "CID03",
-                CustomerName = "Venkat",
-                CustomerEmailId = "venkat123@gmail.com",
-                ProductId = "XYZ",
-                PhoneNumber = "7874393847"
-            };
+        
 
-            setter.SendInvalidPostRequest(alert);
-
-        }
-
-        [Fact]
-        public async Task ReturnsBadRequestWhenGivenAnInvalidCustomerId()
-        {
-            ClientSetUp setter = new ClientSetUp();
-            var response = await setter.Client.DeleteAsync("api/alert/alerts/CID09");
-            Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
-        }
+        
 
         [Fact]
         public void ReturnsBadRequestStatusCodeWhenAFieldIsNull()
@@ -82,7 +55,7 @@ namespace AssistPurchase.Test
             var setter = new ClientSetUp();
             var alert = new CustomerAlert()
             {
-                CustomerId = "CID03",
+                
                 CustomerName = null,
                 CustomerEmailId = "venkat123@gmail.com",
                 ProductId = "AB",

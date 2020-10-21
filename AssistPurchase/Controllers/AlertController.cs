@@ -23,19 +23,7 @@ namespace AssistPurchase.Controllers
             return Ok(_monitoringRepository.GetAllAlerts());
         }
 
-        [HttpDelete("alerts/{id}")]
-        public IActionResult Delete(string id) 
-        {
-            try
-            {
-                _monitoringRepository.DeleteAlert(id);
-                return Ok();
-            }
-            catch
-            {
-                return BadRequest();
-            }
-        }
+       
 
         [HttpPost("alerts")]
         public IActionResult Post([FromBody] CustomerAlert alert)
