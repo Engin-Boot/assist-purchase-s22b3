@@ -4,29 +4,10 @@
     <div id='chatborder'>
     <textarea class="textarea" rows="10" cols="60">{{values}}</textarea>
     <input (keyup)="onKey($event)" type="text" name="chat" id="chatbox" placeholder="Hi there! Type your questions here">
-    <button>Submit</button>
+    <input type="submit" name="Submit">
+    <input id="contact" type="submit" value="Browse options" (click)="navigate()">
     </div>
     </div>
     <div>
-    <input type="radio" name="monitoringMachine" (click)="setProductId('IntellivueX3')" id="IntellivueX3">
-    <label for="IntellivueX3">IntellivueX3</label><img width="150px" height="150px" src="./assets/images/IntellivueX3.PNG" alt="IntellivueX3"> 
-      <input type="radio"  name="monitoringMachine" (click)="setProductId('IntellivueMX40')" id="IntellivueMX40"> 
-        <label for="IntellivueMX40">IntellivueMX40</label>  <img width="150px" height="150px" src="./assets/images/IntellivueMX40.PNG" alt="IntellivueMX40">
-        <input type="radio" name="monitoringMachine" (click)="setProductId('IntellivueAD85')" id="IntellivueAD85">
-        <label for="IntellivueAD85">IntellivueAD85</label>  <img width="150px" height="150px" src="./assets/images/IntellivueAD85.PNG" alt="IntellivueAD85">
-        <input type="radio" name="monitoringMachine" (click)="setProductId('IntellivueMMSX2')" id="IntellivueMMSX2">
-        <label for="IntellivueMMSX2">IntellivueMMSX2</label>   <img width="150px" height="150px" src="./assets/images/IntellivueMMSX2.PNG" alt="IntellivueMMSX2"> <br>
-        <input type="radio" name="monitoringMachine" (click)="setProductId('IntellivueMP2')" id="IntellivueMP2">
-        <label for="IntellivueMP2">IntellivueMP2</label>    <img width="150px" height="150px" src="./assets/images/IntellivueMP2.PNG" alt="IntellivueMP2">
-        <input type="radio" name="monitoringMachine" (click)="setProductId('IntellivueMX500')" id="IntellivueMX500">
-        <label for="IntellivueMX500"> IntellivueMX500</label>  <img width="150px" height="150px" src="./assets/images/IntellivueMX500.PNG" alt="IntellivueMX500">
-        <input type="radio"name="monitoringMachine" (click)="setProductId('IntellivueMX550')"  id="IntellivueMX550">
-        <label for="IntellivueMX550">IntellivueMX550</label> <img width="150px" height="150px" src="./assets/images/IntellivueMX550.PNG" alt="IntellivueMX550"><br>
-        <input type="radio"name="monitoringMachine" (click)="setProductId('IntellivueMX700')" id="IntellivueMX700">
-        <label for ="IntellivueMX700">IntellivueMX700</label>   <img width="150px" height="150px" src="./assets/images/IntellivueMX700.PNG" alt="IntellivueMX550">
-        <input type="radio"name="monitoringMachine" (click)="setProductId('IntellivueMX750')" id="IntellivueMX750"> 
-        <label for="IntellivueMX750">IntellivueMX750</label>   <img width="150px" height="150px" src="./assets/images/IntellivueMX750.PNG" alt="IntellivueMX550">
-        <input type="radio"name="monitoringMachine" (click)="setProductId('IntellivueMX800')"  id="IntellivueMX800">
-        <label for="IntellivueMX800">IntellivueMX800</label>  <img width="150px" height="150px" src="./assets/images/IntellivueMX800.PNG" alt="IntellivueMX550">
-        <button (click)="contact()">Contact Sales Person</button>
+      <p id="note">***Please base you questions on available filters.<br><br>Filters available: Compactness, Portability, Battery support, Price, Product specific training, Software update support, Third party device support, Safe to fly certification, Touch screen support, Multi-patient support, Cyber security</p>
     </div>

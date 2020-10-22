@@ -5,7 +5,6 @@
     background-color: white;
     border-style: solid;
     border-width: 1px;
-   
     box-shadow: 5px 5px 5px grey;
     border-radius: 15px;
     align-content:left;
@@ -26,6 +25,10 @@
     border-radius: 15px;
     
     }
+
+    #contact{
+        float: right;
+    }
     
     .chatlog {
     font: 15px arial, sans-serif;
@@ -34,7 +37,12 @@
     #chatbox {
     font: 17px arial, sans-serif;
     height: 22px;
-    width: 100%;
+    width: 97%;
+    }
+
+    #note{
+        color: red;
+        text-align: center;
     }
     h1{
     text-align: center;

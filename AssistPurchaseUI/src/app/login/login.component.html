@@ -1,23 +1,22 @@
 <br><fieldset class="Infoform">
 <label>UserName :</label>
-     <input placeholder="Enter Name Here"
+     <input placeholder="Enter Name"
         #userNameTextBox
         type="text"
         (input)="onUserNameEdit(userNameTextBox.value)"
         [value]="userName"  />
  
   <label> Password : </label> 
- <input placeholder="Enter Password Here"
+ <input placeholder="Enter Password"
        #passwordTextBox
        type="password"
         (input)="onPasswordEdit(passwordTextBox.value)"
         [value]="password" />
-  <br>
-    <button  (click)="onLogin()">Login</button>   
-     <button (click)="onReset()" >reset</button>   <br>
+  <br><br>
+    <button  (click)="onLogin()">Login</button>&nbsp;&nbsp;  
+     <button (click)="onReset()" >Reset</button>   <br>
 
-   <label>Status </label> 
-     <output> {{'Login Status :'+ errorMessage}}</output> 
+     <output> {{errorMessage}}</output> 
   
 
 

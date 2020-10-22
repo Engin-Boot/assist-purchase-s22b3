@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
-
+import {CustomerAlert} from '../Services/CustomerAlertService'
 
 @Component({
   selector: 'customerForm-comp',
@@ -9,27 +9,24 @@ import {Router} from '@angular/router'
 })
 export class CustomerFormComponent implements OnInit {
 
-  constructor(private router:Router) {
+  alert:CustomerAlert
+  constructor(private router:Router, alert:CustomerAlert) {
+    this.alert = alert;
   } 
   customerName:string;
-  customerEmailId:string;
+  emailId:string;
   phoneNumber:string;
-  navigate()
-  {
-    this.router.navigate(['/chatbot'])
-  }
-  getCustomerName():string{
-    return this.customerName;
-  }
-  getCustomerEmailId():string{
-    return this.customerEmailId;
-  }
-  getPhoneNumber():string{
-    return this.phoneNumber;
-  }
-
+  productId:string;
+ 
+ 
   ngOnInit(): void {
   }
-
+  contactSalesPerson(){
+    
+    this.alert.CustomerName = this.customerName;
+    this.alert.CustomerEmailId = this.emailId;
+    this.alert.PhoneNumber = this.phoneNumber;
+    this.alert.ProductId = this.productId;
+  }
 
 }

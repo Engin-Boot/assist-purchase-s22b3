@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'AssistPurchaseUI';
   constructor(private router:Router) { }
   navigateToForm(){
-    this.router.navigate(['/customerinfo'])
+    this.router.navigate(['/chatbot'])
   }
   navigateToHome()
 {

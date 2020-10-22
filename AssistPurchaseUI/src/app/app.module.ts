@@ -9,6 +9,7 @@ import { ChatBotComponent } from './chat-bot/chat-bot.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import {FormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component'
+import {CustomerAlert} from './Services/CustomerAlertService'
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,7 @@ import { LoginComponent } from './login/login.component'
     AppRoutingModule,
     RouterModule,FormsModule
   ],
-  providers: [],
+  providers: [{provide:CustomerAlert,useClass:CustomerAlert}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

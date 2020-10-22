@@ -1,14 +1,11 @@
+import {Injectable} from '@angular/core'
+
+
+@Injectable()
 export class CustomerAlert
 {
-CustomerName:string;
-CustomerEmailId:string;
-ProductId:string;
-PhoneNumber:string;
-Constructor()
-{
-    this.CustomerName="";
-    this.CustomerEmailId="";
-    this.ProductId="";
-    this.PhoneNumber="";
-}
+    CustomerName:string;
+    CustomerEmailId:string;
+    ProductId:string;
+    PhoneNumber:string;
 }
