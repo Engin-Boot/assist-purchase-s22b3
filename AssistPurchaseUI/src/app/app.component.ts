@@ -16,9 +16,9 @@ export class AppComponent {
 {
   this.router.navigate(['/home'])
 }
-navigateToConfiguration()
+navigateToLogin()
 {
-  this.router.navigate(['/config'])
+  this.router.navigate(['/login'])
 }
 }
 

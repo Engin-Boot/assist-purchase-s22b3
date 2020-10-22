@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Router} from '@angular/router';
 @Component({
   selector: 'config-comp',
   templateUrl: './configuration.component.html',
@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigurationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
-
+  
+  navigateAddDevice(){
+    this.router.navigate(['/addDevice'])
+  }
+  navigateDeleteDevice()
+{
+  this.router.navigate(['/deleteDevice'])
+}
+navigateUpdateDevice()
+{
+  this.router.navigate(['/updateDevice'])
+}
 }

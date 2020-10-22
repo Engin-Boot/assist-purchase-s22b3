@@ -7,14 +7,16 @@ import { HomeComponent } from './home/home.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { ChatBotComponent } from './chat-bot/chat-bot.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
+import { LoginComponent } from './login/login.component'
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CustomerFormComponent,
     ChatBotComponent,
-    ConfigurationComponent
+    ConfigurationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
