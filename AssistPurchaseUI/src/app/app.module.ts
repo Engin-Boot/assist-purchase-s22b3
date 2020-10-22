@@ -13,9 +13,7 @@ import {CustomerAlert} from './Services/CustomerAlertService'
 import { AddDeviceComponent } from './add-device/add-device.component';
 import { UpdateDeviceComponent } from './update-device/update-device.component';
 import { DeleteDeviceComponent } from './delete-device/delete-device.component';
-import{ProductAddService} from './Services/ProductAddService'
-import{ProductUpdateService} from './Services/ProductUpdateService'
-import{ProductDeleteService} from './Services/ProductDeleteService';
+import {ProductService} from './Services/ProductService'
 import { GetProductByIdComponent } from './get-product-by-id/get-product-by-id.component';
 import { GetAllProductsComponent } from './get-all-products/get-all-products.component'
 @NgModule({
@@ -38,9 +36,8 @@ import { GetAllProductsComponent } from './get-all-products/get-all-products.com
     RouterModule,FormsModule
   ],
   providers: [{provide:CustomerAlert,useClass:CustomerAlert},
-  {provide:ProductAddService,useClass:ProductAddService},
-{provide:ProductUpdateService,useClass:ProductUpdateService},
-{provide:ProductDeleteService,useClass:ProductDeleteService}],
+    {provide:ProductService,useClass:ProductService},
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

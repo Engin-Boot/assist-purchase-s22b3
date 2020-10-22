@@ -16,11 +16,17 @@ export class ConfigurationComponent implements OnInit {
     this.router.navigate(['/addDevice'])
   }
   navigateDeleteDevice()
-{
-  this.router.navigate(['/deleteDevice'])
-}
-navigateUpdateDevice()
-{
-  this.router.navigate(['/updateDevice'])
-}
+  {
+    this.router.navigate(['/deleteDevice'])
+  }
+  navigateUpdateDevice()
+  {
+    this.router.navigate(['/updateDevice'])
+  }
+  navigateGetAllDevices(){
+
+  }
+  navigateGetDeviceById(){
+    this.router.navigate(['/getDevice'])
+  }
 }

@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class DeleteDeviceComponent implements OnInit {
 
   constructor() { }
-ProductId:string;
+  productId:string;
   ngOnInit(): void {
   }
-onDelete()
-{
-  return this.ProductId;
-}
+  onDelete()
+  {
+    console.log(this.productId);
+  }
 }

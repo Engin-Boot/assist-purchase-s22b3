@@ -25,7 +25,14 @@
     border-radius: 15px;
     
     }
-
+    
+    .button{
+        background-color: black;
+        color: whitesmoke;
+        border: none;
+        padding: 10px 10px;
+        margin: 5px;
+    }
     #contact{
         float: right;
     }

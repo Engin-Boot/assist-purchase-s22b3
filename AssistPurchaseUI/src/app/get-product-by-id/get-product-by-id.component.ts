@@ -11,5 +11,8 @@ export class GetProductByIdComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  productId:string;
+  onGet(){
+      console.log(this.productId);
+  }
 }

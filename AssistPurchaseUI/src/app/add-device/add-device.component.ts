@@ -25,12 +25,11 @@ export class AddDeviceComponent implements OnInit {
   }
   
   addDevice()
-{
-  let user={ProductId:this.ProductId, Description:this.Description,ProductSpecificTraining:this.ProductSpecificTraining
-    ,Price:this.Price,Portability:this.Portability,Compact:this.Compact,BatterySupport:this.BatterySupport,
-    ThirdPartyDeviceSupport:this.ThirdPartyDeviceSupport,SafeToFlyCertification:this.ThirdPartyDeviceSupport,
-    TouchScreenSupport:this.TouchScreenSupport,MultiPatientSupport:this.MultiPatientSupport,
-    CyberSecurity:this.MultiPatientSupport}
-    return user;
-}
+  {
+    let user={ProductId:this.ProductId, Description:this.Description,ProductSpecificTraining:this.ProductSpecificTraining
+      ,Price:this.Price,Portability:this.Portability,Compact:this.Compact,BatterySupport:this.BatterySupport,
+      ThirdPartyDeviceSupport:this.ThirdPartyDeviceSupport,SafeToFlyCertification:this.ThirdPartyDeviceSupport,
+      TouchScreenSupport:this.TouchScreenSupport,MultiPatientSupport:this.MultiPatientSupport,
+      CyberSecurity:this.MultiPatientSupport}
+  }
 }

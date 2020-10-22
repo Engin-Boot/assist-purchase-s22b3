@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core'
 
 
 @Injectable()
-export class ProductUpdateService
+export class ProductService
 {
     ProductId:string;
     Description:string;

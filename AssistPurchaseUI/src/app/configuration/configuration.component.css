@@ -1,5 +1,5 @@
 .button {
-    background-color:blue;
+    background-color:rgb(8, 47, 83);
     border: blueviolet;
     color: white;
     padding: 15px 32px;
@@ -7,4 +7,17 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+  }
+
+  .menu {
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+  }
+
+  button:hover {
+    background-color: rgb(8, 1, 1);
+  }
+  button.active {
+    background-color:  rgb(8, 1, 1);
   }

@@ -1,1 +1,14 @@
-<p>get-product-by-id works!</p>
+
+ <br>
+ <fieldset class="Infoform">
+ <form>
+ <h1>Product Details</h1>
+ <div class="container">
+ <label><strong>Product ID</strong></label>
+ <input type="text" placeholder="Enter Product Id" name="productId" [(ngModel)]="productId" required>
+ 
+ </div><br><br>
+ <input type="submit" value="Get Device" (click)="onGet()">&nbsp;&nbsp;
+ 
+ </form>
+ </fieldset>
