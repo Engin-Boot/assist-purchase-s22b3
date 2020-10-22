@@ -10,6 +10,14 @@ import { ConfigurationComponent } from './configuration/configuration.component'
 import {FormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component'
 import {CustomerAlert} from './Services/CustomerAlertService'
+import { AddDeviceComponent } from './add-device/add-device.component';
+import { UpdateDeviceComponent } from './update-device/update-device.component';
+import { DeleteDeviceComponent } from './delete-device/delete-device.component';
+import{ProductAddService} from './Services/ProductAddService'
+import{ProductUpdateService} from './Services/ProductUpdateService'
+import{ProductDeleteService} from './Services/ProductDeleteService';
+import { GetProductByIdComponent } from './get-product-by-id/get-product-by-id.component';
+import { GetAllProductsComponent } from './get-all-products/get-all-products.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,14 +25,22 @@ import {CustomerAlert} from './Services/CustomerAlertService'
     CustomerFormComponent,
     ChatBotComponent,
     ConfigurationComponent,
-    LoginComponent
+    LoginComponent,
+    AddDeviceComponent,
+    UpdateDeviceComponent,
+    DeleteDeviceComponent,
+    GetProductByIdComponent,
+    GetAllProductsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,FormsModule
   ],
-  providers: [{provide:CustomerAlert,useClass:CustomerAlert}],
+  providers: [{provide:CustomerAlert,useClass:CustomerAlert},
+  {provide:ProductAddService,useClass:ProductAddService},
+{provide:ProductUpdateService,useClass:ProductUpdateService},
+{provide:ProductDeleteService,useClass:ProductDeleteService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

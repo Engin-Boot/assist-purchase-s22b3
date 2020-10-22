@@ -3,43 +3,41 @@
 <form>
 <h1>Update Patient Monitoring Device</h1>
 <div class="container">
-<label><strong>Product Id</strong></label>
-<input type="text" placeholder="Enter Product Id" required>
-<label><strong>Description</strong></label>
-<input type="text" placeholder="Enter Description" required>
-<label><strong>ProductSpecificTraining</strong></label>
-<input type="radio" name="ProductSpecificTraining" id="TRUE"><label>TRUE</label><input type="radio" name="ProductSpecificTraining"id="FALSE"><label>FALSE</label><br><br>
-
-<label><strong>Price</strong></label>
-<input type="text" placeholder="Enter Price" required>
-<label><strong>Portability</strong></label>
-<input type="radio" name ="Portability" id="TRUE"><label>TRUE</label><input type="radio" name ="Portability" id="FALSE"><label>FALSE</label><br><br>
-
-<label><strong>Compact</strong></label>
-<input type="radio" name="Compact" id="TRUE"><label>TRUE</label><input type="radio" name="Compact" id="FALSE"><label>FALSE</label><br><br>
-
-<label><strong>BatterySupport</strong></label>
-<input type="radio" name="BatterySupport" id="TRUE"><label>TRUE</label><input type="radio"  name="BatterySupport" id="FALSE"><label>FALSE</label><br><br>
-
-<label><strong>ThirdPartyDeviceSupport</strong></label>
-<input type="radio" name ="ThirdPartyDeviceDupport" id="TRUE"><label>TRUE</label><input type="radio" name ="ThirdPartyDeviceDupport" id="FALSE"><label>FALSE</label><br><br>
-
-<label><strong>SafeToFlyCertification</strong></label>
-<input type="radio" name ="SafeToFlyCertification" id="TRUE"><label>TRUE</label><input type="radio" name ="SafeToFlyCertification" id="FALSE"><label>FALSE</label><br><br>
-
-<label><strong>TouchScreenSupport</strong></label>
-<input type="radio" name="TouchScreenSupport" id="TRUE"><label>TRUE</label><input type="radio" name="TouchScreenSupport" id="FALSE"><label>FALSE</label><br><br>
-
-<label><strong>MultiPatientSupport</strong></label>
-<input type="radio" name="MultiPatientSupport" id="TRUE"><label>TRUE</label><input type="radio" name="MultiPatientSupport" id="FALSE"><label>FALSE</label><br><br>
-
-<label><strong>CyberSecurity</strong></label>
-<input type="radio" name ="CyberSecurity" id="TRUE"><label>TRUE</label><input type="radio" name ="CyberSecurity" id="FALSE"><label>FALSE</label><br><br>
-
-
+    <label><strong>Product Id</strong></label>
+    <input type="text" placeholder="Enter Product Id" name ="ProductId" [(ngModel)]="ProductId" required>
+    <label><strong>Description</strong></label>
+    <input type="text" placeholder="Enter Description" name="Description" [(ngModel)]="Description" required>
+    <label><strong>ProductSpecificTraining</strong></label>
+    <input type="radio" name="ProductSpecificTraining" [(ngModel)]="ProductSpecificTraining" value="TRUE" checked="checked"><label>TRUE</label><input type="radio" name="ProductSpecificTraining" value="FALSE" [(ngModel)]="ProductSpecificTraining" ><label>FALSE</label><br><br>
+    
+    <label><strong>Price</strong></label>
+    <input type="text" placeholder="Enter Price" name ="Price" [(ngModel)]="Price" required>
+    <label><strong>Portability</strong></label>
+    <input type="radio" name ="Portability" [(ngModel)]="Portability" value="TRUE" checked><label>TRUE</label><input type="radio" [(ngModel)]="Portability" name ="Portability" value="FALSE"><label>FALSE</label><br><br>
+    
+    <label><strong>Compact</strong></label>
+    <input type="radio" name="Compact" [(ngModel)] ="Compact" value="TRUE"checked><label>TRUE</label><input type="radio" name="Compact" [(ngModel)]="Compact" value="FALSE"><label>FALSE</label><br><br>
+    
+    <label><strong>BatterySupport</strong></label>
+    <input type="radio" name="BatterySupport" [(ngModel)] ="BatterySupport" value="TRUE"checked><label>TRUE</label><input type="radio"  name="BatterySupport" [(ngModel)] ="BatterySupport" value="FALSE"><label>FALSE</label><br><br>
+    
+    <label><strong>ThirdPartyDeviceSupport</strong></label>
+    <input type="radio" name ="ThirdPartyDeviceSupport" [(ngModel)]="ThirdPartyDeviceSupport" value="TRUE"checked><label>TRUE</label><input type="radio" name ="ThirdPartyDeviceSupport" [(ngModel)]="ThirdPartyDeviceSupport" value="FALSE"><label>FALSE</label><br><br>
+    
+    <label><strong>SafeToFlyCertification</strong></label>
+    <input type="radio" name ="SafeToFlyCertification" [(ngModel)]="SafeToFlyCertification" value="TRUE"checked><label>TRUE</label><input type="radio" name ="SafeToFlyCertification" [(ngModel)]="SafeToFlyCertification" value="FALSE"><label>FALSE</label><br><br>
+    
+    <label><strong>TouchScreenSupport</strong></label>
+    <input type="radio" name="TouchScreenSupport" [(ngModel)]="TouchScreenSupport" value="TRUE"checked><label>TRUE</label><input type="radio" [(ngModel)]="TouchScreenSupport" name="TouchScreenSupport" value="FALSE"><label>FALSE</label><br><br>
+    
+    <label><strong>MultiPatientSupport</strong></label>
+    <input type="radio" name="MultiPatientSupport" [(ngModel)]="MultiPatientSupport" value="TRUE"checked><label>TRUE</label><input type="radio" [(ngModel)] ="MultiPatientSupport" name="MultiPatientSupport" value="FALSE"><label>FALSE</label><br><br>
+    
+    <label><strong>CyberSecurity</strong></label>
+    <input type="radio" name ="CyberSecurity" value="TRUE" [(ngModel)]="CyberSecurity"checked><label>TRUE</label><input type="radio" name ="CyberSecurity"  [(ngModel)]="CyberSecurity" value="FALSE"><label>FALSE</label><br><br>
 
 </div><br><br>
-<input type="submit" value="Update Details">
+<input type="submit" value="Update Details" (click)="onUpdate()">
 <input type="reset" value="Reset">
 </form>
 </fieldset>

@@ -5,10 +5,10 @@
  <h1>Delete Product</h1>
  <div class="container">
  <label><strong>Product ID</strong></label>
- <input type="text" placeholder="Enter Product Id" required>
+ <input type="text" placeholder="Enter Product Id" [(ngModel)]="ProductId" required>
  
  </div><br><br>
- <input type="submit" value="Delete Device">&nbsp;&nbsp;
+ <input type="submit" value="Delete Device" (click)="onDelete()">&nbsp;&nbsp;
  
  </form>
  </fieldset>
