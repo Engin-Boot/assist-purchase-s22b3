@@ -40,7 +40,8 @@ export class AddDeviceComponent implements OnInit {
       ThirdPartyDeviceSupport:this.ThirdPartyDeviceSupport,SafeToFlyCertification:this.SafeToFlyCertification,
       TouchScreenSupport:this.TouchScreenSupport,MultiPatientSupport:this.MultiPatientSupport,
       CyberSecurity:this.CyberSecurity,}
-      console.log(typeof(this.user.SoftwareUpdateSupport));
+
+      console.log(this.user);
       let observableStream = this.productService.add(this.user);
       observableStream.subscribe(
         (data:any)=>{

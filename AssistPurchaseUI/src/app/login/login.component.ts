@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/config'])
         }
         else{
-          this.errorMessage="Invald Credentials";
+          this.errorMessage="Invalid Credentials";
         }
     
       }

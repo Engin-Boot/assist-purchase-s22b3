@@ -1,5 +1,5 @@
 import {Injectable,Inject} from '@angular/core'
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {ProductRecord} from '../Services/ProductRecordService'
 
 //const options={headers:new HttpHeaders({'Access-Control-Allow-Origin':'http://localhost:51964', 'Access-Control-Allow-Credentials':'true', 'Access-Control-Allow-Methods':'POST'})}
