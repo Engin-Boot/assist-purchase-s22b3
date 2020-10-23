@@ -1,5 +1,6 @@
 import { Component, Inject,OnInit } from '@angular/core';
 import{ProductService} from '../Services/Product.service'
+import {ProductRecord} from '../Services/ProductRecordService'
 @Component({
   selector: 'add-comp',
   templateUrl: './add-device.component.html',
@@ -8,14 +9,18 @@ import{ProductService} from '../Services/Product.service'
 
 export class AddDeviceComponent implements OnInit {
   loggerService:any;
-  constructor(@Inject("logger") loggerService:any,private productService:ProductService) { 
+  user:ProductRecord
+  constructor(@Inject("logger") loggerService:any,private productService:ProductService, user:ProductRecord) { 
     this.loggerService=loggerService;
+    this.user = user;
   }
 
   ProductId:string;
+  ProductName:string;
   Description:string;
   ProductSpecificTraining:boolean;
-  Price:Float32Array;
+  Price:number;
+  SoftwareUpdateSupport:boolean
   Portability:boolean;
   Compact:boolean;
   BatterySupport:boolean;
@@ -30,12 +35,13 @@ export class AddDeviceComponent implements OnInit {
   
   addDevice()
   {
-    let user={ProductId:this.ProductId, Description:this.Description,ProductSpecificTraining:this.ProductSpecificTraining
-      ,Price:this.Price,Portability:this.Portability,Compact:this.Compact,BatterySupport:this.BatterySupport,
-      ThirdPartyDeviceSupport:this.ThirdPartyDeviceSupport,SafeToFlyCertification:this.ThirdPartyDeviceSupport,
+    this.user={ProductId:this.ProductId, ProductName:this.ProductName, Description:this.Description,ProductSpecificTraining: this.ProductSpecificTraining,
+      Price:this.Price, SoftwareUpdateSupport:this.SoftwareUpdateSupport ,Portability:this.Portability,Compact:this.Compact,BatterySupport:this.BatterySupport,
+      ThirdPartyDeviceSupport:this.ThirdPartyDeviceSupport,SafeToFlyCertification:this.SafeToFlyCertification,
       TouchScreenSupport:this.TouchScreenSupport,MultiPatientSupport:this.MultiPatientSupport,
-      CyberSecurity:this.MultiPatientSupport}
-      let observableStream=this.productService.add(user);
+      CyberSecurity:this.CyberSecurity,}
+      console.log(typeof(this.user.SoftwareUpdateSupport));
+      let observableStream = this.productService.add(this.user);
       observableStream.subscribe(
         (data:any)=>{
           this.loggerService.write(data.message);
@@ -47,4 +53,6 @@ export class AddDeviceComponent implements OnInit {
           this.loggerService.write("Request Completed");
         })
   }
+
+  
 }

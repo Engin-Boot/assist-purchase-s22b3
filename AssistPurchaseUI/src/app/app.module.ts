@@ -17,6 +17,7 @@ import {ProductService} from './Services/Product.service'
 import { GetProductByIdComponent } from './get-product-by-id/get-product-by-id.component';
 import { GetAllProductsComponent } from './get-all-products/get-all-products.component'
 import { HttpClientModule } from '@angular/common/http';
+import {ProductRecord} from './Services/ProductRecordService'
 import {ApiLoggerService} from './Services/ApiLogger.service'
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {ApiLoggerService} from './Services/ApiLogger.service'
   providers: [{provide:CustomerAlert,useClass:CustomerAlert},
     {provide:ProductService,useClass:ProductService},
     {provide:'logger',useClass:ApiLoggerService},
-    {provide:'apiBaseAddress',useValue:"http://localhost:51964"}
+    {provide:'apiBaseAddress',useValue:"http://localhost:51964"},
+    {provide:ProductRecord, useClass:ProductRecord}
     ],
   bootstrap: [AppComponent]
 })

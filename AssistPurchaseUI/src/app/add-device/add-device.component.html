@@ -6,6 +6,9 @@
 <label><strong>Product Id</strong></label>
 <input type="text" placeholder="Enter Product Id" name ="ProductId" [(ngModel)]="ProductId" required>
 
+<label><strong>Product Name</strong></label>
+<input type="text" placeholder="Enter Product Name" name ="ProductName" [(ngModel)]="ProductName" required>
+
 <label><strong>Description</strong></label>
 <input type="text" placeholder="Enter Description" name="Description" [(ngModel)]="Description" required>
 
@@ -33,6 +36,17 @@
         </td>
         <td>
             <input type="radio" [(ngModel)]="Portability" name ="Portability" value="FALSE"><label>False</label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label><strong>Software Update Support</strong></label>
+        </td>
+        <td>
+            <input type="radio" name ="SoftwareUpdateSupport" [(ngModel)]="SoftwareUpdateSupport" value="TRUE" checked><label>True</label>
+        </td>
+        <td>
+            <input type="radio" [(ngModel)]="SoftwareUpdateSupport" name ="SoftwareUpdateSupport" value="FALSE"><label>False</label>
         </td>
     </tr>
     <tr>

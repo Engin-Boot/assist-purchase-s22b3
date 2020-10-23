@@ -4,9 +4,10 @@
     "\\.github",
     "\\AssistPurchase",
     "\\AssistPurchase.Test",
+    "\\AssistPurchase\\Controllers",
     "\\AssistPurchase\\Repositories",
     "\\AssistPurchase\\Repositories\\Implementations"
   ],
-  "SelectedNode": "\\AssistPurchase\\Repositories\\Implementations\\CustomerMonitoringRepository.cs",
+  "SelectedNode": "\\AssistPurchase\\Controllers\\ProductsDatabaseController.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -45,7 +45,7 @@ namespace AssistPurchase.Repositories.Implementations
             {
 
                 CommandText =
-                    @"INSERT INTO Customer(CustomerId,CustomerName,CustomerEmailId,ProductId,PhoneNumber)VALUES(@customerId,@customerName,@customerEmailId,@productId,@phoneNumber)"
+                    @"INSERT INTO Customer(CustomerName,CustomerEmailId,ProductId,PhoneNumber)VALUES(@customerName,@customerEmailId,@productId,@phoneNumber)"
             };
 
             cmd.Parameters.AddWithValue("@customerName", alert.CustomerName);
