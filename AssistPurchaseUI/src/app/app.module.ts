@@ -13,9 +13,11 @@ import {CustomerAlert} from './Services/CustomerAlertService'
 import { AddDeviceComponent } from './add-device/add-device.component';
 import { UpdateDeviceComponent } from './update-device/update-device.component';
 import { DeleteDeviceComponent } from './delete-device/delete-device.component';
-import {ProductService} from './Services/ProductService'
+import {ProductService} from './Services/Product.service'
 import { GetProductByIdComponent } from './get-product-by-id/get-product-by-id.component';
 import { GetAllProductsComponent } from './get-all-products/get-all-products.component'
+import { HttpClientModule } from '@angular/common/http';
+import {ApiLoggerService} from './Services/ApiLogger.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,10 +35,12 @@ import { GetAllProductsComponent } from './get-all-products/get-all-products.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule,FormsModule
+    RouterModule,FormsModule,HttpClientModule
   ],
   providers: [{provide:CustomerAlert,useClass:CustomerAlert},
     {provide:ProductService,useClass:ProductService},
+    {provide:'logger',useClass:ApiLoggerService},
+    {provide:'apiBaseAddress',useValue:"http://localhost:51964"}
     ],
   bootstrap: [AppComponent]
 })
