@@ -1,5 +1,4 @@
 import { Component, Inject,OnInit } from '@angular/core';
-import{ProductService} from '../Services/Product.service'
 import {ProductRecord} from '../Services/ProductRecordService'
 import { HttpClient } from '@angular/common/http';
 @Component({
@@ -54,7 +53,6 @@ export class AddDeviceComponent implements OnInit {
         
       });
       this.checkMessage();
-      this.reset();
   }
     checkMessage(){
       if(this.message === undefined){
@@ -83,6 +81,7 @@ export class AddDeviceComponent implements OnInit {
       this.TouchScreenSupport ="";
       this.MultiPatientSupport ="";
       this.SoftwareUpdateSupport = "";
+      this.message = undefined;
     }
   
   

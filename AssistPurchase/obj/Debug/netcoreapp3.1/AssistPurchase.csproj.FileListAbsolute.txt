@@ -164,3 +164,4 @@ C:\Users\320108789\Source\Repos\assist-purchase-s22b3\AssistPurchase\obj\Debug\n
 C:\Users\320108789\Source\Repos\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.dll
 C:\Users\320108789\Source\Repos\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.pdb
 C:\Users\320108789\Source\Repos\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.genruntimeconfig.cache
+C:\Users\320108789\Source\Repos\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.csprojAssemblyReference.cache

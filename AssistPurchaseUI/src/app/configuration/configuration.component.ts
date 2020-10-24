@@ -12,12 +12,11 @@ export class ConfigurationComponent implements OnInit {
   baseUrl:string;
   message:string;
   htmlMessage:string;
-  record:ProductRecord[];
+  records:ProductRecord[];
   client:HttpClient;
   constructor(private router:Router,httpClient:HttpClient, @Inject('apiBaseAddress')baseUrl:string) { 
     this.client = httpClient;
     this.baseUrl = baseUrl;
-    //this.record = record;
     this.htmlMessage ="";
   }
 
@@ -49,13 +48,15 @@ export class ConfigurationComponent implements OnInit {
  
   createResponse(body){
       this.message = JSON.stringify(body);
-      this.record = JSON.parse(this.message);
-      for(var record in this.record){
-        for(var key in this.record[record]){
-          this.htmlMessage = this.htmlMessage + key+" : "+record[key] + ", ";
+      this.records = JSON.parse(this.message);
+      //console.log(this.record); 
+      for(var i=0;i<this.records.length;i++){
+        for(var key in this.records[i]){
+          this.htmlMessage = this.htmlMessage + key + " : " +this.records[i][key] + "<br>";
         }
+
+        this.htmlMessage = this.htmlMessage + "<br><br>";
       }
-      console.log(this.record);
       
   }
 

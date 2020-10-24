@@ -1,6 +1,6 @@
 .Infoform{
     width: 500px;
-    height: 300px;
+    height: 350px;
     margin: 0 auto;
     }
     h1 {
@@ -45,4 +45,12 @@
     label{
         color: rgb(68, 2, 24);
         font-family: sans-serif;
+    }
+    output{
+        text-align: center;
+        color: red;
+        text-emphasis: bold;
+    }
+    p{
+        color: red;
     }

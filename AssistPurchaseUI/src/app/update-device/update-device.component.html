@@ -5,6 +5,8 @@
 <div class="container">
     <label><strong>Product Id</strong></label>
     <input type="text" placeholder="Enter Product Id" name ="ProductId" [(ngModel)]="ProductId" required>
+    <label><strong>Product Name</strong></label>
+    <input type="text" placeholder="Enter Product Name" name ="ProductName" [(ngModel)]="ProductName" required>
     <label><strong>Description</strong></label>
     <input type="text" placeholder="Enter Description" name="Description" [(ngModel)]="Description" required>
     <label><strong>Price</strong></label>
@@ -126,9 +128,10 @@
             </td>
         </tr>
     </table>
-<p>{{message}}</p>
+
 </div>
-<input type="submit" value="Update Details" (click)="onUpdate()">
-<input type="reset" value="Reset">
+<input type="submit" value="Update Details" (click)="onUpdate()">&nbsp;&nbsp;
+<input type="reset" value="Reset" (click)="reset()">
+<p>{{message}}</p>
 </form>
 </fieldset>

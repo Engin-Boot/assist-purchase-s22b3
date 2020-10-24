@@ -46,14 +46,13 @@ export class UpdateDeviceComponent implements OnInit {
       TouchScreenSupport:this.TouchScreenSupport,MultiPatientSupport:this.MultiPatientSupport,
       CyberSecurity:this.CyberSecurity,}
 
-      this.response = this.client.put(`${this.baseUrl}/api/ProductsDatabase/products/`+this.ProductId,this.user, {observe:'response'});
+      this.response = this.client.put(`${this.baseUrl}/api/ProductsDatabase/products/`+this.ProductId, this.user, {observe:'response'});
       this.response.subscribe(response => {
 
         this.createResponse(response.status);
         
       });
       this.checkMessage();
-      this.reset();
   }
     checkMessage(){
       if(this.message === undefined){
@@ -82,5 +81,6 @@ export class UpdateDeviceComponent implements OnInit {
       this.TouchScreenSupport ="";
       this.MultiPatientSupport ="";
       this.SoftwareUpdateSupport = "";
+      this.message= undefined;
     }
 }

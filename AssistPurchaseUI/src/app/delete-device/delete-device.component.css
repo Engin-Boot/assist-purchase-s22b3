@@ -20,11 +20,15 @@
     background-color: rgb(31, 1, 11);;
     color: white;
     padding: 14px 0;
-    margin: 10px 0;
+    margin:0 auto;
     border: none;
     cursor: grab;
     width: 48%;
     }
     label{
     color: rgb(68, 2, 24);
+    }
+    p{
+        text-align: center;
+        color: red;
     }

@@ -28,3 +28,8 @@
     label{
     color: rgb(68, 2, 24);
     }
+    p{
+        text-align: center;
+        color: red;
+        text-emphasis: bold;
+    }

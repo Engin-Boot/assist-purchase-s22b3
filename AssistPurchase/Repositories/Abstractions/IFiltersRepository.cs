@@ -5,19 +5,19 @@ namespace AssistPurchase.Repositories.Abstractions
 {
     public interface IFiltersRepository
     {
-        public IEnumerable<Product> GetByCompactFilter(string filterValue);
-        public IEnumerable<Product> GetAll();
-        public Product GetProduct(string productId);
-        public IEnumerable<Product> GetByProductSpecificTrainingFilter(string filterValue);
-        public List<Product> GetByPriceFilter(string amount, string belowOrAbove);
-        public IEnumerable<Product> GetBySoftwareUpdateSupportFilter(string filterValue);
-        public IEnumerable<Product> GetByPortabilityFilter(string filterValue);
-        public IEnumerable<Product> GetByBatterySupportFilter(string filterValue);
-        public IEnumerable<Product> GetByThirdPartyDeviceSupportFilter(string filterValue);
-        public IEnumerable<Product> GetBySafeToFlyCertificationFilter(string filterValue);
-        public IEnumerable<Product> GetByTouchScreenSupportFilter(string filterValue);
-        public IEnumerable<Product> GetByMultiPatientSupportFilter(string filterValue);
-        public IEnumerable<Product> GetByCyberSecurityFilter(string filterValue);
+        public List<string> GetByCompactFilter(string filterValue);
+        public List<string> GetAll();
+        public string GetProduct(string productId);
+        public List<string> GetByProductSpecificTrainingFilter(string filterValue);
+        public List<string> GetByPriceFilter(string amount, string belowOrAbove);
+        public List<string> GetBySoftwareUpdateSupportFilter(string filterValue);
+        public List<string> GetByPortabilityFilter(string filterValue);
+        public List<string> GetByBatterySupportFilter(string filterValue);
+        public List<string> GetByThirdPartyDeviceSupportFilter(string filterValue);
+        public List<string> GetBySafeToFlyCertificationFilter(string filterValue);
+        public List<string> GetByTouchScreenSupportFilter(string filterValue);
+        public List<string> GetByMultiPatientSupportFilter(string filterValue);
+        public List<string> GetByCyberSecurityFilter(string filterValue);
 
     }
 }

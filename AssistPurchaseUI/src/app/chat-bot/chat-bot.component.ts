@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Inject, OnInit } from '@angular/core';
 import {CustomerAlert} from '../Services/CustomerAlertService'
 import {CustomerFormComponent} from '../customer-form/customer-form.component'
 import {Router} from '@angular/router'
+import {HttpClient} from '@angular/common/http'
+import { ProductRecord } from '../Services/ProductRecordService';
 @Component({
   selector: 'chat-comp',
   templateUrl: './chat-bot.component.html',
@@ -9,10 +11,49 @@ import {Router} from '@angular/router'
 })
 export class ChatBotComponent implements OnInit {
   alert:CustomerAlert;
+  boxText:string;
+  response:any;
+  result:string;
+  flag:boolean;
+  answer:string;
+  baseUrl:string;
+  client:HttpClient;
   info:CustomerFormComponent;
-  constructor(private router:Router) {
+  message:string;
+  records:string[];
+  values:string;
+  amount:number;
+  prefer:string;
+  compactFilterWords:string[];
+  portableFilterWords:string[];
+  batterySupportFilterWords:string[];
+  priceFilterWords:string[];
+  safeToFlyFilterWords:string[];
+  softwareUpdateFilterWords:string[];
+  touchScreenFilterWords:string[];
+  thirdPartyDeviceFilterWords:string[];
+  multiPatientFilterWords:string[];
+  productTrainingFilterWords:string[];
+  cyberSecurityFilterWords:string[];
+  
+  constructor(private router:Router, httpClient:HttpClient, @Inject('apiBaseAddress')baseUrl:string) {
      this.alert = new CustomerAlert();
-
+     this.values = "";
+     this.compactFilterWords = ["compact", "compactness"];
+     this.portableFilterWords = ["portable", "portability"];
+     this.priceFilterWords = ["below", "above", "price", "rate", "cost", "budget"];
+     this.touchScreenFilterWords = ["touch screen"];
+     this.productTrainingFilterWords = ["product specific training", "product training", "specific training", "training"];
+     this.safeToFlyFilterWords = ["safe to fly", "fly", "safe to fly certificate" ];
+     this.softwareUpdateFilterWords = ["software update support", "software update", "update"];
+     this.thirdPartyDeviceFilterWords = ["third party device"];
+     this.multiPatientFilterWords = ["multi-patient", "multi patient", "multiple patient"];
+     this.cyberSecurityFilterWords = ["privacy", "cyber security", "secure"];
+     this.batterySupportFilterWords = ["battery", "charge"];
+     this.flag = false;
+     this.client = httpClient;
+     this.result = "";
+     this.baseUrl = baseUrl;
   }
   navigate()
   {
@@ -20,10 +61,159 @@ export class ChatBotComponent implements OnInit {
   } 
   ngOnInit(): void {
   }
-  values = '';
-  onKey(event: any) { 
-    this.values = event.target.value;
+  onTextBoxEdit(value){
+    this.boxText = value;
   }
-  
-  
+  enterText(){
+    this.processQuestion(this.boxText.toLowerCase());
+    this.values = this.values + this.boxText + "\n";
+    this.boxText = "";
+    
+  }
+  processQuestion(boxText){
+      this.checkForCompactFilter(boxText);
+      this.checkForPortableFilter(boxText);
+      this.checkForPriceFilter(boxText);
+      this.checkForBatteryFilter(boxText);
+      this.checkForSafeToFlyFilter(boxText);
+      this.checkForSoftwareUpdateFilter(boxText);
+      this.checkForTouchScreenFilter(boxText);
+      this.checkForThirdPartyDeviceFilter(boxText);
+      this.checkForCyberSecurityFilter(boxText);
+      this.checkForMultiPatientFilter(boxText);
+      this.checkForProductTrainingFilter(boxText);
+  }
+  checkForCompactFilter(boxText){
+      for(var str in this.compactFilterWords){
+        if((boxText.includes(this.compactFilterWords[str]))&&(!this.flag)){
+          this.flag = true;
+          this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/compact/true`, { responseType:'json', observe:'response'});
+          this.response.subscribe(response=>{
+            this.createResponse(response.body);
+          })
+        }
+      }
+  }
+  checkForPortableFilter(boxText){
+    for(var str in this.portableFilterWords){
+      if((boxText.includes(this.portableFilterWords[str]))&&(!this.flag)){
+        this.flag = true;
+        this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/portability/true`, { responseType:'json', observe:'response'});
+        this.response.subscribe(response=>{
+          this.createResponse(response.body);
+        })
+      }
+    }
+  }
+  checkForPriceFilter(boxText){
+    for(var str in this.priceFilterWords){
+      if((boxText.includes(this.priceFilterWords[str]))&&(!this.flag)){
+        this.flag = true;
+        this.getPriceAndPreference(boxText);
+        this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/price/`+this.amount+"/"+this.prefer, { responseType:'json', observe:'response'});
+        this.response.subscribe(response=>{
+          this.createResponse(response.body);
+        })
+      }
+    }
+  }
+  checkForBatteryFilter(boxText){
+    for(var str in this.batterySupportFilterWords){
+      if((boxText.includes(this.batterySupportFilterWords[str]))&&(!this.flag)){
+        this.flag = true;
+        this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/batterysupport/true`, { responseType:'json', observe:'response'});
+        this.response.subscribe(response=>{
+          this.createResponse(response.body);
+        })
+      }
+    }
+  }
+  checkForSafeToFlyFilter(boxText){
+    for(var str in this.safeToFlyFilterWords){
+      if((boxText.includes(this.safeToFlyFilterWords[str]))&&(!this.flag)){
+        this.flag = true;
+        this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/safetofly/true`, { responseType:'json', observe:'response'});
+        this.response.subscribe(response=>{
+          this.createResponse(response.body);
+        })
+      }
+    }
+  }
+  checkForSoftwareUpdateFilter(boxText){
+    for(var str in this.softwareUpdateFilterWords){
+      if((boxText.includes(this.softwareUpdateFilterWords[str]))&&(!this.flag)){
+        this.flag = true;
+        this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/softwareupdatesupport/true`, { responseType:'json', observe:'response'});
+        this.response.subscribe(response=>{
+          this.createResponse(response.body);
+        })
+      }
+    }
+  }
+  checkForTouchScreenFilter(boxText){
+    for(var str in this.touchScreenFilterWords){
+      if((boxText.includes(this.touchScreenFilterWords[str]))&&(!this.flag)){
+        this.flag = true;
+        this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/touchscreen/true`, { responseType:'json', observe:'response'});
+        this.response.subscribe(response=>{
+          this.createResponse(response.body);
+        })
+      }
+    }
+  }
+  checkForThirdPartyDeviceFilter(boxText){
+    for(var str in this.thirdPartyDeviceFilterWords){
+      if((boxText.includes(this.thirdPartyDeviceFilterWords[str]))&&(!this.flag)){
+        this.flag = true;
+        this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/thirdpartydevicesupport/true`, { responseType:'json', observe:'response'});
+        this.response.subscribe(response=>{
+          this.createResponse(response.body);
+        })
+      }
+    }
+  }
+  checkForCyberSecurityFilter(boxText){
+    for(var str in this.cyberSecurityFilterWords){
+      if((boxText.includes(this.cyberSecurityFilterWords[str]))&&(!this.flag)){
+        this.flag = true;
+        this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/cybersecurity/true`, { responseType:'json', observe:'response'});
+        this.response.subscribe(response=>{
+          this.createResponse(response.body);
+        })
+      }
+    }
+  }
+  checkForMultiPatientFilter(boxText){
+    for(var str in this.multiPatientFilterWords){
+      if((boxText.includes(this.multiPatientFilterWords[str]))&&(!this.flag)){
+        this.flag = true;
+        this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/multipatientsupport/true`, { responseType:'json', observe:'response'});
+        this.response.subscribe(response=>{
+          this.createResponse(response.body);
+        })
+      }
+    }
+  }
+  checkForProductTrainingFilter(boxText){
+    for(var str in this.productTrainingFilterWords){
+      if((boxText.includes(this.productTrainingFilterWords[str]))&&(!this.flag)){
+        this.flag = true;
+        this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/productspecifictraining/true`, { responseType:'json', observe:'response'});
+        this.response.subscribe(response=>{
+          this.createResponse(response.body);
+        })
+      }
+    }
+  }
+  createResponse(body){
+    this.message = JSON.stringify(body);
+    this.records = JSON.parse(this.message);
+    for(var i=0; i<4; i++){
+      this.result = this.result + this.records[i] + "\n";
+    }
+    this.values = this.values + this.result;
+  }
+  getPriceAndPreference(boxText){
+
+  }
 }

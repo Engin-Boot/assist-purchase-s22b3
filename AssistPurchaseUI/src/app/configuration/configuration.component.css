@@ -21,3 +21,11 @@
   button.active {
     background-color:  rgb(8, 1, 1);
   }
+  p{
+    text-emphasis: bolder;
+    color: black;
+  }
+  .result{
+    margin: auto;
+    width: 40%;
+  }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8FdNBKoqZ1jGDhax2aPh/biDvv7EKT95Ht/uS86bidhIDiKwuvxHQd8mvq78dSxzXUkflQj8oLciff1t+vpXnA==",
+  "dgSpecHash": "Evpz4wg8XvZAZkVNU44wEKfL0PSAguN2fJ02zhWVKuoZK9JBuXegvu5+c1oZqAzVHDUafgHIMBXoPnRltPVrEQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
+  "projectFilePath": "C:\\Users\\320108789\\source\\repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\320108789\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512",
     "C:\\Users\\320108789\\.nuget\\packages\\system.data.sqlite.core\\1.0.113.1\\system.data.sqlite.core.1.0.113.1.nupkg.sha512"

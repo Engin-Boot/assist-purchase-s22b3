@@ -1,4 +1,4 @@
-import { Component,Inject, OnInit } from '@angular/core';
+import { Component,ErrorHandler,Inject, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { ProductRecord } from '../Services/ProductRecordService';
 
@@ -19,7 +19,7 @@ export class GetProductByIdComponent implements OnInit {
     this.client = httpClient;
     this.baseUrl = baseUrl;
     this.record = record;
-    this.htmlMessage ="";
+    this.htmlMessage = undefined;
   }
 
   ngOnInit(): void {
@@ -28,30 +28,28 @@ export class GetProductByIdComponent implements OnInit {
   onGet(){
     this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/ProductsDatabase/products/`+this.productId, { responseType:'json', observe:'response'});
     this.response.subscribe(response=>{
-      
-      this.createResponse(response.body);
-      
+        this.createResponse(response.body);
     })
     this.checkMessage();
-    this.reset();
     
   }
-  checkMessage(){
-    if(this.htmlMessage === ""){
-      this.htmlMessage = "Please recheck the information given"
+   checkMessage(){
+    if(this.htmlMessage === undefined){
+      this.htmlMessage = "Please recheck the information given";
     }
-    return;
-  }
+  } 
   createResponse(body){
-      this.message = JSON.stringify(body);
-      this.record = JSON.parse(this.message);
-      for(var key in this.record){
-        this.htmlMessage = this.htmlMessage + key+" : "+this.record[key] + ", ";
+      if(body!=null){
+        this.htmlMessage = "";
+        this.message = JSON.stringify(body);
+        this.record = JSON.parse(this.message);
+        for(var key in this.record){
+        this.htmlMessage = this.htmlMessage + key+" : "+this.record[key] + "<br>";
+        }
       }
-      console.log(this.htmlMessage);
-      
   }
   reset(){
     this.productId ="";
+    this.htmlMessage = undefined;
   }
 }

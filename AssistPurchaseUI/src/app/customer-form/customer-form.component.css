@@ -26,5 +26,10 @@
     width: 48%;
     }
     label{
-    color: rgb(68, 2, 24);
+        color: rgb(68, 2, 24);
+    }
+    p{
+        text-align: center;
+        color: red;
+        text-emphasis: bolder;
     }

@@ -27,7 +27,7 @@ export class DeleteDeviceComponent implements OnInit {
         
       });
       this.checkMessage();
-      this.reset();
+      
   }
 
   checkMessage(){
@@ -44,5 +44,6 @@ export class DeleteDeviceComponent implements OnInit {
   }
   reset(){
     this.productId ="";
+    this.message = undefined;
   }
 }
