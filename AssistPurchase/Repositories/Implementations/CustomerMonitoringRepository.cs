@@ -3,6 +3,9 @@ using AssistPurchase.Repositories.Abstractions;
 using System.Collections.Generic;
 using AssistPurchase.Repositories.FieldValidators;
 using System.Data.SQLite;
+using System.Net.Mail;
+using System;
+using System.Linq;
 
 namespace AssistPurchase.Repositories.Implementations
 {
@@ -13,19 +16,16 @@ namespace AssistPurchase.Repositories.Implementations
 
         public IEnumerable<CustomerAlert> GetAllAlerts()
         {
-
             var con = GetConnection();
             con.Open();
             var list = new List<CustomerAlert>();
             var stm = @"SELECT CustomerName,CustomerEmailId,ProductId,PhoneNumber FROM Customer";
             using var cmd1 = new SQLiteCommand(stm, con);
             using var rdr = cmd1.ExecuteReader();
-
             while (rdr.Read())
             {
                 list.Add(new CustomerAlert()
                 {
-                  
                     CustomerName = rdr.GetString(0),
                     CustomerEmailId = rdr.GetString(1),
                     ProductId =rdr.GetString(2),
@@ -34,9 +34,35 @@ namespace AssistPurchase.Repositories.Implementations
                 });
             }
             con.Close();
+        
             return list;
         }
-        public void Add(CustomerAlert alert)
+        
+        public void SendMail(CustomerAlert body)
+        {
+          //  string alert = string.Join(',', body.ToArray());
+            MailMessage mailMessage = new MailMessage("alerttocare@gmail.com", "alerttocare@gmail.com");
+            mailMessage.Body = body.ToString();
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            smtpClient.UseDefaultCredentials = true;
+            smtpClient.Credentials = new System.Net.NetworkCredential()
+            {
+                UserName = "alerttocare@gmail.com",
+                Password = "admin@1234"
+            };
+           
+            smtpClient.EnableSsl = true;
+            try
+            {
+                smtpClient.Send(mailMessage);
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+            public void Add(CustomerAlert alert)
         {
             _validator.ValidateCustomerAlertFields(alert);
             var con = GetConnection();
@@ -57,6 +83,7 @@ namespace AssistPurchase.Repositories.Implementations
             cmd.ExecuteNonQuery();
 
             con.Close();
+            SendMail(alert);
         
         }
 

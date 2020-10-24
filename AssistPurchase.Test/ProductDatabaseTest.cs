@@ -47,16 +47,16 @@ namespace AssistPurchase.Test
                ProductName = "Mock Product",
                Description = "This product is being added for testing purposes",
                Price = "100",
-               Compact = true,
-               Portability = true,
-               SafeToFlyCertification = true,
-               CyberSecurity = false,
-               MultiPatientSupport = false,
-               SoftwareUpdateSupport = true,
-               ProductSpecificTraining = true,
-               ThirdPartyDeviceSupport = false,
-               BatterySupport = true,
-               TouchScreenSupport = false
+               Compact = "true",
+               Portability = "true",
+               SafeToFlyCertification = "true",
+               CyberSecurity = "false",
+               MultiPatientSupport = "false",
+               SoftwareUpdateSupport = "true",
+               ProductSpecificTraining = "true",
+               ThirdPartyDeviceSupport = "false",
+               BatterySupport = "true",
+               TouchScreenSupport = "false"
             };
 
             var content = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
@@ -91,16 +91,17 @@ namespace AssistPurchase.Test
                 ProductName = "Mock Product",
                 Description = "This product is being added for testing purposes",
                 Price = "100",
-                Compact = true,
-                Portability = false,
-                SafeToFlyCertification = true,
-                CyberSecurity = true,
-                MultiPatientSupport = false,
-                SoftwareUpdateSupport = false,
-                ProductSpecificTraining = true,
-                ThirdPartyDeviceSupport = false,
-                BatterySupport = false,
-                TouchScreenSupport = false
+                Compact = "true",
+                Portability = "false",
+
+                SafeToFlyCertification = "true",
+                CyberSecurity = "true",
+                MultiPatientSupport = "false",
+                SoftwareUpdateSupport = "false",
+                ProductSpecificTraining = "true",
+                ThirdPartyDeviceSupport = "false",
+                BatterySupport = "false",
+                TouchScreenSupport = "false"
             };
 
             var content = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
@@ -119,16 +120,16 @@ namespace AssistPurchase.Test
                 ProductName = "Mock Product 2",
                 Description = "This product is being added for testing purposes",
                 Price = "10000",
-                Compact = true,
-                Portability = true,
-                SafeToFlyCertification = true,
-                CyberSecurity = true,
-                MultiPatientSupport = true,
-                SoftwareUpdateSupport = true,
-                ProductSpecificTraining = false,
-                ThirdPartyDeviceSupport = false,
-                BatterySupport = true,
-                TouchScreenSupport = true
+                Compact = "true",
+                Portability = "true",
+                SafeToFlyCertification = "true",
+                CyberSecurity = "true",
+                MultiPatientSupport = "true",
+                SoftwareUpdateSupport = "true",
+                ProductSpecificTraining = "false",
+                ThirdPartyDeviceSupport = "false",
+                BatterySupport = "true",
+                TouchScreenSupport = "true"
             };
 
             var content = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
@@ -146,16 +147,16 @@ namespace AssistPurchase.Test
                 ProductName = "Mock Product 3",
                 Description = "This product is being added for testing purposes",
                 Price = "15000",
-                Compact = true,
-                Portability = false,
-                SafeToFlyCertification = false,
-                CyberSecurity = true,
-                MultiPatientSupport = true,
-                SoftwareUpdateSupport = false,
-                ProductSpecificTraining = true,
-                ThirdPartyDeviceSupport = false,
-                BatterySupport = true,
-                TouchScreenSupport = false
+                Compact = "true",
+                Portability = "false",
+                SafeToFlyCertification = "false",
+                CyberSecurity = "true",
+                MultiPatientSupport = "true",
+                SoftwareUpdateSupport = "false",
+                ProductSpecificTraining = "true",
+                ThirdPartyDeviceSupport = "false",
+                BatterySupport = "true",
+                TouchScreenSupport = "false"
             };
 
             var content = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");

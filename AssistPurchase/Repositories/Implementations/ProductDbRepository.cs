@@ -30,17 +30,17 @@ namespace AssistPurchase.Repositories.Implementations
             cmd.Parameters.AddWithValue("@productId", product.ProductId);
             cmd.Parameters.AddWithValue("@productName", product.ProductName);
             cmd.Parameters.AddWithValue("@description", product.Description);
-            cmd.Parameters.AddWithValue("@productSpecificTraining", product.ProductSpecificTraining.ToString());
-            cmd.Parameters.AddWithValue("@price", Convert.ToDouble(product.Price));
-            cmd.Parameters.AddWithValue("@softwareUpdateSupport", product.SoftwareUpdateSupport.ToString());
-            cmd.Parameters.AddWithValue("@portability", product.Portability.ToString());
-            cmd.Parameters.AddWithValue("@compact", product.Compact.ToString());
-            cmd.Parameters.AddWithValue("@batterySupport", product.BatterySupport.ToString());
-            cmd.Parameters.AddWithValue("@thirdPartyDeviceSupport", product.ThirdPartyDeviceSupport.ToString());
-            cmd.Parameters.AddWithValue("@safeToFlyCertification", product.SafeToFlyCertification.ToString());
-            cmd.Parameters.AddWithValue("@touchScreenSupport", product.TouchScreenSupport.ToString());
-            cmd.Parameters.AddWithValue("@multiPatientSupport", product.MultiPatientSupport.ToString());
-            cmd.Parameters.AddWithValue("@cyberSecurity", product.CyberSecurity.ToString());
+            cmd.Parameters.AddWithValue("@productSpecificTraining", product.ProductSpecificTraining);
+            cmd.Parameters.AddWithValue("@price",product.Price);
+            cmd.Parameters.AddWithValue("@softwareUpdateSupport", product.SoftwareUpdateSupport);
+            cmd.Parameters.AddWithValue("@portability", product.Portability);
+            cmd.Parameters.AddWithValue("@compact", product.Compact);
+            cmd.Parameters.AddWithValue("@batterySupport", product.BatterySupport);
+            cmd.Parameters.AddWithValue("@thirdPartyDeviceSupport", product.ThirdPartyDeviceSupport);
+            cmd.Parameters.AddWithValue("@safeToFlyCertification", product.SafeToFlyCertification);
+            cmd.Parameters.AddWithValue("@touchScreenSupport", product.TouchScreenSupport);
+            cmd.Parameters.AddWithValue("@multiPatientSupport", product.MultiPatientSupport);
+            cmd.Parameters.AddWithValue("@cyberSecurity", product.CyberSecurity);
 
             cmd.Prepare();
 
@@ -81,17 +81,17 @@ namespace AssistPurchase.Repositories.Implementations
                     ProductId = rdr.GetString(0),
                     ProductName = rdr.GetString(1),
                     Description = rdr.GetString(2),
-                    ProductSpecificTraining = Convert.ToBoolean(rdr.GetString(3)),
-                    Price = rdr.GetDouble(4).ToString(CultureInfo.CurrentCulture),
-                    SoftwareUpdateSupport = Convert.ToBoolean(rdr.GetString(5)),
-                    Portability = Convert.ToBoolean(rdr.GetString(6)),
-                    Compact = Convert.ToBoolean(rdr.GetString(7)),
-                    BatterySupport = Convert.ToBoolean(rdr.GetString(8)),
-                    ThirdPartyDeviceSupport = Convert.ToBoolean(rdr.GetString(9)),
-                    SafeToFlyCertification = Convert.ToBoolean(rdr.GetString(10)),
-                    TouchScreenSupport = Convert.ToBoolean(rdr.GetString(10)),
-                    MultiPatientSupport = Convert.ToBoolean(rdr.GetString(11)),
-                    CyberSecurity = Convert.ToBoolean(rdr.GetString(12))
+                    ProductSpecificTraining = rdr.GetString(3),
+                    Price =rdr.GetString(4),
+                    SoftwareUpdateSupport = rdr.GetString(5),
+                    Portability = rdr.GetString(6),
+                    Compact =rdr.GetString(7),
+                    BatterySupport = rdr.GetString(8),
+                    ThirdPartyDeviceSupport = rdr.GetString(9),
+                    SafeToFlyCertification = rdr.GetString(10),
+                    TouchScreenSupport = rdr.GetString(10),
+                    MultiPatientSupport = rdr.GetString(11),
+                    CyberSecurity =rdr.GetString(12)
                 });
             }
             con.Close();
@@ -116,17 +116,17 @@ namespace AssistPurchase.Repositories.Implementations
                 product.ProductId = reader.GetString(0);
                 product.ProductName = reader.GetString(1);
                 product.Description = reader.GetString(2);
-                product.ProductSpecificTraining = Convert.ToBoolean(reader.GetString(3));
-                product.Price = reader.GetDouble(4).ToString(CultureInfo.CurrentCulture);
-                product.SoftwareUpdateSupport = Convert.ToBoolean(reader.GetString(5));
-                product.Portability = Convert.ToBoolean(reader.GetString(6));
-                product.Compact = Convert.ToBoolean(reader.GetString(7));
-                product.BatterySupport = Convert.ToBoolean(reader.GetString(8));
-                product.ThirdPartyDeviceSupport = Convert.ToBoolean(reader.GetString(9));
-                product.SafeToFlyCertification = Convert.ToBoolean(reader.GetString(10));
-                product.TouchScreenSupport = Convert.ToBoolean(reader.GetString(10));
-                product.MultiPatientSupport = Convert.ToBoolean(reader.GetString(11));
-                product.CyberSecurity = Convert.ToBoolean(reader.GetString(12));
+                product.ProductSpecificTraining = reader.GetString(3);
+                product.Price = reader.GetString(4);
+                product.SoftwareUpdateSupport = reader.GetString(5);
+                product.Portability = reader.GetString(6);
+                product.Compact = reader.GetString(7);
+                product.BatterySupport = reader.GetString(8);
+                product.ThirdPartyDeviceSupport = reader.GetString(9);
+                product.SafeToFlyCertification = reader.GetString(10);
+                product.TouchScreenSupport =reader.GetString(10);
+                product.MultiPatientSupport = reader.GetString(11);
+                product.CyberSecurity = reader.GetString(12);
 
             }
             con.Close();

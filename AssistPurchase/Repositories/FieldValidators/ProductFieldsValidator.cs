@@ -13,16 +13,16 @@ namespace AssistPurchase.Repositories.FieldValidators
             _validator.IsWhitespaceOrEmptyOrNull(product.Description);
             _validator.IsWhitespaceOrEmptyOrNull(product.ProductId);
             _validator.IsWhitespaceOrEmptyOrNull(product.ProductName);
-            _validator.IsWhitespaceOrEmptyOrNull(product.CyberSecurity.ToString());
-            _validator.IsWhitespaceOrEmptyOrNull(product.MultiPatientSupport.ToString());
-            _validator.IsWhitespaceOrEmptyOrNull(product.SafeToFlyCertification.ToString());
-            _validator.IsWhitespaceOrEmptyOrNull(product.ThirdPartyDeviceSupport.ToString());
-            _validator.IsWhitespaceOrEmptyOrNull(product.TouchScreenSupport.ToString());
-            _validator.IsWhitespaceOrEmptyOrNull(product.BatterySupport.ToString());
-            _validator.IsWhitespaceOrEmptyOrNull(product.ProductSpecificTraining.ToString());
-            _validator.IsWhitespaceOrEmptyOrNull(product.Portability.ToString());
-            _validator.IsWhitespaceOrEmptyOrNull(product.Compact.ToString());
-            _validator.IsWhitespaceOrEmptyOrNull(product.SoftwareUpdateSupport.ToString());
+            _validator.IsWhitespaceOrEmptyOrNull(product.CyberSecurity);
+            _validator.IsWhitespaceOrEmptyOrNull(product.MultiPatientSupport);
+            _validator.IsWhitespaceOrEmptyOrNull(product.SafeToFlyCertification);
+            _validator.IsWhitespaceOrEmptyOrNull(product.ThirdPartyDeviceSupport);
+            _validator.IsWhitespaceOrEmptyOrNull(product.TouchScreenSupport);
+            _validator.IsWhitespaceOrEmptyOrNull(product.BatterySupport);
+            _validator.IsWhitespaceOrEmptyOrNull(product.ProductSpecificTraining);
+            _validator.IsWhitespaceOrEmptyOrNull(product.Portability);
+            _validator.IsWhitespaceOrEmptyOrNull(product.Compact);
+            _validator.IsWhitespaceOrEmptyOrNull(product.SoftwareUpdateSupport);
         }
 
         public void ValidateNewProductId(string productId, Product productRecord, IEnumerable<Product> products)

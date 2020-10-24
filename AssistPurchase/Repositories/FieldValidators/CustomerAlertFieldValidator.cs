@@ -18,6 +18,16 @@ namespace AssistPurchase.Repositories.FieldValidators
            
         }
 
-       
+       public void ValidateFilterValue(string filter)
+        {
+            if (filter.ToLower() == "true" || filter.ToLower() == "false")
+            {
+                return;
+            }
+            else
+            {
+                throw new Exception("Invalid data ");
+            }
+        }
     }
 }
