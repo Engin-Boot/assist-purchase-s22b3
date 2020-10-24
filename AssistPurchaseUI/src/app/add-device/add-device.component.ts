@@ -1,6 +1,7 @@
 import { Component, Inject,OnInit } from '@angular/core';
 import{ProductService} from '../Services/Product.service'
 import {ProductRecord} from '../Services/ProductRecordService'
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'add-comp',
   templateUrl: './add-device.component.html',
@@ -8,27 +9,32 @@ import {ProductRecord} from '../Services/ProductRecordService'
 })
 
 export class AddDeviceComponent implements OnInit {
-  loggerService:any;
-  user:ProductRecord
-  constructor(@Inject("logger") loggerService:any,private productService:ProductService, user:ProductRecord) { 
-    this.loggerService=loggerService;
+  
+  message:string;
+  user:ProductRecord;
+  client:HttpClient;
+  baseUrl:string;
+  response:any;
+  constructor(httpClient:HttpClient,@Inject('apiBaseAddress')baseUrl:string, user:ProductRecord) { 
+    this.client = httpClient;
+    this.baseUrl = baseUrl;
     this.user = user;
   }
 
   ProductId:string;
   ProductName:string;
   Description:string;
-  ProductSpecificTraining:boolean;
-  Price:number;
-  SoftwareUpdateSupport:boolean
-  Portability:boolean;
-  Compact:boolean;
-  BatterySupport:boolean;
-  ThirdPartyDeviceSupport:boolean;
-  SafeToFlyCertification:boolean;
-  TouchScreenSupport:boolean;
-  MultiPatientSupport:boolean;
-  CyberSecurity:boolean;
+  ProductSpecificTraining:string;
+  Price:string;
+  SoftwareUpdateSupport:string
+  Portability:string;
+  Compact:string;
+  BatterySupport:string;
+  ThirdPartyDeviceSupport:string;
+  SafeToFlyCertification:string;
+  TouchScreenSupport:string;
+  MultiPatientSupport:string;
+  CyberSecurity:string;
   
   ngOnInit(): void {
   }
@@ -41,19 +47,45 @@ export class AddDeviceComponent implements OnInit {
       TouchScreenSupport:this.TouchScreenSupport,MultiPatientSupport:this.MultiPatientSupport,
       CyberSecurity:this.CyberSecurity,}
 
-      console.log(this.user);
-      let observableStream = this.productService.add(this.user);
-      observableStream.subscribe(
-        (data:any)=>{
-          this.loggerService.write(data.message);
-        },
-        (error)=>{
-          this.loggerService.write(error);
-        },
-        ()=>{
-          this.loggerService.write("Request Completed");
-        })
+      this.response = this.client.post(`${this.baseUrl}/api/ProductsDatabase/products`,this.user, {observe:'response'});
+      this.response.subscribe(response => {
+
+        this.createResponse(response.status);
+        
+      });
+      this.checkMessage();
+      this.reset();
   }
+    checkMessage(){
+      if(this.message === undefined){
+        this.message = "Please recheck the information given"
+      }
+      return;
+    }
+    createResponse(status:any){
+      if(status==200){
+        this.message ="Product added successfully"
+      }
+      return;
+    }
+    reset(){
+      this.ProductId ="";
+      this.ProductName = "";
+      this.Description ="";
+      this.Price ="";
+      this.Portability = "";
+      this.Compact ="";
+      this.SafeToFlyCertification ="";
+      this.BatterySupport = "";
+      this.CyberSecurity ="";
+      this.ProductSpecificTraining ="";
+      this.ThirdPartyDeviceSupport = "";
+      this.TouchScreenSupport ="";
+      this.MultiPatientSupport ="";
+      this.SoftwareUpdateSupport = "";
+    }
+  
+  
 
   
 }

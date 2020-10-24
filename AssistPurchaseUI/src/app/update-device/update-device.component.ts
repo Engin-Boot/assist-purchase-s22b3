@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Inject, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http'
+import {ProductRecord} from '../Services/ProductRecordService'
 
 @Component({
   selector: 'update-comp',
@@ -7,28 +9,78 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateDeviceComponent implements OnInit {
 
-  constructor() { }
+  message:string;
+  user:ProductRecord;
+  client:HttpClient;
+  baseUrl:string;
+  response:any;
+  constructor(httpClient:HttpClient,@Inject('apiBaseAddress')baseUrl:string,user:ProductRecord) { 
+    this.client = httpClient;
+    this.baseUrl = baseUrl;
+    this.user = user;
+  }
+
   ProductId:string;
+  ProductName:string;
   Description:string;
-  ProductSpecificTraining:boolean;
-  Price:Float32Array;
-  Portability:boolean;
-  Compact:boolean;
-  BatterySupport:boolean;
-  ThirdPartyDeviceSupport:boolean;
-  SafeToFlyCertification:boolean;
-  TouchScreenSupport:boolean;
-  MultiPatientSupport:boolean;
-  CyberSecurity:boolean;
+  ProductSpecificTraining:string;
+  Price:string;
+  SoftwareUpdateSupport:string
+  Portability:string;
+  Compact:string;
+  BatterySupport:string;
+  ThirdPartyDeviceSupport:string;
+  SafeToFlyCertification:string;
+  TouchScreenSupport:string;
+  MultiPatientSupport:string;
+  CyberSecurity:string;
+  
   ngOnInit(): void {
   }
-onUpdate()
-{
-  let user={ProductId:this.ProductId, Description:this.Description,ProductSpecificTraining:this.ProductSpecificTraining
-    ,Price:this.Price,Portability:this.Portability,Compact:this.Compact,BatterySupport:this.BatterySupport,
-    ThirdPartyDeviceSupport:this.ThirdPartyDeviceSupport,SafeToFlyCertification:this.ThirdPartyDeviceSupport,
-    TouchScreenSupport:this.TouchScreenSupport,MultiPatientSupport:this.MultiPatientSupport,
-    CyberSecurity:this.MultiPatientSupport}
-    return user;
-}
+  
+  onUpdate()
+  {
+    this.user={ProductId:this.ProductId, ProductName:this.ProductName, Description:this.Description,ProductSpecificTraining: this.ProductSpecificTraining,
+      Price:this.Price, SoftwareUpdateSupport:this.SoftwareUpdateSupport ,Portability:this.Portability,Compact:this.Compact,BatterySupport:this.BatterySupport,
+      ThirdPartyDeviceSupport:this.ThirdPartyDeviceSupport,SafeToFlyCertification:this.SafeToFlyCertification,
+      TouchScreenSupport:this.TouchScreenSupport,MultiPatientSupport:this.MultiPatientSupport,
+      CyberSecurity:this.CyberSecurity,}
+
+      this.response = this.client.put(`${this.baseUrl}/api/ProductsDatabase/products/`+this.ProductId,this.user, {observe:'response'});
+      this.response.subscribe(response => {
+
+        this.createResponse(response.status);
+        
+      });
+      this.checkMessage();
+      this.reset();
+  }
+    checkMessage(){
+      if(this.message === undefined){
+        this.message = "Please recheck the information given"
+      }
+      return;
+    }
+    createResponse(status:any){
+      if(status==200){
+        this.message ="Product updated successfully"
+      }
+      return;
+    }
+    reset(){
+      this.ProductId ="";
+      this.ProductName = "";
+      this.Description ="";
+      this.Price ="";
+      this.Portability = "";
+      this.Compact ="";
+      this.SafeToFlyCertification ="";
+      this.BatterySupport = "";
+      this.CyberSecurity ="";
+      this.ProductSpecificTraining ="";
+      this.ThirdPartyDeviceSupport = "";
+      this.TouchScreenSupport ="";
+      this.MultiPatientSupport ="";
+      this.SoftwareUpdateSupport = "";
+    }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http'
 
 @Component({
   selector: 'delete-comp',
@@ -6,13 +7,42 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./delete-device.component.css']
 })
 export class DeleteDeviceComponent implements OnInit {
-
-  constructor() { }
+  client:HttpClient;
+  message:string;
+  baseUrl: string;
+  response:any;
+  constructor(httpClient:HttpClient,@Inject('apiBaseAddress')baseUrl:string) {
+    this.client = httpClient;
+    this.baseUrl = baseUrl;
+   }
   productId:string;
   ngOnInit(): void {
   }
   onDelete()
   {
-    console.log(this.productId);
+    this.response = this.client.delete(`${this.baseUrl}/api/ProductsDatabase/products/`+this.productId ,{observe:'response'});
+      this.response.subscribe(response => {
+
+        this.createResponse(response.status);
+        
+      });
+      this.checkMessage();
+      this.reset();
+  }
+
+  checkMessage(){
+    if(this.message === undefined){
+      this.message = "Please recheck the information given"
+    }
+    return;
+  }
+  createResponse(status:any){
+    if(status==200){
+      this.message ="Product deleted successfully"
+    }
+    return;
+  }
+  reset(){
+    this.productId ="";
   }
 }

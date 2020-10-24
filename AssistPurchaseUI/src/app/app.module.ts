@@ -15,7 +15,6 @@ import { UpdateDeviceComponent } from './update-device/update-device.component';
 import { DeleteDeviceComponent } from './delete-device/delete-device.component';
 import {ProductService} from './Services/Product.service'
 import { GetProductByIdComponent } from './get-product-by-id/get-product-by-id.component';
-import { GetAllProductsComponent } from './get-all-products/get-all-products.component'
 import { HttpClientModule } from '@angular/common/http';
 import {ProductRecord} from './Services/ProductRecordService'
 import {ApiLoggerService} from './Services/ApiLogger.service'
@@ -30,8 +29,7 @@ import {ApiLoggerService} from './Services/ApiLogger.service'
     AddDeviceComponent,
     UpdateDeviceComponent,
     DeleteDeviceComponent,
-    GetProductByIdComponent,
-    GetAllProductsComponent
+    GetProductByIdComponent
   ],
   imports: [
     BrowserModule,
