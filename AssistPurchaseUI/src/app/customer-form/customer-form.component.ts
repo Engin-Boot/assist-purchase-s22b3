@@ -47,11 +47,13 @@ export class CustomerFormComponent implements OnInit {
     if(this.message === undefined){
       this.message = "Please recheck the information given"
     }
+    return;
   }
   createResponse(status:any){
     if(status==200){
       this.message ="Our sales person will contact you shortly. Thank you for visiting"
     }
+    return;
   }
   reset(){
     this.emailId ="";

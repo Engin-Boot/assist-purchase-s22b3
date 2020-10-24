@@ -42,7 +42,9 @@ namespace AssistPurchase.Repositories.Implementations
         {
           //  string alert = string.Join(',', body.ToArray());
             MailMessage mailMessage = new MailMessage("alerttocare@gmail.com", "alerttocare@gmail.com");
-            mailMessage.Body = body.ToString();
+            mailMessage.Body = "Customer Name : " + body.CustomerName + "\nCustomer Email Id : " +
+                               body.CustomerEmailId + "\nPhone Number : " + body.PhoneNumber + "\nProduct ID : " +
+                               body.ProductId;
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
             smtpClient.UseDefaultCredentials = true;
             smtpClient.Credentials = new System.Net.NetworkCredential()
@@ -91,7 +93,7 @@ namespace AssistPurchase.Repositories.Implementations
 
         private static SQLiteConnection GetConnection()
         {
-            var con = new SQLiteConnection(@"data source=D:\a\assist-purchase-s22b3\assist-purchase-s22b3\AssistPurchase\ProductInfo.db");
+            var con = new SQLiteConnection(@"data source=C:\Users\320108789\Source\Repos\assist-purchase-s22b3\AssistPurchase\ProductInfo.db");
             return con;
         }
     }
