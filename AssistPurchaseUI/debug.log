@@ -1,0 +1,4 @@
+[1025/183238.121:ERROR:crash_report_database_win.cc(587)] GetFileAttributes C:\Users\320108~1\AppData\Local\Temp\karma-23686969\Crashpad: The system cannot find the file specified. (0x2)
+[1025/183320.271:ERROR:crash_report_database_win.cc(587)] GetFileAttributes C:\Users\320108~1\AppData\Local\Temp\karma-23686969\Crashpad: The system cannot find the file specified. (0x2)
+[1025/193223.595:ERROR:crash_report_database_win.cc(587)] GetFileAttributes C:\Users\320108~1\AppData\Local\Temp\karma-71297842\Crashpad: The system cannot find the file specified. (0x2)
+[1025/193428.428:ERROR:crash_report_database_win.cc(587)] GetFileAttributes C:\Users\320108~1\AppData\Local\Temp\karma-11291109\Crashpad: The system cannot find the file specified. (0x2)

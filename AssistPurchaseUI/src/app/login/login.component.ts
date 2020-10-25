@@ -18,27 +18,27 @@ export class LoginComponent implements OnInit {
   onUserNameEdit(value){
     this.userName=value;
     
-      }
+  }
     
-      onPasswordEdit(value){
-        this.password=value;
+  onPasswordEdit(value){
+    this.password=value;
+
+  }
+  onLogin(){
     
-      }
-      onLogin(){
+    if(this.userName=="admin" && this.password=="admin@123"){
+      this.errorMessage="Login Successfull";
+      this.router.navigate(['/config'])
+    }
+    else{
+      this.errorMessage="Invalid Credentials";
+    }
+
+  }
+  onReset(){
     
-        if(this.userName=="admin" && this.password=="admin@123"){
-          this.errorMessage="Login Successfull";
-          this.router.navigate(['/config'])
-        }
-        else{
-          this.errorMessage="Invalid Credentials";
-        }
-    
-      }
-      onReset(){
-    
-        this.userName="";
-        this.password="";
-        this.errorMessage="";
-      }
+    this.userName="";
+    this.password="";
+    this.errorMessage="";
+  }
 }
