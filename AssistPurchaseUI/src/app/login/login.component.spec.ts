@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import {ProductRecord} from '../Services/ProductRecordService'
 
-describe('DeleteDeviceComponent', () => {
+describe('LoginComponent', () => {
   let component:LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
   let httpMock: HttpTestingController;
@@ -51,10 +51,21 @@ describe('DeleteDeviceComponent', () => {
    
   it('should return failure message', () => {
     component.errorMessage = undefined;
-  
+    component.userName = "";
+    component.password = "";
+    component.onLogin();
     expect(component.errorMessage === "Invalid Credentials").toEqual(true);
+
   });
 
+  it ('should navigate to config page on successful login', () => {
+    component.errorMessage = undefined;
+    component.userName = "admin";
+    component.password = "admin@123"
+    component.onLogin();
+    expect(component.errorMessage === "Login Successfull").toEqual(true);
+    expect (routerSpy.navigate).toHaveBeenCalledWith(['/config']);
+  });
   it('should reset fields', () => {
     component.userName= "admin";
     component.password="*****"
@@ -62,7 +73,23 @@ describe('DeleteDeviceComponent', () => {
     expect(component.userName === ""&& component.password=== "").toEqual(true);
   });
 
-  
+  it ('edits username value on edit', () => {
+    component.userName = "admin";
+    component.onUserNameEdit("test");
+    expect(component.userName === "test").toEqual(true);
+  });
+
+  it ('edits password value on edit', () => {
+    component.password = "admin";
+    component.onPasswordEdit("test");
+    expect(component.password === "test").toEqual(true);
+  });
+
+  it ('calling init', () => {
+    component.ngOnInit();
+  });
+
+ 
 
  
 });

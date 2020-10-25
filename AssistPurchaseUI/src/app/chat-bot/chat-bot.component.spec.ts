@@ -85,15 +85,6 @@ describe('ChatBotComponent', () => {
     expect(request.request.method).toBe('GET');
   });
 
-  it ('should return products names with compact filter', () => {
-    let url = "http://localhost:51964";
-    component.boxText = "products which are compact"
-    component.flag = false;
-    component.checkForCompactFilter(component.boxText);
-    const request = httpMock.expectOne( url + "/api/productfilters/filters/compact/true");
-    expect(request.request.method).toBe('GET');
-  });
-
   it ('should return products names with portable filter', () => {
     let url = "http://localhost:51964";
     component.boxText = "products which are portable"

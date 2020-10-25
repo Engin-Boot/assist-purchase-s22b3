@@ -18,7 +18,7 @@ describe('DeleteDeviceComponent', () => {
       declarations: [ DeleteDeviceComponent ],
       providers: [
         { provide: Router, useValue: routerSpy },
-        {provide: 'apiBaseAddress', useValue: "DeleteDeviceComponent"},
+        {provide: 'apiBaseAddress', useValue: "http://localhost:51964"},
         {provide:ProductRecord, useClass:ProductRecord}
       ]
     }).compileComponents().then(() => {
@@ -80,15 +80,14 @@ describe('DeleteDeviceComponent', () => {
 
   it ('should delete product', () => {
     let url = "http://localhost:51964";
-    component.onDelete();
     component.productId = "CM"
-    const request = httpMock.expectOne( url + "/api/ProductsDatabase/products/"+component.productId);
+    component.onDelete();
+    const request = httpMock.expectOne( url + "/api/ProductsDatabase/products/" +component.productId);
     expect(request.request.method).toBe('DELETE');
   });
 
   it('calling init', () => {
     component.ngOnInit();
-  });
-
+  })
  
 });

@@ -18,7 +18,7 @@ describe('GetProductByIdComponent', () => {
       declarations: [ GetProductByIdComponent ],
       providers: [
         { provide: Router, useValue: routerSpy },
-        {provide: 'apiBaseAddress', useValue: "GetProductByIdComponent"},
+        {provide: 'apiBaseAddress', useValue: "http://localhost:51964"},
         {provide:ProductRecord, useClass:ProductRecord}
       ]
     }).compileComponents().then(() => {
@@ -49,7 +49,6 @@ describe('GetProductByIdComponent', () => {
     expect(component.reset).toHaveBeenCalled();
   }));
    
-  
 
   it('should reset fields', () => {
     component.productId = "X3";
@@ -57,5 +56,28 @@ describe('GetProductByIdComponent', () => {
     expect(component.productId === "").toEqual(true);
   });
 
+  it('should return failure message', () => {
+    component.htmlMessage = undefined;
+    component.checkMessage();
+    expect(component.htmlMessage === "Please recheck the information given").toEqual(true);
+  });
+
+  it ('shouldnt edit message if message already has content', () => {
+    
+    component.htmlMessage = "This is testing";
+    component.checkMessage();
+    expect (component.htmlMessage === "This is testing").toEqual(true);
+  });
  
+  it ('should return product', () => {
+    let url = "http://localhost:51964";
+    component.productId = "X3"
+    component.onGet();
+    const request = httpMock.expectOne( url + "/api/ProductsDatabase/products/" +component.productId);
+    expect(request.request.method).toBe('GET');
+  });
+
+  it ('calling init', () => {
+    component.ngOnInit();
+  });
 });
