@@ -56,6 +56,13 @@ describe('AddDeviceComponent', () => {
     expect(component.message === "Please recheck the information given").toEqual(true);
   });
 
+  it ('shouldnt edit message if message already has content', () => {
+    
+    component.message = "This is testing";
+    component.checkMessage();
+    expect (component.message === "This is testing").toEqual(true);
+  });
+
   it('should reset fields', () => {
     component.ProductId = "X3";
     component.reset();
@@ -67,10 +74,21 @@ describe('AddDeviceComponent', () => {
     expect(component.message === "Product added successfully").toEqual(true);
   });
 
+  it ('shouldnt edit message if status is not success', () => {
+    component.message = "this is testing"
+    component.createResponse(400);
+    expect (component.message === "this is testing").toEqual(true);
+  });
+
   it ('should create all products list', () => {
     let url = "http://localhost:51964";
     component.addDevice();
     const request = httpMock.expectOne( url + "/api/ProductsDatabase/products");
     expect(request.request.method).toBe('POST');
+  });
+
+  
+  it ('calling init', () => {
+    component.ngOnInit();
   });
 });

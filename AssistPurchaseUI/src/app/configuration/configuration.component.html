@@ -1,49 +1,13 @@
 <div class="menu">
     <br>
-    <button class="button" (click)="navigateAddDevice();">Add Product</button> &nbsp;
-    <button class="button" (click)="navigateDeleteDevice();">Delete Product</button> &nbsp;
-    <button class="button" (click)="navigateUpdateDevice();">Update Product</button> &nbsp;
-    <button class="button" (click)="navigateGetAllDevices();">All Products</button> &nbsp;
-    <button class="button" (click)="navigateGetDeviceById();">Get Product By Id</button> &nbsp;
+    <button id="add" class="button" (click)="navigateAddDevice();">Add Product</button> &nbsp;
+    <button id="delete" class="button" (click)="navigateDeleteDevice();">Delete Product</button> &nbsp;
+    <button id="update" class="button" (click)="navigateUpdateDevice();">Update Product</button> &nbsp;
+    <button id="getall" class="button" (click)="navigateGetAllDevices();">All Products</button> &nbsp;
+    <button id="get" class="button" (click)="navigateGetDeviceById();">Get Product By Id</button> &nbsp;
     
 </div>
 
 <div class="result">
     <p [innerHTML]="htmlMessage"></p>
 </div>
-
-
-<!-- <table>
-    <tr>
-        <th>Product ID</th>
-        <th>Product Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Compact</th>
-        <th>Portability</th>
-        <th>Battery Support</th>
-        <th>Third party device support</th>
-        <th>Safe to fly certification</th>
-        <th>Software update support</th>
-        <th>Cyber security</th>
-        <th>Touch screen support</th>
-        <th>Product specific training</th>
-        <th>Multi patient support</th>
-    </tr>
-    <tr *ngFor="let record of records">
-        <td>{{ record.ProductId }}</td>
-        <td>{{ record.ProductName }}</td>
-        <td>{{ record.Description }}</td>
-        <td>{{ record.Price}}</td>
-        <td>{{ record.Compact }}</td>
-        <td>{{ record.Portability }}</td>
-        <td>{{ record.BatterySupport }}</td>
-        <td>{{ record.ThirdPartyDeviceSupport }}</td>
-        <td>{{ record.SafeToFlyCertification}}</td>
-        <td>{{ record.SoftwareUpdateSupport }}</td>
-        <td>{{ record.CyberSecurity }}</td>
-        <td>{{ record.TouchScreenSupport }}</td>
-        <td>{{ record.ProductSpecificTraining }}</td>
-        <td>{{ record.MultiPatientSupport}}</td>
-    </tr>  
-</table> -->

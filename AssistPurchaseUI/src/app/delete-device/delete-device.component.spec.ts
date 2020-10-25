@@ -48,12 +48,6 @@ describe('DeleteDeviceComponent', () => {
     tick();
     expect(component.reset).toHaveBeenCalled();
   }));
-   
-  it('should return failure message', () => {
-    component.message = undefined;
-    component.checkMessage();
-    expect(component.message === "Please recheck the information given").toEqual(true);
-  });
 
   it('should reset fields', () => {
     component.productId = "X3";
@@ -64,6 +58,36 @@ describe('DeleteDeviceComponent', () => {
   it('should return success message', () => {
     component.createResponse(200);
     expect(component.message === "Product deleted successfully").toEqual(true);
+  });
+
+  it('should edit message for failure case', () => {
+    component.message = undefined;
+    component.checkMessage();
+    expect(component.message === "Please recheck the information given").toEqual(true);
+  });
+
+  it('shouldnt edit message for success case', () => {
+    component.message = "This is for testing";
+    component.checkMessage();
+    expect(component.message === "This is for testing").toEqual(true);
+  });
+
+  it ('shouldnt edit message if status is not success', () => {
+    component.message = "this is testing"
+    component.createResponse(400);
+    expect (component.message === "this is testing").toEqual(true);
+  });
+
+  it ('should delete product', () => {
+    let url = "http://localhost:51964";
+    component.onDelete();
+    component.productId = "CM"
+    const request = httpMock.expectOne( url + "/api/ProductsDatabase/products/"+component.productId);
+    expect(request.request.method).toBe('DELETE');
+  });
+
+  it('calling init', () => {
+    component.ngOnInit();
   });
 
  
