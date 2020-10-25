@@ -68,6 +68,8 @@ export class ChatBotComponent implements OnInit {
     this.processQuestion(this.boxText.toLowerCase());
     this.values = this.values + this.boxText + "\n";
     this.boxText = "";
+    this.flag = false;
+    this.result = "";
     
   }
   processQuestion(boxText){
@@ -109,7 +111,7 @@ export class ChatBotComponent implements OnInit {
     for(var str in this.priceFilterWords){
       if((boxText.includes(this.priceFilterWords[str]))&&(!this.flag)){
         this.flag = true;
-        this.getPriceAndPreference(boxText);
+        this.getPreference(boxText);
         this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/price/`+this.amount+"/"+this.prefer, { responseType:'json', observe:'response'});
         this.response.subscribe(response=>{
           this.createResponse(response.body);
@@ -213,7 +215,13 @@ export class ChatBotComponent implements OnInit {
     }
     this.values = this.values + this.result;
   }
-  getPriceAndPreference(boxText){
-
+  getPreference(boxText){
+    
+    if(boxText.includes("below")){
+        this.prefer = "below";
+    }
+    else{
+      this.prefer = "above";
+    }
   }
 }

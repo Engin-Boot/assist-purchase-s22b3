@@ -44,7 +44,13 @@
     #chatbox {
     font: 17px arial, sans-serif;
     height: 22px;
-    width: 97%;
+    width: 60%;
+    }
+
+    #price{
+        font: 17px arial, sans-serif;
+        height: 22px;
+        width: 30%;
     }
 
     #note{
