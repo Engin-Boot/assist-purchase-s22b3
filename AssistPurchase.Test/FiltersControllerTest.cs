@@ -58,7 +58,14 @@ namespace AssistPurchase.Test
             response.EnsureSuccessStatusCode();
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
+        [Fact]
+        public async Task ReturnsBadRequestWhenGivenPriceAsInvalidValueFilter()
+        {
+            var setter = new ClientSetUp();
+            var response = await setter.Client.GetAsync("api/productfilters/filters/price/xyz/above");
 
+            Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        }
         [Fact]
         public async Task ReturnsProductListWhenGivenAbovePriceFilter()
         {

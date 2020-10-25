@@ -29,5 +29,18 @@ namespace AssistPurchase.Repositories.FieldValidators
                 throw new Exception("Invalid data ");
             }
         }
+        public void ValidAmount(string amount)
+        {
+            float i;
+            bool result = float.TryParse(amount, out i);
+            if (result == true)
+            {
+                return;
+            }
+            else
+            {
+                throw new Exception("Invalid amount type");
+            }
+        }
     }
 }

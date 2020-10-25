@@ -6,6 +6,7 @@ using System.Data.SQLite;
 using System.Net.Mail;
 using System;
 using System.Linq;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AssistPurchase.Repositories.Implementations
 {
@@ -37,7 +38,7 @@ namespace AssistPurchase.Repositories.Implementations
         
             return list;
         }
-        
+        [ExcludeFromCodeCoverage]
         public void SendMail(CustomerAlert body)
         {
           //  string alert = string.Join(',', body.ToArray());

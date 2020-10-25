@@ -61,6 +61,7 @@ namespace AssistPurchase.Repositories.Implementations
 
         public List<string> GetByPriceFilter(string amount, string belowOrAbove)
         {
+            _validator.ValidAmount(amount);
             var prodList = belowOrAbove.ToLower() == "below" ? GetBelowRateProducts(amount) : GetAboveRateProducts(amount);
             return prodList;
         }
