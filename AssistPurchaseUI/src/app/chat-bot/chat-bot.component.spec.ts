@@ -176,6 +176,15 @@ describe('ChatBotComponent', () => {
     expect(request.request.method).toBe('GET');
   });
 
+  
+
+  it ('creates reposne', () => {
+    component.result = "";
+    let body = ["IntelliVue MX40", "IntelliVue MP2", "IntelliVue MX450", "IntelliVue MMSX2", "IntelliVue MX500", "IntelliVue MX550", "IntelliVue MX400", "IntelliVue MP5T", "IntelliVue MX100", "Efficia CM", "Goldway G40E", "Mock Product X3", "Mock Product AB"]
+    component.createResponse(body);
+    expect(component.result).toEqual("IntelliVue MX40\nIntelliVue MP2\nIntelliVue MX450\nIntelliVue MMSX2\n")
+  });
+
   it ('calling init', () => {
     component.ngOnInit();
   });

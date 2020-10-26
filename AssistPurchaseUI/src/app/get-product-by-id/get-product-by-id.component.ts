@@ -40,6 +40,7 @@ export class GetProductByIdComponent implements OnInit {
   } 
   createResponse(body){
       if(body!=null){
+        console.log(body);
         this.htmlMessage = "";
         this.message = JSON.stringify(body);
         this.record = JSON.parse(this.message);

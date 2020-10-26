@@ -70,7 +70,6 @@ export class ChatBotComponent implements OnInit {
     this.boxText = "";
     this.flag = false;
     this.result = "";
-    
   }
   processQuestion(boxText){
       this.checkForCompactFilter(boxText);

@@ -49,6 +49,23 @@ describe('GetProductByIdComponent', () => {
     expect(component.reset).toHaveBeenCalled();
   }));
    
+  it ('should create response', () => {
+    
+    component.htmlMessage = ""
+    let body = {"productId":"MX40"};
+    component.createResponse(body);
+    expect(component.htmlMessage).toEqual("productId : MX40<br>")
+    
+  });
+
+  it ('shouldnt create response when body null', () => {
+    
+    component.htmlMessage = ""
+    let body = null;
+    component.createResponse(body);
+    expect(component.htmlMessage).toEqual("");
+    
+  });
 
   it('should reset fields', () => {
     component.productId = "X3";

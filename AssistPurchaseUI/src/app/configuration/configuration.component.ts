@@ -47,6 +47,7 @@ export class ConfigurationComponent implements OnInit {
   }
  
   createResponse(body){
+      
       this.message = JSON.stringify(body);
       this.records = JSON.parse(this.message);
       //console.log(this.record); 

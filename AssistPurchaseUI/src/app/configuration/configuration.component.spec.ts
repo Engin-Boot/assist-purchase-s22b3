@@ -112,6 +112,14 @@ describe('ConfigurationComponent', () => {
     expect(request.request.method).toBe('GET');
   });
 
+  it ('should create response', () => {
+    component.records = [];
+    let body = [{"productId":"MX40","productName":"IntelliVue","description":"The IntelliVue MX40 patient wearable monitor gives you techFALSElogy, intelligent design, and inFALSEvative features you expect from Philips – in a device light eFALSEugh and small eFALSEugh to be comfortably worn by ambulatory patients.","productSpecificTraining":"TRUE","price":"37000.0","softwareUpdateSupport":"FALSE","portability":"TRUE","compact":"TRUE","batterySupport":"TRUE","thirdPartyDeviceSupport":"FALSE","safeToFlyCertification":"TRUE","touchScreenSupport":"TRUE","multiPatientSupport":"TRUE","cyberSecurity":"FALSE"}];
+    component.createResponse(body);
+    expect(component.records.length).toEqual(1);
+  });
+
+  
   it ('calling init', () => {
     component.ngOnInit();
   });
