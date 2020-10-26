@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Cvprgkn5JUyl4UBXZX7v5iH/QJGyO6+io0LXRXIJU46PQ1UNKM1+RQHN/b0YgJy1t4v1IQ3afC0eP6OWzByEdg==",
+  "dgSpecHash": "FVqhV4XGnu0Ab/zFiA1cm4RSwzV0SXWZVxLg1n4NN9EnWgAfacEn3Jilh9lyoykNVaW5kS5fYWLTnSSW7519zQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
+  "projectFilePath": "C:\\Users\\320108789\\source\\repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\320108789\\.nuget\\packages\\resharper.annotations\\7.1.3\\resharper.annotations.7.1.3.nupkg.sha512",
     "C:\\Users\\320108789\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512",
