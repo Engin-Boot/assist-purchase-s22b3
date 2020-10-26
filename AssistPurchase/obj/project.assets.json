@@ -165,11 +165,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\320108789\\source\\repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
+      "projectUniqueName": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
       "projectName": "AssistPurchase",
-      "projectPath": "C:\\Users\\320108789\\source\\repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
+      "projectPath": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
       "packagesPath": "C:\\Users\\320108789\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\320108789\\source\\repos\\assist-purchase-s22b3\\AssistPurchase\\obj\\",
+      "outputPath": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

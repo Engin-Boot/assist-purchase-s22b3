@@ -15,6 +15,7 @@
     &lt;TestId&gt;xUnit::DED94468-EC0C-47D3-92DE-F465CBBF8893::.NETCoreApp,Version=v3.1::AssistPurchase.Test.FiltersControllerTest.ReturnsBadRequestWhenGivenInvalidCompactFilterValue&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::DED94468-EC0C-47D3-92DE-F465CBBF8893::.NETCoreApp,Version=v3.1::AssistPurchase.Test.FiltersControllerTest.ReturnsProductListWhenGivenBelowPriceFilter&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::DED94468-EC0C-47D3-92DE-F465CBBF8893::.NETCoreApp,Version=v3.1::AssistPurchase.Test.CustomerDbTest.ReturnsBadRequestStatusCodeWhenAFieldIsNull&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::DED94468-EC0C-47D3-92DE-F465CBBF8893::.NETCoreApp,Version=v3.1::AssistPurchase.Test.ProductDatabaseTest.ReturnsBadRequestWhenAddingProductIdWhichIsAlreadyExisting&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=de9922fe_002Db599_002D4bfd_002Da5c0_002Dd70fab45d47d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ReturnsListOfAlerts" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
