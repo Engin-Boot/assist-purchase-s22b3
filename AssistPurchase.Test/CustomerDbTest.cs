@@ -1,10 +1,7 @@
 ﻿
 using System.Net;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using AssistPurchase.Models;
-using Newtonsoft.Json;
 using Xunit;
 
 namespace AssistPurchase.Test
@@ -36,13 +33,13 @@ namespace AssistPurchase.Test
                 PhoneNumber = "7874393847"
             };
 
-            var content = new StringContent(JsonConvert.SerializeObject(alert), Encoding.UTF8, "application/json");
+            var content = setter.CreateAlertContent(alert);
             var response = await setter.Client.PostAsync("api/alert/alerts", content);
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
         }
         [Fact]
-        public void ReturnsBadRequestStatusCodeWhenAFieldIsNull()
+        public async Task ReturnsBadRequestStatusCodeWhenAFieldIsNull()
         {
             var setter = new ClientSetUp();
             var alert = new CustomerAlert()
@@ -53,8 +50,8 @@ namespace AssistPurchase.Test
                 PhoneNumber = "7874393847"
             };
 
-            
-            setter.SendInvalidPostRequest(alert);
+            var content = setter.CreateAlertContent(alert);
+            await setter.SendInvalidPostRequest(content);
 
         }
     }

@@ -1,9 +1,6 @@
 ﻿using AssistPurchase.Models;
 using System.Net;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using Xunit;
 
 namespace AssistPurchase.Test
@@ -59,7 +56,8 @@ namespace AssistPurchase.Test
                TouchScreenSupport = "false"
             };
 
-            var content = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
+            var content = setter.CreateProductContent(product);
+            //var content = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
             var response = await setter.Client.PostAsync("api/productsdatabase/products", content);
             response.EnsureSuccessStatusCode();
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
@@ -104,7 +102,7 @@ namespace AssistPurchase.Test
                 TouchScreenSupport = "false"
             };
 
-            var content = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
+            var content = setter.CreateProductContent(product);
             var response = await setter.Client.PutAsync("api/productsdatabase/products/X3", content);
             response.EnsureSuccessStatusCode();
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
@@ -132,7 +130,7 @@ namespace AssistPurchase.Test
                 TouchScreenSupport = "true"
             };
 
-            var content = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
+            var content = setter.CreateProductContent(product);
             var response = await setter.Client.PostAsync("api/productsdatabase/products", content);
             Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
         }
@@ -158,9 +156,8 @@ namespace AssistPurchase.Test
                 BatterySupport = "true",
                 TouchScreenSupport = "false"
             };
-
-            var content = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
-            var response = await setter.Client.PutAsync("api/productsdatabase/products/ZZZ", content);
+            var content = setter.CreateProductContent(product);
+            var response =  await setter.Client.PutAsync("api/productsdatabase/products/ZZZ", content);
             Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
         }
     }

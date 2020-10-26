@@ -63,10 +63,9 @@ namespace AssistPurchase.Repositories.Implementations
             {
                 smtpClient.Send(mailMessage);
             }
-            catch (Exception ex)
+            catch 
             {
-                Console.WriteLine("Exception caught ",
-           ex.ToString());
+                throw new Exception("Invalid data field");
             }
         }
             public void Add(CustomerAlert alert)

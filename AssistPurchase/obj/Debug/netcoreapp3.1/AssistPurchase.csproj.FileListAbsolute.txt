@@ -197,3 +197,4 @@ C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcore
 C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.dll
 C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.pdb
 C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.genruntimeconfig.cache
+C:\Users\320108789\source\repos\assist-purchase-s22b3\AssistPurchase\bin\Debug\netcoreapp3.1\JetBrains.Annotations.dll
