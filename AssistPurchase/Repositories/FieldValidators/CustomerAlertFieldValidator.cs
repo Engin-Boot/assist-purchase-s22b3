@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using AssistPurchase.Models;
-using AssistPurchase.Repositories.Implementations;
 
 namespace AssistPurchase.Repositories.FieldValidators
 {
     public class CustomerAlertFieldValidator
     {
         private readonly CommonFieldValidator _validator = new CommonFieldValidator();
-        private readonly ProductDbRepository _repo = new ProductDbRepository();
+     
         public void ValidateCustomerAlertFields(CustomerAlert alert)
         {
             _validator.IsWhitespaceOrEmptyOrNull(alert.ProductId);
@@ -33,7 +31,7 @@ namespace AssistPurchase.Repositories.FieldValidators
         {
             float i;
             bool result = float.TryParse(amount, out i);
-            if (result == true)
+            if (result == true && i!=0)
             {
                 return;
             }

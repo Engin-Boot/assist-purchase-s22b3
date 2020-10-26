@@ -5,8 +5,8 @@ using AssistPurchase.Repositories.FieldValidators;
 using System.Data.SQLite;
 using System.Net.Mail;
 using System;
-using System.Linq;
 using System.Diagnostics.CodeAnalysis;
+using JetBrains.Annotations;
 
 namespace AssistPurchase.Repositories.Implementations
 {
@@ -39,9 +39,9 @@ namespace AssistPurchase.Repositories.Implementations
             return list;
         }
         [ExcludeFromCodeCoverage]
-        public void SendMail(CustomerAlert body)
+        [UsedImplicitly]
+        private void SendMail(CustomerAlert body)
         {
-          //  string alert = string.Join(',', body.ToArray());
             MailMessage mailMessage = new MailMessage("alerttocare@gmail.com", "alerttocare@gmail.com");
             mailMessage.Body = "Customer Name : " + body.CustomerName + "\nCustomer Email Id : " +
                                body.CustomerEmailId + "\nPhone Number : " + body.PhoneNumber + "\nProduct ID : " +
@@ -59,7 +59,6 @@ namespace AssistPurchase.Repositories.Implementations
             {
                 smtpClient.Send(mailMessage);
             }
-
             catch (Exception ex)
             {
                 throw ex;

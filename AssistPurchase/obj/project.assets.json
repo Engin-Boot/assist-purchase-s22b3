@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "ReSharper.Annotations/7.1.3": {
+        "type": "package",
+        "compile": {
+          "lib/net/JetBrains.Annotations.dll": {}
+        },
+        "runtime": {
+          "lib/net/JetBrains.Annotations.dll": {}
+        }
+      },
       "RestSharp/106.11.7": {
         "type": "package",
         "compile": {
@@ -57,6 +66,19 @@
     }
   },
   "libraries": {
+    "ReSharper.Annotations/7.1.3": {
+      "sha512": "KMdN/QLRCgFDecr9S1CZ4IIPNoBuFcDMhQLta51ZTaTps/jPkq31/XcQ/yS/rBJkAp79OzyUf882dQzigx4c4A==",
+      "type": "package",
+      "path": "resharper.annotations/7.1.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net/JetBrains.Annotations.dll",
+        "lib/net/JetBrains.Annotations.xml",
+        "resharper.annotations.7.1.3.nupkg.sha512",
+        "resharper.annotations.nuspec"
+      ]
+    },
     "RestSharp/106.11.7": {
       "sha512": "NzndH096CTulvq+ihr7u1mBJ29oukdi9A8bypQJk+kaHxbRzTTrtgsEEQAb04ptTUZmQa7cgo7uF5z7NuEPX1Q==",
       "type": "package",
@@ -131,30 +153,26 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "ReSharper.Annotations >= 7.1.3",
       "RestSharp >= 106.11.7",
       "System.Data.SQLite.Core >= 1.0.113.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\320108789\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Anji\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
+      "projectUniqueName": "C:\\Users\\Anji\\Desktop\\new\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
       "projectName": "AssistPurchase",
-      "projectPath": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
-      "packagesPath": "C:\\Users\\320108789\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\320108789\\Source\\Repos\\assist-purchase-s22b3\\AssistPurchase\\obj\\",
+      "projectPath": "C:\\Users\\Anji\\Desktop\\new\\assist-purchase-s22b3\\AssistPurchase\\AssistPurchase.csproj",
+      "packagesPath": "C:\\Users\\Anji\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Anji\\Desktop\\new\\assist-purchase-s22b3\\AssistPurchase\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\320108789\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Anji\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -177,6 +195,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "ReSharper.Annotations": {
+            "target": "Package",
+            "version": "[7.1.3, )"
+          },
           "RestSharp": {
             "target": "Package",
             "version": "[106.11.7, )"
@@ -207,5 +229,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'ReSharper.Annotations 7.1.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "ReSharper.Annotations",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

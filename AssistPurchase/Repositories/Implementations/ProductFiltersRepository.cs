@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using AssistPurchase.Repositories.Abstractions;
 using AssistPurchase.Repositories.FieldValidators;

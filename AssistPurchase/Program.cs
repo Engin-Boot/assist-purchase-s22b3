@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using System.Diagnostics.CodeAnalysis;
@@ -5,6 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace AssistPurchase
 {
     [ExcludeFromCodeCoverage]
+    [UsedImplicitly]
     public class Program
     {
         public static void Main(string[] args)
