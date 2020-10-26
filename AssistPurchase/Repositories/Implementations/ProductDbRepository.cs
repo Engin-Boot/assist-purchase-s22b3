@@ -141,7 +141,7 @@ namespace AssistPurchase.Repositories.Implementations
 
         private static SQLiteConnection GetConnection()
         {
-            var con = new SQLiteConnection(@"data source=D:\a\assist-purchase-s22b3\assist-purchase-s22b3\AssistPurchase\ProductInfo.db");
+            var con = new SQLiteConnection(@"data source=C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\ProductInfo.db");
             return con;
         }
 

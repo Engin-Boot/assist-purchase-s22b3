@@ -174,6 +174,7 @@ C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\bin\Debug\netcore
 C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\bin\Debug\netcoreapp3.1\AssistPurchase.runtimeconfig.dev.json
 C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\bin\Debug\netcoreapp3.1\AssistPurchase.dll
 C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\bin\Debug\netcoreapp3.1\AssistPurchase.pdb
+C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\bin\Debug\netcoreapp3.1\JetBrains.Annotations.dll
 C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\bin\Debug\netcoreapp3.1\RestSharp.dll
 C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
 C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\netstandard2.0\SQLite.Interop.dll
@@ -187,6 +188,8 @@ C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\bin\Debug\netcore
 C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.csprojAssemblyReference.cache
 C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.AssemblyInfoInputs.cache
 C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.AssemblyInfo.cs
+C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.csproj.CoreCompileInputs.cache
+C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.RazorTargetAssemblyInfo.cache
 C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\AssistPurchase.csproj.CopyComplete
 C:\Users\Anji\Desktop\new\assist-purchase-s22b3\AssistPurchase\obj\Debug\netcoreapp3.1\staticwebassets\AssistPurchase.StaticWebAssets.Manifest.cache

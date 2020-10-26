@@ -20,7 +20,7 @@ namespace AssistPurchase.Repositories.FieldValidators
         {
             if (filter.ToLower() == "true" || filter.ToLower() == "false")
             {
-                return;
+                
             }
             else
             {
@@ -29,11 +29,9 @@ namespace AssistPurchase.Repositories.FieldValidators
         }
         public void ValidAmount(string amount)
         {
-            float i;
-            bool result = float.TryParse(amount, out i);
-            if (result == true && i!=0)
+            if(float.TryParse(amount, out float i) && i!=0)
             {
-                return;
+                
             }
             else
             {

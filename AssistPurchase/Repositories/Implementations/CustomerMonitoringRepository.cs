@@ -6,7 +6,7 @@ using System.Data.SQLite;
 using System.Net.Mail;
 using System;
 using System.Diagnostics.CodeAnalysis;
-using JetBrains.Annotations;
+
 
 namespace AssistPurchase.Repositories.Implementations
 {
@@ -39,29 +39,34 @@ namespace AssistPurchase.Repositories.Implementations
             return list;
         }
         [ExcludeFromCodeCoverage]
-        [UsedImplicitly]
+       
         private void SendMail(CustomerAlert body)
         {
-            MailMessage mailMessage = new MailMessage("alerttocare@gmail.com", "alerttocare@gmail.com");
-            mailMessage.Body = "Customer Name : " + body.CustomerName + "\nCustomer Email Id : " +
-                               body.CustomerEmailId + "\nPhone Number : " + body.PhoneNumber + "\nProduct ID : " +
-                               body.ProductId;
-            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-            smtpClient.UseDefaultCredentials = true;
-            smtpClient.Credentials = new System.Net.NetworkCredential()
+            MailMessage mailMessage = new MailMessage("alerttocare@gmail.com", "alerttocare@gmail.com")
             {
-                UserName = "alerttocare@gmail.com",
-                Password = "admin@1234"
+                Body = "Customer Name : " + body.CustomerName + "\nCustomer Email Id : " +
+                               body.CustomerEmailId + "\nPhone Number : " + body.PhoneNumber + "\nProduct ID : " +
+                               body.ProductId
             };
-           
-            smtpClient.EnableSsl = true;
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587)
+            {
+                UseDefaultCredentials = true,
+                Credentials = new System.Net.NetworkCredential()
+                {
+                    UserName = "alerttocare@gmail.com",
+                    Password = "admin@1234"
+                },
+
+                EnableSsl = true
+            };
             try
             {
                 smtpClient.Send(mailMessage);
             }
             catch (Exception ex)
             {
-                throw ex;
+                Console.WriteLine("Exception caught ",
+           ex.ToString());
             }
         }
             public void Add(CustomerAlert alert)
