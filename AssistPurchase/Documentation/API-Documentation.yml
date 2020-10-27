@@ -1,0 +1,349 @@
+openapi: 3.0.1
+info:
+  title: Api-Documentation
+  version: v1
+paths:
+  /api/Alert/alerts:
+    get:
+      tags:
+        - Alert
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - Alert
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerAlert'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CustomerAlert'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CustomerAlert'
+      responses:
+        '200':
+          description: Success
+  /api/ProductFilters/filters:
+    get:
+      tags:
+        - ProductFilters
+      responses:
+        '200':
+          description: Success
+  '/api/ProductFilters/filters/{productId}':
+    get:
+      tags:
+        - ProductFilters
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Success
+  '/api/ProductFilters/filters/compact/{filterValue}':
+    get:
+      tags:
+        - ProductFilters
+      parameters:
+        - name: filterValue
+          in: path
+          required: true
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Success
+  '/api/ProductFilters/filters/price/{amount}/{belowOrAbove}':
+    get:
+      tags:
+        - ProductFilters
+      parameters:
+        - name: amount
+          in: path
+          required: true
+          schema:
+            type: string
+            nullable: true
+        - name: belowOrAbove
+          in: path
+          required: true
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Success
+  '/api/ProductFilters/filters/ProductSpecificTraining/{filterValue}':
+    get:
+      tags:
+        - ProductFilters
+      parameters:
+        - name: filterValue
+          in: path
+          required: true
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Success
+  '/api/ProductFilters/filters/SoftwareUpdateSupport/{filterValue}':
+    get:
+      tags:
+        - ProductFilters
+      parameters:
+        - name: filterValue
+          in: path
+          required: true
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Success
+  '/api/ProductFilters/filters/Portability/{filterValue}':
+    get:
+      tags:
+        - ProductFilters
+      parameters:
+        - name: filterValue
+          in: path
+          required: true
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Success
+  '/api/ProductFilters/filters/BatterySupport/{filterValue}':
+    get:
+      tags:
+        - ProductFilters
+      parameters:
+        - name: filterValue
+          in: path
+          required: true
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Success
+  '/api/ProductFilters/filters/ThirdPartyDeviceSupport/{filterValue}':
+    get:
+      tags:
+        - ProductFilters
+      parameters:
+        - name: filterValue
+          in: path
+          required: true
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Success
+  '/api/ProductFilters/filters/SafeToFly/{filterValue}':
+    get:
+      tags:
+        - ProductFilters
+      parameters:
+        - name: filterValue
+          in: path
+          required: true
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Success
+  '/api/ProductFilters/filters/TouchScreen/{filterValue}':
+    get:
+      tags:
+        - ProductFilters
+      parameters:
+        - name: filterValue
+          in: path
+          required: true
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Success
+  '/api/ProductFilters/filters/MultiPatientSupport/{filterValue}':
+    get:
+      tags:
+        - ProductFilters
+      parameters:
+        - name: filterValue
+          in: path
+          required: true
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Success
+  '/api/ProductFilters/filters/CyberSecurity/{filterValue}':
+    get:
+      tags:
+        - ProductFilters
+      parameters:
+        - name: filterValue
+          in: path
+          required: true
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Success
+  /api/ProductsDatabase/products:
+    get:
+      tags:
+        - ProductsDatabase
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - ProductsDatabase
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '200':
+          description: Success
+  '/api/ProductsDatabase/products/{productId}':
+    get:
+      tags:
+        - ProductsDatabase
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - ProductsDatabase
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - ProductsDatabase
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Success
+components:
+  schemas:
+    CustomerAlert:
+      type: object
+      properties:
+        customerName:
+          type: string
+          nullable: true
+        customerEmailId:
+          type: string
+          nullable: true
+        productId:
+          type: string
+          nullable: true
+        phoneNumber:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Product:
+      type: object
+      properties:
+        productId:
+          type: string
+          nullable: true
+        productName:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        productSpecificTraining:
+          type: string
+          nullable: true
+        price:
+          type: string
+          nullable: true
+        softwareUpdateSupport:
+          type: string
+          nullable: true
+        portability:
+          type: string
+          nullable: true
+        compact:
+          type: string
+          nullable: true
+        batterySupport:
+          type: string
+          nullable: true
+        thirdPartyDeviceSupport:
+          type: string
+          nullable: true
+        safeToFlyCertification:
+          type: string
+          nullable: true
+        touchScreenSupport:
+          type: string
+          nullable: true
+        multiPatientSupport:
+          type: string
+          nullable: true
+        cyberSecurity:
+          type: string
+          nullable: true
+      additionalProperties: false

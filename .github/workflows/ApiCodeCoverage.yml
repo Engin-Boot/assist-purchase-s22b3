@@ -1,4 +1,4 @@
-name: Coverage
+name: API Coverage
  
 on: 
     push:

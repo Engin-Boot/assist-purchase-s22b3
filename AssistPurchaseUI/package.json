@@ -6,6 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
+    "build:ci": "ng build --prod --sourceMap=false --base-href /assist-purchase-s22b3/",
+    "test:ci": "ng test --watch=false --code-coverage --source-map true",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

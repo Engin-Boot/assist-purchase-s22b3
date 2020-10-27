@@ -1,4 +1,4 @@
-name: Build and Run
+name: API Build and Run
  
 on: 
     push:

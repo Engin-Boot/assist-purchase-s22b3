@@ -1,0 +1,25 @@
+name: Angular Tests And Coverage
+
+on: 
+    push:
+        branches: [main]
+
+jobs:
+  build:
+    name:  Test
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install dependencies
+        run: |
+            cd AssistPurchaseUI 
+            npm install
+      - name: Run Tests
+        run: npm --prefix AssistPurchaseUI run test:ci
+      
+ 
