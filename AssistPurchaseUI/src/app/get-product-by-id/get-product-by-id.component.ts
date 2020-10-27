@@ -1,7 +1,7 @@
 import { Component,ErrorHandler,Inject, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { ProductRecord } from '../Services/ProductRecordService';
-
+import {PurchaseService}  from '../Services/Purchase.service'
 
 @Component({
   selector: 'prodById-comp',
@@ -15,7 +15,7 @@ export class GetProductByIdComponent implements OnInit {
   htmlMessage:string;
   record:ProductRecord;
   client:HttpClient;
-  constructor(httpClient:HttpClient, @Inject('apiBaseAddress')baseUrl:string, record:ProductRecord) {
+  constructor(httpClient:HttpClient, @Inject('apiBaseAddress')baseUrl:string,private purchaseServiceRef:PurchaseService, record:ProductRecord) {
     this.client = httpClient;
     this.baseUrl = baseUrl;
     this.record = record;
@@ -26,8 +26,7 @@ export class GetProductByIdComponent implements OnInit {
   }
   productId:string;
   onGet(){
-    this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/ProductsDatabase/products/`+this.productId, { responseType:'json', observe:'response'});
-    this.response.subscribe(response=>{
+    this.response = this.purchaseServiceRef.getProductById(this.productId).subscribe(response=>{
         this.createResponse(response.body);
     })
     this.checkMessage();

@@ -4,7 +4,7 @@ import { ChatBotComponent } from './chat-bot.component';
 import { Type } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-
+import {PurchaseService} from '../Services/Purchase.service'
 describe('ChatBotComponent', () => {
   let component: ChatBotComponent;
   let fixture: ComponentFixture<ChatBotComponent>;
@@ -16,8 +16,9 @@ describe('ChatBotComponent', () => {
       imports : [HttpClientTestingModule, RouterTestingModule],
       declarations: [ ChatBotComponent ],
       providers: [
-        { provide: Router, useValue: routerSpy },
+        {provide: Router, useValue: routerSpy },
         {provide: 'apiBaseAddress', useValue: "http://localhost:51964"},
+        {provide:PurchaseService,useValue:PurchaseService}
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(ChatBotComponent);

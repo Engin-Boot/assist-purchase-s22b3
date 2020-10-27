@@ -5,13 +5,13 @@ import { Type } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import {ProductRecord} from '../Services/ProductRecordService'
-
+import { Observable } from 'rxjs';
+import {PurchaseService} from '../Services/Purchase.service'
 describe('AddDeviceComponent', () => {
   let component: AddDeviceComponent;
   let fixture: ComponentFixture<AddDeviceComponent>;
   let httpMock: HttpTestingController;
   let routerSpy = {navigate: jasmine.createSpy('navigate')};
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports : [HttpClientTestingModule, RouterTestingModule],
@@ -19,7 +19,8 @@ describe('AddDeviceComponent', () => {
       providers: [
         { provide: Router, useValue: routerSpy },
         {provide: 'apiBaseAddress', useValue: "http://localhost:51964"},
-        {provide:ProductRecord, useClass:ProductRecord}
+        {provide:ProductRecord, useClass:ProductRecord},
+        {provide:PurchaseService,useClass:PurchaseService}
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(AddDeviceComponent);
@@ -31,7 +32,7 @@ describe('AddDeviceComponent', () => {
   afterEach(() => {
     httpMock.verify();
   });
-
+  
   it('button click should call addDevice()', fakeAsync(() => {
     spyOn(component, 'addDevice');
     let button = fixture.debugElement.nativeElement.querySelector('#add');

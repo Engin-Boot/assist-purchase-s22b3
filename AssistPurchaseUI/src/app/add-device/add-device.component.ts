@@ -1,6 +1,7 @@
 import { Component, Inject,OnInit } from '@angular/core';
 import {ProductRecord} from '../Services/ProductRecordService'
 import { HttpClient } from '@angular/common/http';
+import{PurchaseService} from '../Services/Purchase.service'
 @Component({
   selector: 'add-comp',
   templateUrl: './add-device.component.html',
@@ -14,7 +15,7 @@ export class AddDeviceComponent implements OnInit {
   client:HttpClient;
   baseUrl:string;
   response:any;
-  constructor(httpClient:HttpClient,@Inject('apiBaseAddress')baseUrl:string, user:ProductRecord) { 
+  constructor(httpClient:HttpClient,@Inject('apiBaseAddress')baseUrl:string, user:ProductRecord,private purchaseServiceRef:PurchaseService) { 
     this.client = httpClient;
     this.baseUrl = baseUrl;
     this.user = user;
@@ -44,15 +45,12 @@ export class AddDeviceComponent implements OnInit {
       Price:this.Price, SoftwareUpdateSupport:this.SoftwareUpdateSupport ,Portability:this.Portability,Compact:this.Compact,BatterySupport:this.BatterySupport,
       ThirdPartyDeviceSupport:this.ThirdPartyDeviceSupport,SafeToFlyCertification:this.SafeToFlyCertification,
       TouchScreenSupport:this.TouchScreenSupport,MultiPatientSupport:this.MultiPatientSupport,
-      CyberSecurity:this.CyberSecurity,}
-
-      this.response = this.client.post(`${this.baseUrl}/api/ProductsDatabase/products`,this.user, {observe:'response'});
-      this.response.subscribe(response => {
-
-        this.createResponse(response.status);
-        
-      });
+      CyberSecurity:this.CyberSecurity}
+      this.response=this.purchaseServiceRef.add(this.user).subscribe(response =>
+        this.createResponse(response.status)
+        );
       this.checkMessage();
+      
   }
     checkMessage(){
       if(this.message === undefined){

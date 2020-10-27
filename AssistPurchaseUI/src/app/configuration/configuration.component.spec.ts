@@ -4,7 +4,7 @@ import { ConfigurationComponent } from './configuration.component';
 import { Type } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-
+import {PurchaseService} from '../Services/Purchase.service'
 describe('ConfigurationComponent', () => {
   let component: ConfigurationComponent;
   let fixture: ComponentFixture<ConfigurationComponent>;
@@ -17,7 +17,8 @@ describe('ConfigurationComponent', () => {
       declarations: [ ConfigurationComponent ],
       providers: [
         { provide: Router, useValue: routerSpy },
-        {provide: 'apiBaseAddress', useValue: "http://localhost:51964"}
+        {provide: 'apiBaseAddress', useValue: "http://localhost:51964"},
+        {provide:PurchaseService,useValue:PurchaseService}
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(ConfigurationComponent);
@@ -29,12 +30,6 @@ describe('ConfigurationComponent', () => {
   afterEach(() => {
     httpMock.verify();
   });
- /*  beforeEach(() => {
-    fixture = TestBed.createComponent(ConfigurationComponent);
-    component = fixture.componentInstance;
-    
-    fixture.detectChanges();
-  }); */
 
   it ('should navigate to add component', () => {
     
@@ -123,4 +118,14 @@ describe('ConfigurationComponent', () => {
   it ('calling init', () => {
     component.ngOnInit();
   });
+
+ /*  it('should poll the training status', () => {
+    spyOn(service, 'trainModel').and.returnValue(Observable.of({'status': 'training'}));
+    spyOn(component, 'pollTrainingStatus');
+  
+    component.trainBot();
+  
+    expect(service.trainModel).toHaveBeenCalled();
+    expect(component.pollTrainingStatus).toHaveBeenCalled();
+  })); */
 });

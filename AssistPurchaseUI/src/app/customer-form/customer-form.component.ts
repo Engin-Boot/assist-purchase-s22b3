@@ -3,7 +3,7 @@ import {Router} from '@angular/router'
 import {CustomerAlert} from '../Services/CustomerAlertService'
 import {Inject} from '@angular/core'
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-
+import{PurchaseService} from '../Services/Purchase.service'
 @Component({
   selector: 'customerForm-comp',
   templateUrl: './customer-form.component.html',
@@ -14,7 +14,7 @@ export class CustomerFormComponent implements OnInit {
   alert:CustomerAlert
   baseUrl : string
   message:string;
-  constructor(private router:Router, alert:CustomerAlert, httpClient:HttpClient, @Inject('apiBaseAddress')baseUrl:string) {
+  constructor(private router:Router, alert:CustomerAlert, httpClient:HttpClient, @Inject('apiBaseAddress')baseUrl:string,private purchaseServiceRef:PurchaseService) {
     this.alert = alert;
     this.client = httpClient;
     this.baseUrl = baseUrl
@@ -34,12 +34,10 @@ export class CustomerFormComponent implements OnInit {
     this.alert.CustomerEmailId = this.emailId;
     this.alert.PhoneNumber = this.phoneNumber;
     this.alert.ProductId = this.productId;
-    this.response = this.client.post(`${this.baseUrl}/api/alert/alerts`,this.alert, {observe:'response'});
-    this.response.subscribe(response => {
-
-      this.createResponse(response.status);
+    this.response = this.purchaseServiceRef.contactSalesperson(this.alert).subscribe(response => 
+    this.createResponse(response.status)
       
-    });
+    );
     this.checkMessage();
     this.reset();
   }

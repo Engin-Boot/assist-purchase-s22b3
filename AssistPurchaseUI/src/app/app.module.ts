@@ -17,6 +17,8 @@ import { DeleteDeviceComponent } from './delete-device/delete-device.component';
 import { GetProductByIdComponent } from './get-product-by-id/get-product-by-id.component';
 import { HttpClientModule } from '@angular/common/http';
 import {ProductRecord} from './Services/ProductRecordService'
+import {PurchaseService} from './Services/Purchase.service'
+
 
 @NgModule({
   declarations: [
@@ -38,7 +40,10 @@ import {ProductRecord} from './Services/ProductRecordService'
   ],
   providers: [{provide:CustomerAlert,useClass:CustomerAlert},
     {provide:'apiBaseAddress',useValue:"http://localhost:51964"},
-    {provide:ProductRecord, useClass:ProductRecord}
+    {provide:ProductRecord, useClass:ProductRecord},
+    {provide:PurchaseService,useClass:PurchaseService},
+    {provide:CustomerAlert,useClass:CustomerAlert}
+
     ],
   bootstrap: [AppComponent]
 })

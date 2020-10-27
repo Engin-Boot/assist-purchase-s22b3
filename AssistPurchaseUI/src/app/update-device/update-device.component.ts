@@ -1,7 +1,7 @@
 import { Component,Inject, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import {ProductRecord} from '../Services/ProductRecordService'
-
+import {PurchaseService} from '../Services/Purchase.service'
 @Component({
   selector: 'update-comp',
   templateUrl: './update-device.component.html',
@@ -14,11 +14,12 @@ export class UpdateDeviceComponent implements OnInit {
   client:HttpClient;
   baseUrl:string;
   response:any;
-  constructor(httpClient:HttpClient,@Inject('apiBaseAddress')baseUrl:string,user:ProductRecord) { 
+ 
+  constructor(httpClient:HttpClient,@Inject('apiBaseAddress')baseUrl:string,private updateServiceRef: PurchaseService,user:ProductRecord) { 
     this.client = httpClient;
     this.baseUrl = baseUrl;
     this.user = user;
-  }
+      }
 
   ProductId:string;
   ProductName:string;
@@ -46,8 +47,7 @@ export class UpdateDeviceComponent implements OnInit {
       TouchScreenSupport:this.TouchScreenSupport,MultiPatientSupport:this.MultiPatientSupport,
       CyberSecurity:this.CyberSecurity,}
 
-      this.response = this.client.put(`${this.baseUrl}/api/ProductsDatabase/products/`+this.ProductId, this.user, {observe:'response'});
-      this.response.subscribe(response => {
+      this.response = this.updateServiceRef.update(this.user,this.ProductId).subscribe(response => {
 
         this.createResponse(response.status);
         

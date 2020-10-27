@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
-
+import {PurchaseService} from '../Services/Purchase.service'
 @Component({
   selector: 'delete-comp',
   templateUrl: './delete-device.component.html',
@@ -11,7 +11,7 @@ export class DeleteDeviceComponent implements OnInit {
   message:string;
   baseUrl: string;
   response:any;
-  constructor(httpClient:HttpClient,@Inject('apiBaseAddress')baseUrl:string) {
+  constructor(httpClient:HttpClient,@Inject('apiBaseAddress')baseUrl:string,private purchaseServiceRef:PurchaseService) {
     this.client = httpClient;
     this.baseUrl = baseUrl;
    }
@@ -20,12 +20,11 @@ export class DeleteDeviceComponent implements OnInit {
   }
   onDelete()
   {
-    this.response = this.client.delete(`${this.baseUrl}/api/ProductsDatabase/products/`+this.productId ,{observe:'response'});
-      this.response.subscribe(response => {
+    this.response = this.purchaseServiceRef.onDelete(this.productId).subscribe(response => 
 
-        this.createResponse(response.status);
+        this.createResponse(response.status)
         
-      });
+      );
       this.checkMessage();
       
   }

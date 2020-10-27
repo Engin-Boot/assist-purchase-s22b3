@@ -84,7 +84,7 @@ export class ChatBotComponent implements OnInit {
       this.checkForMultiPatientFilter(boxText);
       this.checkForProductTrainingFilter(boxText);
   }
-  checkForCompactFilter(boxText){
+  checkForCompactFilter(boxText:any){
       for(var str in this.compactFilterWords){
         if((boxText.includes(this.compactFilterWords[str]))&&(!this.flag)){
           this.flag = true;
@@ -95,7 +95,7 @@ export class ChatBotComponent implements OnInit {
         }
       }
   }
-  checkForPortableFilter(boxText){
+  checkForPortableFilter(boxText:any){
     for(var str in this.portableFilterWords){
       if((boxText.includes(this.portableFilterWords[str]))&&(!this.flag)){
         this.flag = true;
@@ -106,19 +106,19 @@ export class ChatBotComponent implements OnInit {
       }
     }
   }
-  checkForPriceFilter(boxText){
+  checkForPriceFilter(boxText:any){
     for(var str in this.priceFilterWords){
       if((boxText.includes(this.priceFilterWords[str]))&&(!this.flag)){
         this.flag = true;
         this.getPreference(boxText);
-        this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/price/`+this.amount+"/"+this.prefer, { responseType:'json', observe:'response'});
+        this.response =this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/price/`+this.amount+"/"+this.prefer, { responseType:'json', observe:'response'});
         this.response.subscribe(response=>{
           this.createResponse(response.body);
         })
       }
     }
   }
-  checkForBatteryFilter(boxText){
+  checkForBatteryFilter(boxText:any){
     for(var str in this.batterySupportFilterWords){
       if((boxText.includes(this.batterySupportFilterWords[str]))&&(!this.flag)){
         this.flag = true;
@@ -129,18 +129,18 @@ export class ChatBotComponent implements OnInit {
       }
     }
   }
-  checkForSafeToFlyFilter(boxText){
+  checkForSafeToFlyFilter(boxText:any){
     for(var str in this.safeToFlyFilterWords){
       if((boxText.includes(this.safeToFlyFilterWords[str]))&&(!this.flag)){
         this.flag = true;
-        this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/safetofly/true`, { responseType:'json', observe:'response'});
+        this.response =this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/safetofly/true`, { responseType:'json', observe:'response'});
         this.response.subscribe(response=>{
           this.createResponse(response.body);
         })
       }
     }
   }
-  checkForSoftwareUpdateFilter(boxText){
+  checkForSoftwareUpdateFilter(boxText:any){
     for(var str in this.softwareUpdateFilterWords){
       if((boxText.includes(this.softwareUpdateFilterWords[str]))&&(!this.flag)){
         this.flag = true;
@@ -151,18 +151,18 @@ export class ChatBotComponent implements OnInit {
       }
     }
   }
-  checkForTouchScreenFilter(boxText){
+  checkForTouchScreenFilter(boxText:any){
     for(var str in this.touchScreenFilterWords){
       if((boxText.includes(this.touchScreenFilterWords[str]))&&(!this.flag)){
         this.flag = true;
-        this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/touchscreen/true`, { responseType:'json', observe:'response'});
+        this.response =this.client.get<ProductRecord>(`${this.baseUrl}/api/productfilters/filters/touchscreen/true`, { responseType:'json', observe:'response'});
         this.response.subscribe(response=>{
           this.createResponse(response.body);
         })
       }
     }
   }
-  checkForThirdPartyDeviceFilter(boxText){
+  checkForThirdPartyDeviceFilter(boxText:any){
     for(var str in this.thirdPartyDeviceFilterWords){
       if((boxText.includes(this.thirdPartyDeviceFilterWords[str]))&&(!this.flag)){
         this.flag = true;
@@ -173,7 +173,7 @@ export class ChatBotComponent implements OnInit {
       }
     }
   }
-  checkForCyberSecurityFilter(boxText){
+  checkForCyberSecurityFilter(boxText:any){
     for(var str in this.cyberSecurityFilterWords){
       if((boxText.includes(this.cyberSecurityFilterWords[str]))&&(!this.flag)){
         this.flag = true;
@@ -184,7 +184,7 @@ export class ChatBotComponent implements OnInit {
       }
     }
   }
-  checkForMultiPatientFilter(boxText){
+  checkForMultiPatientFilter(boxText:any){
     for(var str in this.multiPatientFilterWords){
       if((boxText.includes(this.multiPatientFilterWords[str]))&&(!this.flag)){
         this.flag = true;
@@ -195,7 +195,7 @@ export class ChatBotComponent implements OnInit {
       }
     }
   }
-  checkForProductTrainingFilter(boxText){
+  checkForProductTrainingFilter(boxText:any){
     for(var str in this.productTrainingFilterWords){
       if((boxText.includes(this.productTrainingFilterWords[str]))&&(!this.flag)){
         this.flag = true;

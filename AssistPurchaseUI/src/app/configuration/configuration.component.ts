@@ -35,13 +35,10 @@ export class ConfigurationComponent implements OnInit {
     this.router.navigate(['/updateDevice'])
   }
   navigateGetAllDevices(){
-    this.response = this.client.get<ProductRecord>(`${this.baseUrl}/api/ProductsDatabase/products`, { responseType:'json', observe:'response'});
-    this.response.subscribe(response=>{
-      
-      
-      this.createResponse(response.body);
-      
-    })
+    this.response = this.client.get<ProductRecord[]>(`${this.baseUrl}/api/ProductsDatabase/products`, { responseType:'json', observe:'response'});
+    this.response.subscribe(response=>
+      this.createResponse(response.body)
+    );
     
     
   }

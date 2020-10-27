@@ -5,7 +5,7 @@ import { Type } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import {ProductRecord} from '../Services/ProductRecordService'
-
+import{PurchaseService} from '../Services/Purchase.service';
 describe('UpdateDeviceComponent', () => {
   let component: UpdateDeviceComponent;
   let fixture: ComponentFixture<UpdateDeviceComponent>;
@@ -19,7 +19,8 @@ describe('UpdateDeviceComponent', () => {
       providers: [
         { provide: Router, useValue: routerSpy },
         {provide: 'apiBaseAddress', useValue: "http://localhost:51964"},
-        {provide:ProductRecord, useClass:ProductRecord}
+        {provide:ProductRecord, useClass:ProductRecord},
+        {provide:PurchaseService,useClass:PurchaseService}
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(UpdateDeviceComponent);

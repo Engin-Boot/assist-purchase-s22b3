@@ -44,10 +44,12 @@ namespace AssistPurchase.Repositories.Implementations
         {
             MailMessage mailMessage = new MailMessage("alerttocare@gmail.com", "alerttocare@gmail.com")
             {
+                Subject = "Customer prospect alert",
                 Body = "Customer Name : " + body.CustomerName + "\nCustomer Email Id : " +
-                               body.CustomerEmailId + "\nPhone Number : " + body.PhoneNumber + "\nProduct ID : " +
-                               body.ProductId
+                       body.CustomerEmailId + "\nPhone Number : " + body.PhoneNumber + "\nProduct ID : " +
+                       body.ProductId
             };
+            
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587)
             {
                 UseDefaultCredentials = true,

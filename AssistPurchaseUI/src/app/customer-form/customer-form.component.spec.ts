@@ -5,7 +5,7 @@ import { Type } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CustomerAlert } from '../Services/CustomerAlertService';
-
+import {PurchaseService} from '../Services/Purchase.service'
 describe('CustomerFormComponent', () => {
   let component: CustomerFormComponent;
   let fixture: ComponentFixture<CustomerFormComponent>;
@@ -19,7 +19,8 @@ describe('CustomerFormComponent', () => {
       providers: [
         { provide: Router, useValue: routerSpy },
         {provide: 'apiBaseAddress', useValue: "http://localhost:51964"},
-        {provide: CustomerAlert, useClass: CustomerAlert}
+        {provide: CustomerAlert, useClass: CustomerAlert},
+        {provide:PurchaseService,useClass:PurchaseService}
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(CustomerFormComponent);
